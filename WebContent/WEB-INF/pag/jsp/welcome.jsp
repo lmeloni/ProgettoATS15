@@ -3,10 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>P&B|welcome</title>
+<title>PeB|welcome</title>
 </head>
 <body>
-HOME PAGE PAPPA & BUFFA
+<%@ include file="_top.jsp" %>
+HOME PAGE PAPPAeBUFFA
 <hr>
 PROVA FORM:
 <form action="motore">
