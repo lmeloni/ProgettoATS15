@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-COMPLIMENTI! prova modifica conflitto
+COMPLIMENTI!
 </body>
 </html>
