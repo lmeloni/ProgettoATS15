@@ -1,4 +1,4 @@
-package pappabuffa.model.dao;
+package pappaebuffa.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import pappabuffa.model.dao.eccezioni.DAOConnessioneException;
+import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 
 class ConnessioneSingleton {
 	

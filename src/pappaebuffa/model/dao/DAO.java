@@ -1,4 +1,4 @@
-package pappabuffa.model.dao;
+package pappaebuffa.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import pappabuffa.model.dao.eccezioni.DAOConnessioneException;
-import pappabuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
+import pappaebuffa.model.dao.eccezioni.DAOException;
 
 public abstract class DAO<T> {
 	

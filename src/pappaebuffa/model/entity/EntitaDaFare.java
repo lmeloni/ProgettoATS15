@@ -1,4 +1,4 @@
-package pappabuffa.model.entity;
+package pappaebuffa.model.entity;
 
 public class EntitaDaFare {
 	

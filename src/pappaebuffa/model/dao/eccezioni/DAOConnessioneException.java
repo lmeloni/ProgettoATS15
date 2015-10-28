@@ -1,4 +1,4 @@
-package pappabuffa.model.dao.eccezioni;
+package pappaebuffa.model.dao.eccezioni;
 
 public class DAOConnessioneException extends DAOException {
 
