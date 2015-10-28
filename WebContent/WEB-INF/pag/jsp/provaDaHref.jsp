@@ -3,14 +3,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>uscita.jsp</title>
+<title>provaDaHref.jsp</title>
 </head>
 <body>
-PAGINA uscita.jsp
+PAGINA provaDaHref.jsp
 <hr>
-uso il comando Expression Language:<br><br>
-nome: ${form.nome}<br>
-eta: ${form.eta}<br>
-provieni dalla pagina: ${form.pagina}
+nome: ${nome}<br>
+eta: ${eta}<br>
+<br>
 </body>
 </html>

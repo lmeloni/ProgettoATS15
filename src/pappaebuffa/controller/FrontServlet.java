@@ -29,7 +29,7 @@ public class FrontServlet extends HttpServlet {
 		} catch (ClassNotFoundException e) {
 		} 
 		
-		if(cf != null){
+		if(cf != null){ //se il Form è stato trovato allora lo istanzia!
 			try {
 				form = (Form) cf.newInstance();
 				form.setRequest(request);

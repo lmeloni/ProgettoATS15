@@ -15,7 +15,7 @@ public class Prova implements Azione {
 		
 		request.setAttribute("form", f);
 
-		return "uscita.jsp";
+		return "provaDaForm.jsp";
 	}
 
 }

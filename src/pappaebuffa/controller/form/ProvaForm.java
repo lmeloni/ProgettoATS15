@@ -7,35 +7,37 @@ public class ProvaForm extends Form {
 	private String nome;
 	private String eta;
 	
-	//NON SERVE IL COSTRUTTORE!!!: userà quello di DEFAULT!
+	//SERVE COSTRUTTORE DEFAULT!:
+	//DEVE impostare tutti gli attributi coi parametri della querystring
+	public ProvaForm() {
+		super();
+		this.nome = super.request.getParameter("nome");
+		this.eta = super.request.getParameter("eta");
+	}
 	
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 	public String getEta() {
 		return eta;
 	}
-	public void setEta(String eta) {
-		this.eta = eta;
-	}
+
 	
 	@Override
 	public boolean validazione() {
 		
 		if(nome==null || nome.isEmpty())
-			errori.add(new Errore("nome", "obbligatorio"));
+			super.errori.add(new Errore("nome", "obbligatorio"));
 		
 		if(eta==null || eta.isEmpty())
-			errori.add(new Errore("eta", "obbligatorio"));
+			super.errori.add(new Errore("eta", "obbligatorio"));
 		
 		try {Integer.parseInt(eta);} catch (NumberFormatException e) {
-			errori.add(new Errore("eta", "immettere un numero!"));
+			super.errori.add(new Errore("eta", "immettere un numero!"));
 		}
 		
-		return errori.size()==0 ? true:false;
+		return super.errori.size()==0 ? true:false; //SEMPRE!!!
 	}
 	
 }

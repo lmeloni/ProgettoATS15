@@ -10,14 +10,15 @@ HOME PAGE PAPPA & BUFFA
 <hr>
 PROVA FORM:
 <form action="motore">
-	<input type="hidden" name="azione" value="Prova" ><br>
-	<input type="text" name="nome" ><br>
-	<input type="text" name="eta" ><br>
+	<input type="hidden" name="azione" value="Prova" >
+	
+	nome <input type="text" name="nome" ><br>
+	eta <input type="text" name="eta" ><br>
 	<input type="submit" value="  OK   " >
 </form>
 <hr>
-PROVA HREF:
-<a href="motore?nome=Cagliari&eta=1200" ></a>
+PROVA HREF:<br>
+<a href="motore?azione=ProvaHref&nome=Cagliari&eta=1200" >vai con hyperlink</a>
 
 </body>
 </html>
