@@ -47,7 +47,7 @@ public class FrontServlet extends HttpServlet {
 			try {
 				Class ca = Class.forName(path+"azioni."+request.getParameter("azione"));
 				azione = (Azione) ca.newInstance();
-				risorsa = azione.esegui(request);
+				risorsa = azione.esegui(request, form);
 				
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 

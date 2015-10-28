@@ -13,6 +13,8 @@ public abstract class Form {
 	protected String feedback;
 	protected ArrayList<Errore> errori;
 	
+	protected String azione;
+	
 	//necessario il costruttore di DEFAULT (implicitamente presente!)
 	
 	public void setRequest(HttpServletRequest request) {

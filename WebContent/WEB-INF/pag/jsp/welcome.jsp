@@ -6,8 +6,18 @@
 <title>P&B|welcome</title>
 </head>
 <body>
-
 HOME PAGE PAPPA & BUFFA
+<hr>
+PROVA FORM:
+<form action="motore">
+	<input type="hidden" name="azione" value="Prova" ><br>
+	<input type="text" name="nome" ><br>
+	<input type="text" name="eta" ><br>
+	<input type="submit" value="  OK   " >
+</form>
+<hr>
+PROVA HREF:
+<a href="motore?nome=Cagliari&eta=1200" ></a>
 
 </body>
 </html>
