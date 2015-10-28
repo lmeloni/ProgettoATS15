@@ -23,14 +23,21 @@ public class FrontServlet extends HttpServlet {
 		
 		//CONTROLLER - Factory dei Form (con tecnica java 'reflection'):
 		Form form = null;
+		Class cf = null;
 		try {
-			Class c = Class.forName(path+"form."+request.getParameter("azione")+"Form");
-			form = (Form) c.newInstance();
-			form.setRequest(request);
-			form.setPagina((String)request.getSession().getAttribute("pagina"));
-			
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
+			cf = Class.forName(path+"form."+request.getParameter("azione")+"Form");
+		} catch (ClassNotFoundException e) {
+		} 
+		
+		if(cf != null){
+			try {
+				form = (Form) cf.newInstance();
+				form.setRequest(request);
+				form.setPagina((String)request.getSession().getAttribute("pagina"));
+			}
+			catch (InstantiationException | IllegalAccessException e) {
+				request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
+			}
 		}
 		
 		//CONTROLLER - Factory delle azioni (con tecnica java 'reflection'):
@@ -38,8 +45,8 @@ public class FrontServlet extends HttpServlet {
 		if(form.validazione()){ 
 			Azione azione = null;
 			try {
-				Class c = Class.forName(path+"azioni."+request.getParameter("azione"));
-				azione = (Azione) c.newInstance();
+				Class ca = Class.forName(path+"azioni."+request.getParameter("azione"));
+				azione = (Azione) ca.newInstance();
 				risorsa = azione.esegui(request);
 				
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
