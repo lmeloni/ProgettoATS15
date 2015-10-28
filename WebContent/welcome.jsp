@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>titolo di prova</title>
+<title>titolo nuovo</title>
 </head>
 <body>
-COMPLIMENTI! PROOOVA
+COMPLIMENTI! errore
 </body>
 </html>
