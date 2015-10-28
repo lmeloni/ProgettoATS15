@@ -7,13 +7,7 @@ public class ProvaForm extends Form {
 	private String nome;
 	private String eta;
 	
-	//SERVE COSTRUTTORE DEFAULT!:
-	//DEVE impostare tutti gli attributi coi parametri della querystring
-	public ProvaForm() {
-		super();
-		this.nome = super.request.getParameter("nome");
-		this.eta = super.request.getParameter("eta");
-	}
+	//NON SERVE IL COSTRUTTORE: usa quello di DEFAULT della superclasse Form
 	
 	public String getNome() {
 		return nome;
@@ -23,6 +17,11 @@ public class ProvaForm extends Form {
 		return eta;
 	}
 
+	@Override
+	public void parametri2campiForm() {
+		this.nome = super.request.getParameter("nome");
+		this.eta = super.request.getParameter("eta");
+	}
 	
 	@Override
 	public boolean validazione() {

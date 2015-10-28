@@ -32,8 +32,10 @@ public class FrontServlet extends HttpServlet {
 		if(cf != null){ //se il Form è stato trovato allora lo istanzia!
 			try {
 				form = (Form) cf.newInstance();
+				//imposta attributi essenziali del Form:
 				form.setRequest(request);
 				form.setPagina((String)request.getSession().getAttribute("pagina"));
+				form.parametri2campiForm();
 			}
 			catch (InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
@@ -41,12 +43,13 @@ public class FrontServlet extends HttpServlet {
 		}
 		
 		//CONTROLLER - Factory delle azioni (con tecnica java 'reflection'):
-		//se la validazione del Form è true allora vado in Azione
-		if(form.validazione()){ 
+		//se Form non presente o la sua validazione è true allora proseguo in Azione
+		if(form==null || form.validazione()){ 
 			Azione azione = null;
 			try {
 				Class ca = Class.forName(path+"azioni."+request.getParameter("azione"));
 				azione = (Azione) ca.newInstance();
+				//esegue l'Azione:
 				risorsa = azione.esegui(request, form);
 				
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
