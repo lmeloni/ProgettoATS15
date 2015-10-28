@@ -56,9 +56,10 @@ public class FrontServlet extends HttpServlet {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
 			}
 		}
-		
+
 		//CONTROLLER - delega VIEW:
-		getServletContext().getRequestDispatcher("/"+risorsa).forward(request,response);
+		getServletContext().getRequestDispatcher("/WEB-INF/pag/jsp/"+risorsa).
+							forward(request,response);
 	}
 
 }
