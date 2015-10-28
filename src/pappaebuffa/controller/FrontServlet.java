@@ -36,6 +36,10 @@ public class FrontServlet extends HttpServlet {
 				form.setRequest(request);
 				form.setPagina((String)request.getSession().getAttribute("pagina"));
 				form.parametri2campiForm();
+				
+				//salvo SEMPRE in request il form in questione:
+				request.setAttribute("form",form);
+				
 			}
 			catch (InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
@@ -55,7 +59,11 @@ public class FrontServlet extends HttpServlet {
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
 			}
+		}else{
+			if(! form.validazione())        //se validazione ha trovato errori
+				risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
 		}
+			
 
 		//CONTROLLER - delega VIEW:
 		getServletContext().getRequestDispatcher("/WEB-INF/pag/jsp/"+risorsa).

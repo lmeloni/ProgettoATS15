@@ -4,6 +4,7 @@
 <html>
 <%
 //salvo sempre in session il nome della pagina JSP:
-session.setAttribute("pagina", page.getClass().getSimpleName());
+String pagina = page.getClass().getSimpleName();
+session.setAttribute("pagina", pagina.replace('_','.'));
 %>
 </html>

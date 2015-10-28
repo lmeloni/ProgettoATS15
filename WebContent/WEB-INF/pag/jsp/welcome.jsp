@@ -13,9 +13,19 @@ PROVA FORM:
 <form action="motore">
 	<input type="hidden" name="azione" value="Prova" >
 	
-	nome <input type="text" name="nome" ><br>
-	eta <input type="text" name="eta" ><br>
+	nome <input type="text" name="nome" value="${form.nome}" ><br>
+	eta <input type="text" name="eta" value="${form.eta}" ><br>
 	<input type="submit" value="  OK   " >
+</form>
+<hr>
+
+Form Roberto:<br>
+<form action="motore">
+	<input type="hidden" name="azione" value="Roberto" >
+	
+	altezza <input type="text" name="altezza" value="${formRoberto.altezza}" ><br>
+	bellezza <input type="text" name="bellezza" value="${formRoberto.bellezza}" ><br>
+	<input type="submit" value="  VAI!!   " >
 </form>
 <hr>
 PROVA HREF:<br>
