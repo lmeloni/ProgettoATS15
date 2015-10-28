@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>titolo nuovo</title>
+<title>Conflitto2</title>
 </head>
 <body>
 COMPLIMENTI! errore
+CIAO
 </body>
 </html>
