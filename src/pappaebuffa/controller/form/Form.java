@@ -43,7 +43,7 @@ public abstract class Form {
 	 * da mettere in OVERRIDE nelle sottoclassi Form
 	 * @return boolean (true = validazione OK | false = validazione KO)
 	 */
-	protected boolean validazione(){
+	public boolean validazione(){
 		return true;
 	}
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pappaebuffa.controller.azioni.Azione;
+import pappaebuffa.controller.form.Form;
 
 @WebServlet({ "/FattoriaServlet", "/motore" })
 public class FrontServlet extends HttpServlet {
@@ -17,32 +18,33 @@ public class FrontServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		String risorsa = null;
+		String path = "pappaebuffa.controller.";
+		String risorsa = "errore.jsp";
 		
-		//recupera pagina JSP dalla quale proviene la richiesta:
-		//request.getSession().getAttribute("pagina");
-
 		//CONTROLLER - Factory dei Form (con tecnica java 'reflection'):
+		Form form = null;
 		try {
-			Class c = Class.forName("pappaebuffa.controller.form."+request.getParameter("azione")+"Form");
-			c.newInstance();
+			Class c = Class.forName(path+"form."+request.getParameter("azione")+"Form");
+			form = (Form) c.newInstance();
+			form.setRequest(request);
+			form.setPagina((String)request.getSession().getAttribute("pagina"));
 			
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			request.setAttribute("errore", "Factory Azione: "+e.getMessage()); 
-			risorsa = "errore.jsp";
+			request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
 		}
 		
 		//CONTROLLER - Factory delle azioni (con tecnica java 'reflection'):
-		Azione azione = null;
-		try {
-			Class c = Class.forName("pappaebuffa.controller.azioni."+request.getParameter("azione"));
-			azione = (Azione) c.newInstance();
-			
-			risorsa = azione.esegui(request);
-			
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-			request.setAttribute("errore", "Factory Azione: "+e.getMessage()); 
-			risorsa = "errore.jsp";
+		//se la validazione del Form è true allora vado in Azione
+		if(form.validazione()){ 
+			Azione azione = null;
+			try {
+				Class c = Class.forName(path+"azioni."+request.getParameter("azione"));
+				azione = (Azione) c.newInstance();
+				risorsa = azione.esegui(request);
+				
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
+			}
 		}
 		
 		//CONTROLLER - delega VIEW:
