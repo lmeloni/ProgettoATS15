@@ -1,6 +1,16 @@
 --------------------------------------------------------
 --  File creato - mercoledì-ottobre-28-2015   
 --------------------------------------------------------
+DROP TABLE "SCOTT"."AMMINISTRATORI";
+DROP TABLE "SCOTT"."CATEGORIE";
+DROP TABLE "SCOTT"."ESERCENTI_FATTURATO";
+DROP TABLE "SCOTT"."ESERCENTI_ORDINI_NON_EVASI";
+DROP TABLE "SCOTT"."ESERCENTI_ORDINI_EVASI";
+DROP TABLE "SCOTT"."MENU";
+DROP TABLE "SCOTT"."ORDINAZIONI";
+DROP TABLE "SCOTT"."PUNTI_VENDITA";
+DROP TABLE "SCOTT"."CLIENTI";
+DROP TABLE "SCOTT"."ESERCENTI";
 --------------------------------------------------------
 --  DDL for Table AMMINISTRATORI
 --------------------------------------------------------
