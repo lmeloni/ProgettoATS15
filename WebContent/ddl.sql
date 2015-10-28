@@ -11,6 +11,7 @@ DROP TABLE "SCOTT"."ORDINAZIONI";
 DROP TABLE "SCOTT"."PUNTI_VENDITA";
 DROP TABLE "SCOTT"."CLIENTI";
 DROP TABLE "SCOTT"."ESERCENTI";
+
 --------------------------------------------------------
 --  DDL for Table AMMINISTRATORI
 --------------------------------------------------------
