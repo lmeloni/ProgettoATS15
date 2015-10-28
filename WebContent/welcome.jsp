@@ -7,6 +7,6 @@
 <title>Conflitto2</title>
 </head>
 <body>
-COMPLIMENTI! prova modifica conflitto2
+CIAO
 </body>
 </html>
