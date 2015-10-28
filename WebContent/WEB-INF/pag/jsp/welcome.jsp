@@ -3,11 +3,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>P&B|welcome</title>
+<title>PeB|welcome</title>
 </head>
 <body>
-
-HOME PAGE PAPPA & BUFFA
+<%@ include file="_top.jsp" %>
+HOME PAGE PAPPAeBUFFA
+<hr>
+PROVA FORM:
+<form action="motore">
+	<input type="hidden" name="azione" value="Prova" >
+	
+	nome <input type="text" name="nome" ><br>
+	eta <input type="text" name="eta" ><br>
+	<input type="submit" value="  OK   " >
+</form>
+<hr>
+PROVA HREF:<br>
+<a href="motore?azione=ProvaHref&nome=Cagliari&eta=1200" >vai con hyperlink</a>
 
 </body>
 </html>

@@ -13,7 +13,10 @@ public abstract class Form {
 	protected String feedback;
 	protected ArrayList<Errore> errori;
 	
-	//necessario il costruttore di DEFAULT (implicitamente presente!)
+	//necessario il costruttore di DEFAULT:
+	public Form(){
+		errori = new ArrayList<Errore>();
+	}
 	
 	public void setRequest(HttpServletRequest request) {
 		this.request = request;
@@ -46,5 +49,12 @@ public abstract class Form {
 	public boolean validazione(){
 		return true;
 	}
+	
+	/**
+	 * metodo astratto che deve valorizzare tutti i campi della sottoclasse Form
+	 * con i parametri della querystring presenti sulla request.
+	 * NB: obbliga OVERRIDE nelle sottoclassi Form
+	 */
+	public abstract void parametri2campiForm();
 
 }
