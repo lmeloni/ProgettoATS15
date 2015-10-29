@@ -11,10 +11,10 @@ public class Cliente implements Comparable<Cliente> {
 	private String citta;
 	private String telefono;
 	
-	public Cliente(int idCliente, String email, String password, String nome,
+	public Cliente(int id, String email, String password, String nome,
 			String cognome, String indirizzo, String citta, String telefono) {
 		super();
-		this.id = idCliente;
+		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
