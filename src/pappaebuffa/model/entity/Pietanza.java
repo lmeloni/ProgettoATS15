@@ -1,7 +1,7 @@
 package pappaebuffa.model.entity;
 
 public class Pietanza {
-	
+	private int idPietanza;
 	private String nome;
 	private String categoria;
 	private double prezzo;
@@ -16,7 +16,7 @@ public class Pietanza {
 		this.descrizione = descrizione;
 	}
 
-	private int idPietanza;
+	
 	public int getIdPietanza() {
 		return idPietanza;
 	}
