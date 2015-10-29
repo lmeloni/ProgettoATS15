@@ -52,20 +52,64 @@ public class DAORistorante extends DAO<Ristorante> {
 
 	@Override
 	public Ristorante select(int pk) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="SELECT id,email,nome,categoria,indirizzo,citta,telefono "
+				+ ",descrizione,orario_apertura,orario_chiusura "
+				+ "FROM ristorante "
+				+ "WHERE id = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, pk); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return componiEntity(); 
+			else
+				throw new DAOException("WARNING SELECT x PK="+pk+" DATI NON TROVATI");
+			
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x PK="+pk+". Causa: "+e.getMessage());
+		}
+		
 	}
 
 	@Override
 	public int insert(Ristorante entity) throws DAOException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql="INSERT INTO RISTORANTE(email,nome,categoria,indirizzo,citta,telefono "
+				+ ",descrizione,orario_apertura,orario_chiusura ) "
+				+ "VALUES (?,?,?,?,?,?,?,?,?)";
+		try(PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"})) {
+			//sostituire i marcatori ?:
+			pst.setString(1, entity.getEmail());
+			pst.setString(2, entity.getNome());
+			pst.setString(3, entity.getCategoria());
+			pst.setString(4, entity.getIndirizzo());
+			pst.setString(5, entity.getCitta());
+			pst.setString(6, entity.getTelefono());
+			pst.setString(7, entity.getDescrizione());
+			pst.setString(8, entity.getOrarioApertura());
+			pst.setString(9, entity.getOrarioChiusura());
+			
+			return insertInto(pst);
+		
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
+		}
 	}
 
 	@Override
 	public Ristorante delete(int pk) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Ristorante tuplaOld = select(pk); //recupera il Cliente prima di cancellarlo!
+		
+		String sql="DELETE FROM RISTORANTE WHERE id = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, pk); //sostituisco il marcatore
+			pst.executeQuery(); //esegue la QUERY SQL così preparata!
+			
+			return tuplaOld;
+			
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE DELETE x PK="+pk+". Causa: "+e.getMessage());
+		}
+	
 	}
 
 	@Override
