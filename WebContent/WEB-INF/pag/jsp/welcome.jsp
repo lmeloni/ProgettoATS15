@@ -9,15 +9,27 @@
 <%@ include file="_top.jsp" %>
 HOME PAGE PAPPAeBUFFA
 <hr>
+
 PROVA FORM:
 <form action="motore">
 	<input type="hidden" name="azione" value="Prova" >
 	
-	nome <input type="text" name="nome" ><br>
-	eta <input type="text" name="eta" ><br>
+	nome <input type="text" name="nome" value="${ProvaForm.nome}" ><br>
+	eta <input type="text" name="eta" value="${ProvaForm.eta}" ><br>
 	<input type="submit" value="  OK   " >
 </form>
 <hr>
+
+Roberto FORM:
+<form action="motore">
+	<input type="hidden" name="azione" value="Roberto" >
+	
+	altezza <input type="text" name="altezza" value="${RobertoForm.altezza}" ><br>
+	bellezza <input type="text" name="bellezza" value="${RobertoForm.bellezza}" ><br>
+	<input type="submit" value="  VAI!!   " >
+</form>
+<hr>
+
 PROVA HREF:<br>
 <a href="motore?azione=ProvaHref&nome=Cagliari&eta=1200" >vai con hyperlink</a>
 

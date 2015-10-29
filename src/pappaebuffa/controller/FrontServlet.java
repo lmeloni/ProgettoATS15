@@ -11,21 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import pappaebuffa.controller.azioni.Azione;
 import pappaebuffa.controller.form.Form;
 
-@WebServlet({ "/FattoriaServlet", "/motore" })
+@WebServlet({ "/FrontServlet", "/motore" })
 public class FrontServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		String path = "pappaebuffa.controller.";
-		String risorsa = "errore.jsp";
+		String pathController = "pappaebuffa.controller.";
+		String pathView 	  = "/WEB-INF/pag/jsp/";
+		String risorsa 		  = "errore.jsp";
 		
 		//CONTROLLER - Factory dei Form (con tecnica java 'reflection'):
 		Form form = null;
 		Class cf = null;
 		try {
-			cf = Class.forName(path+"form."+request.getParameter("azione")+"Form");
+			cf = Class.forName(pathController+"form."+request.getParameter("azione")+"Form");
 		} catch (ClassNotFoundException e) {
 		} 
 		
@@ -36,6 +37,10 @@ public class FrontServlet extends HttpServlet {
 				form.setRequest(request);
 				form.setPagina((String)request.getSession().getAttribute("pagina"));
 				form.parametri2campiForm();
+				
+				//salvo SEMPRE in request il form in questione (etichettato col suo nome!):
+				request.setAttribute(form.getClass().getSimpleName(), form);
+				
 			}
 			catch (InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
@@ -47,7 +52,7 @@ public class FrontServlet extends HttpServlet {
 		if(form==null || form.validazione()){ 
 			Azione azione = null;
 			try {
-				Class ca = Class.forName(path+"azioni."+request.getParameter("azione"));
+				Class ca = Class.forName(pathController+"azioni."+request.getParameter("azione"));
 				azione = (Azione) ca.newInstance();
 				//esegue l'Azione:
 				risorsa = azione.esegui(request, form);
@@ -55,11 +60,14 @@ public class FrontServlet extends HttpServlet {
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
 			}
+		}else{
+			if(! form.validazione())        //se validazione ha trovato errori
+				risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
 		}
+			
 
 		//CONTROLLER - delega VIEW:
-		getServletContext().getRequestDispatcher("/WEB-INF/pag/jsp/"+risorsa).
-							forward(request,response);
+		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);
 	}
 
 }
