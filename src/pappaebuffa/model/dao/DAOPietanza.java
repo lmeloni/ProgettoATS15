@@ -19,7 +19,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public ArrayList<Pietanza> select() throws DAOException {
 	ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
 		
-		String sql="SELECT id,nome,categoria,prezzo,descrizione "
+		String sql="SELECT id,nome,categoria,descrizione "
 				+ "FROM PIETANZA "
 				+ "ORDER BY categoria,nome ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -43,7 +43,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 	@Override
 	public Pietanza select(int id) throws DAOException {
 	
-		String sql="SELECT id,nome,categoria,prezzo,descrizione "
+		String sql="SELECT id,nome,categoria,descrizione "
 				+ "FROM PIETANZA "
 				+ "WHERE id = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -64,21 +64,19 @@ public class DAOPietanza extends DAO<Pietanza>{
 		return new Pietanza(res.getInt("id")
 				 , res.getString("nome")
 				 , res.getString("categoria")
-				 , res.getDouble("prezzo")
 				 , res.getString("descrizione") );
 	}
 
 	@Override
 	public int insert(Pietanza pietanza) throws DAOException {
 		
-		String sql="INSERT INTO PIETANZA (nome,categoria,prezzo,descrizione) "
-				+ "VALUES(?,?,?,?)";
+		String sql="INSERT INTO PIETANZA (nome,categoria,descrizione) "
+				+ "VALUES(?,?,?)";
 		try(PreparedStatement pst = con.prepareStatement(sql, new String[]{"id"})) {
 			//sostituire i marcatori ?:
 			pst.setString(1, pietanza.getNome());
 			pst.setString(2, pietanza.getCategoria());
-			pst.setDouble(3, pietanza.getPrezzo());
-			pst.setString(4, pietanza.getDescrizione());
+			pst.setString(3, pietanza.getDescrizione());
 			
 			return super.insertInto(pst); //genera la PK via SEQUENCE ORACLE
 		
@@ -111,7 +109,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 		
-		Pietanza l1 = new Pietanza(0,"zucchero","crepe dolce",5.00,"buonissima");
+		Pietanza l1 = new Pietanza(0,"zucchero","Pizza dolce","buonissima");
 		try {
 			
 			DAOPietanza dao = new DAOPietanza();
@@ -123,7 +121,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 			System.out.println("\nRead - select(id)..: "+dao.select(id));
 
 			
-		//	System.out.println("\nDelete - delete(pk): "+dao.delete(pk));
+			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
 			
 	
 			
