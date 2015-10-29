@@ -1,15 +1,15 @@
 package pappaebuffa.model.entity;
 
 public class Pietanza {
-	private int idPietanza;
+	private int id;
 	private String nome;
 	private String categoria;
 	private double prezzo;
 	private String descrizione;
 	
-	public Pietanza(int idPietanza, String nome, String categoria,
+	public Pietanza(int id, String nome, String categoria,
 			double prezzo, String descrizione) {
-		this.idPietanza = idPietanza;
+		this.id = id;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.prezzo = prezzo;
@@ -17,8 +17,8 @@ public class Pietanza {
 	}
 
 	
-	public int getIdPietanza() {
-		return idPietanza;
+	public int getId() {
+		return id;
 	}
 	public String getNome() {
 		return nome;
@@ -37,6 +37,6 @@ public class Pietanza {
 	public String toString() {
 		return "\nPietanza [nome=" + nome + ", categoria=" + categoria
 				+ ", prezzo=" + prezzo + ", descrizione=" + descrizione
-				+ ", idPietanza=" + idPietanza + "]";
+				+ ", id=" + id + "]";
 	}
 }
