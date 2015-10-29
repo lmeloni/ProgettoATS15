@@ -8,9 +8,8 @@ import pappaebuffa.model.entity.Ordine;
 
 public class DAOOrdine extends DAO<Ordine>{
 
-	protected DAOOrdine() throws DAOConnessioneException {
+	public DAOOrdine() throws DAOConnessioneException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

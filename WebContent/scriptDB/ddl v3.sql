@@ -12,23 +12,23 @@ DROP TABLE "SCOTT"."RISTORANTE" cascade constraints;
 --------------------------------------------------------
 --  DDL for Sequence CLIENTE_SEQ
 --------------------------------------------------------
-
-   CREATE SEQUENCE  "SCOTT"."CLIENTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+DROP SEQUENCE  "SCOTT"."CLIENTE_SEQ";
+   CREATE SEQUENCE  "SCOTT"."CLIENTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 8 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence ORDINE_SEQ
 --------------------------------------------------------
-
+DROP SEQUENCE  "SCOTT"."ORDINE_SEQ";
    CREATE SEQUENCE  "SCOTT"."ORDINE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence PIETANZA_SEQ
 --------------------------------------------------------
-
-   CREATE SEQUENCE  "SCOTT"."PIETANZA_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
+DROP SEQUENCE  "SCOTT"."PIETANZA_SEQ";
+   CREATE SEQUENCE  "SCOTT"."PIETANZA_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 79 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence RISTORANTE_SEQ
 --------------------------------------------------------
-
-   CREATE SEQUENCE  "SCOTT"."RISTORANTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+DROP SEQUENCE  "SCOTT"."RISTORANTE_SEQ";
+   CREATE SEQUENCE  "SCOTT"."RISTORANTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 34 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Table ASSOCIAZIONE
 --------------------------------------------------------
@@ -172,13 +172,13 @@ Insert into SCOTT.CATEGORIA_RISTORANTE (NOME) values ('Ristorante');
 Insert into SCOTT.CATEGORIA_RISTORANTE (NOME) values ('Tipico');
 REM INSERTING into SCOTT.CLIENTE
 SET DEFINE OFF;
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('8','annacau@hotmail.it','peb','Anna','Cau','via palestrina 55','Cagliari','3348659357');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('9','giannimagni@gmail.com','peb','Gianni','Magni','viale Trento 30','Monserrato','070338697');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('10','fabiopaulesu@libero.it','peb','Fabio','Paulesu','via Strauss 13','Quartu','070385942');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('11','carlozucca@libero.it','peb','Carlo','Zucca','via Oniferi 11','Pirri','3498843057');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('12','alessandraboi@gmail.com','peb','Alessandra','Boi','via Ungheria 22','Quartu','3485721345');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('13','michelemele@tiscali.it','peb','Michele','Mele','via Bellini 12','Selargius','3339842583');
-Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('14','pierofranceschi@hotmail.it','peb','Piero','Franceschi','via San Benedetto 78','Cagliari','070369823');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('1','annacau@hotmail.it','peb','Anna','Cau','via palestrina 55','Cagliari','3348659357');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('2','giannimagni@gmail.com','peb','Gianni','Magni','viale Trento 30','Monserrato','070338697');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('3','fabiopaulesu@libero.it','peb','Fabio','Paulesu','via Strauss 13','Quartu','070385942');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('4','carlozucca@libero.it','peb','Carlo','Zucca','via Oniferi 11','Pirri','3498843057');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('5','alessandraboi@gmail.com','peb','Alessandra','Boi','via Ungheria 22','Quartu','3485721345');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('6','michelemele@tiscali.it','peb','Michele','Mele','via Bellini 12','Selargius','3339842583');
+Insert into SCOTT.CLIENTE (ID,EMAIL,PASSWORD,NOME,COGNOME,INDIRIZZO,CITTA,TELEFONO) values ('7','pierofranceschi@hotmail.it','peb','Piero','Franceschi','via San Benedetto 78','Cagliari','070369823');
 REM INSERTING into SCOTT.ORDINE
 SET DEFINE OFF;
 REM INSERTING into SCOTT.PIETANZA
