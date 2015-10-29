@@ -1,7 +1,7 @@
 package pappaebuffa.model.entity;
 
 public class Ristorante {
-	private int idRistorante;
+	private int id;
 	private String email;
 	private String nome;
 	private String categoria;
@@ -12,11 +12,11 @@ public class Ristorante {
 	private String orarioApertura;
 	private String orarioChiusura;
 	
-	public Ristorante(int idRistorante, String email, String nome,
+	public Ristorante(int id, String email, String nome,
 			String categoria, String indirizzo, String citta, String telefono,
 			String descrizione, String orarioApertura, String orarioChiusura) {
 		super();
-		this.idRistorante = idRistorante;
+		this.id = id;
 		this.email = email;
 		this.nome = nome;
 		this.categoria = categoria;
@@ -29,7 +29,7 @@ public class Ristorante {
 	}
 
 	public int getIdRistorante() {
-		return idRistorante;
+		return id;
 	}
 
 	public String getEmail() {
@@ -70,7 +70,7 @@ public class Ristorante {
 
 	@Override
 	public String toString() {
-		return "\nRistorante [idRistorante=" + idRistorante + ", email=" + email
+		return "\nRistorante [id=" + id + ", email=" + email
 				+ ", nome=" + nome + ", categoria=" + categoria
 				+ ", indirizzo=" + indirizzo + ", citta=" + citta
 				+ ", telefono=" + telefono + ", descrizione=" + descrizione
