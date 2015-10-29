@@ -16,33 +16,30 @@ public class FrontServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private String pathController;
-	private String pathView;
 	
-	protected FrontServlet() {
+	public FrontServlet() {
 		super();
 		this.pathController = "pappaebuffa.controller.";
-		this.pathView = "/WEB-INF/pag/jsp/";
 	}
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-
+		
 		String risorsa = "errore.jsp";
 		
-		//CONTROLLER - Factory dei Form (con tecnica java 'reflection'):
+		
+		//CONTROLLER 1) Factory dei Form (con tecnica java 'reflection'):
 		Form form = null;
 		try {
-			form = factoryForm(request);
-			//salvo SEMPRE in request il form in questione (etichettato col suo nome!):
-			request.setAttribute(form.getClass().getSimpleName(), form);
+			form = factoryForm(request); //potrebbe restiruire null ==> Azione senza Form
 		}
 		catch (InstantiationException | IllegalAccessException e) {
 			request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
 		}
 		
 		
-		//CONTROLLER - Factory delle azioni (con tecnica java 'reflection'):
+		//CONTROLLER 2) Factory delle azioni (con tecnica java 'reflection'):
 		if(form==null || form.validazione()){
 		//se Form non presente o la sua validazione è true allora proseguo in Azione
 			try {
@@ -53,13 +50,15 @@ public class FrontServlet extends HttpServlet {
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
 			}
-		}else{
-			if(! form.validazione())        //se validazione ha trovato errori ???
-				risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
-		}
-			
+		}else
+			risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
 
-		//CONTROLLER - delega VIEW:
+
+		//CONTROLLER 3) Delega risorsa VIEW:
+		String pathView = "/"; 
+		if(risorsa.endsWith(".jsp"))
+			pathView += "WEB-INF/pag/jsp/";
+		
 		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);
 	
 	} //fine metodo service(...) ==> fa la RESPONSE verso il client !!!
@@ -72,7 +71,8 @@ public class FrontServlet extends HttpServlet {
 		try {
 			cf = Class.forName(pathController+"form."+request.getParameter("azione")+"Form");
 		} catch (ClassNotFoundException e) {
-			//non gestisco l'eccezione e vado avanti!
+			//VOLUTAMENTE non gestisco l'eccezione e vado avanti!
+			//significa che l'Azione NON prevede il Form
 		} 
 		
 		if(cf != null){ //se il Form è stato trovato nel package allora lo istanzia!
@@ -81,6 +81,10 @@ public class FrontServlet extends HttpServlet {
 			form.setRequest(request);
 			form.setPagina((String)request.getSession().getAttribute("pagina"));
 			form.parametri2campiForm(); //valorizza attributi Form coi parametri JSP
+			
+			//a fini di validazione salvo SEMPRE in request il form in questione 
+			//NB: etichettato col suo nome!
+			request.setAttribute(form.getClass().getSimpleName(), form);
 		}
 		return form;
 	}
