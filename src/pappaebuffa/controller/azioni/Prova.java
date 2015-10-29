@@ -13,7 +13,13 @@ public class Prova implements Azione {
 		//recupero il form relativo a questa Azione:
 		ProvaForm f = (ProvaForm)form;
 		
-		request.setAttribute("form", f);
+		//MODEL:
+		//invocazione dei metodi delle classi model sempre in try-catch
+		
+		f.setFeedback("eventuale messaggio di feedback da mostrare nella pagina di risposta");
+		
+		//scelgo di salvare in request il Form (NB: questo passo è cmq SEMPRE svolto in Servlet!)
+		request.setAttribute(f.getClass().getSimpleName(), f);
 
 		return "provaDaForm.jsp";
 	}

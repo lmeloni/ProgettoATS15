@@ -8,9 +8,11 @@
 <body>
 PAGINA provaDaForm.jsp
 <hr>
-nome: ${form.nome}<br>
-eta: ${form.eta}<br>
+nome: ${ProvaForm.nome}<br>
+eta: ${ProvaForm.eta}<br>
 <br>
-provieni da pagina: ${form.pagina}
+provieni da pagina: ${ProvaForm.pagina}
+<br><br>
+msg feedback: ${ProvaForm.feedback}
 </body>
 </html>
