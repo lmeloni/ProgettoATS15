@@ -18,7 +18,7 @@ public class FrontServlet extends HttpServlet {
 	private String pathController;
 	private String pathView;
 	
-	protected FrontServlet() {
+	public FrontServlet() {
 		super();
 		this.pathController = "pappaebuffa.controller.";
 		this.pathView = "/WEB-INF/pag/jsp/";
@@ -53,11 +53,9 @@ public class FrontServlet extends HttpServlet {
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				request.setAttribute("errore", "ANOMALIA Factory Azione: "+e.getMessage()); 
 			}
-		}else{
-			if(! form.validazione())        //se validazione ha trovato errori ???
-				risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
-		}
-			
+		}else
+			risorsa = form.getPagina(); //rimane nella pagina da cui è partita la richiesta
+
 
 		//CONTROLLER - delega VIEW:
 		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);

@@ -9,7 +9,7 @@
 <body>
 Pagina di Roberto:<br>
 altezza: ${RobertoForm.altezza}<br>
-bellezza: <%=((RobertoForm) request.getAttribute("formRoberto")).getBellezza()%><br>
+bellezza: <%=((RobertoForm) request.getAttribute("RobertoForm")).getBellezza()%><br>
 <br>
 provieni da pagina: ${RobertoForm.pagina}
 <br><br>
