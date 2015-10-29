@@ -19,7 +19,7 @@ class ConnessioneSingleton {
 //			con = DriverManager.getConnection
 //			("jdbc:oracle:thin:@localhost:1521/orcl", "scott", "tiger");
 			
-			ResourceBundle rb = ResourceBundle.getBundle("model/info/infodb");
+			ResourceBundle rb = ResourceBundle.getBundle("pappaebuffa/model/info/infodb");
 			Class.forName( rb.getString("driver") );
 			con = DriverManager.getConnection
 				(rb.getString("url")+"/"+rb.getString("db")
