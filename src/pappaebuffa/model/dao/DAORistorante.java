@@ -41,7 +41,7 @@ public class DAORistorante extends DAO<Ristorante> {
 
 
 
-	private Ristorante componiEntity() throws SQLException {
+	private Ristorante componiEntity() throws SQLException, DAOConnessioneException, DAOException {
 		return   new Ristorante(res.getInt("id"), res.getString("email"), res.getString("password"), res.getString("nome")
 				, res.getString("categoria"), res.getString("indirizzo"), res.getString("citta")
 				, res.getString("telefono"), res.getString("descrizione"), res.getString("orario_apertura")
@@ -130,8 +130,10 @@ public class DAORistorante extends DAO<Ristorante> {
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 
-		Ristorante r = new Ristorante(0,"basilio56@tiscali.it","peb","Da Basilio","Ristorante","via Timavo 97","Selargius","0709805261",null,"10:00","23:00");
 		try {
+			Ristorante r = new Ristorante(0,"basilio56@tiscali.it","peb",
+					"Da Basilio","Ristorante","via Timavo 97","Selargius",
+					"0709805261",null,"10:00","23:00");
 
 			DAORistorante dao = new DAORistorante();
 

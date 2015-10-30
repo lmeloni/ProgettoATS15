@@ -1,5 +1,6 @@
 package pappaebuffa.model.entity;
 
+
 public class Ristorante {
 	private int id;
 	private String email;
@@ -12,11 +13,12 @@ public class Ristorante {
 	private String descrizione;
 	private String orarioApertura;
 	private String orarioChiusura;
+	//private ArrayList<Preparazione> preparazioni;
 	
 	public Ristorante(int id, String email, String password, String nome,
 			String categoria, String indirizzo, String citta, String telefono,
-			String descrizione, String orarioApertura, String orarioChiusura) {
-		super();
+			String descrizione, String orarioApertura, String orarioChiusura/*,
+			ArrayList<Preparazione> preparazioni*/) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -28,6 +30,14 @@ public class Ristorante {
 		this.descrizione = descrizione;
 		this.orarioApertura = orarioApertura;
 		this.orarioChiusura = orarioChiusura;
+		/*this.preparazioni = preparazioni;
+	}
+	
+	public Ristorante(int id, String email, String password, String nome,
+			String categoria, String indirizzo, String citta, String telefono,
+			String descrizione, String orarioApertura, String orarioChiusura) {
+		this(id, email, password, nome, categoria, indirizzo, citta, telefono,
+				descrizione, orarioApertura, orarioChiusura, null);*/
 	}
 
 	public int getId() {
@@ -83,5 +93,9 @@ public class Ristorante {
 	public String getPassword() {
 		return password;
 	}
+
+	/*public ArrayList<Preparazione> getPreparazioni() {
+		return preparazioni;
+	}*/
 
 }
