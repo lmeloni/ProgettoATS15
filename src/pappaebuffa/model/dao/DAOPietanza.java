@@ -80,6 +80,25 @@ public class DAOPietanza extends DAO<Pietanza>{
 		}
 
 	}
+	
+	public Pietanza selectByRistoranteCategoria(String categoria, int idRistorante) throws DAOException {
+		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
+				+ "FROM pietanza p, preparazione "
+				+ "WHERE p.id = prep.id_pietanza AND id_ristorante=? AND p.categoria=? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, idRistorante); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return componiEntity(); 
+			else
+				throw new DAOException("WARNING SELECT x CATEGORIA="+idRistorante+" DATI NON TROVATI");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x CATEGORIA="+idRistorante+". Causa: "+e.getMessage());
+		}
+
+	}	
 
 	private Pietanza componiEntity() throws SQLException {
 		return new Pietanza(res.getInt("id")
