@@ -2,7 +2,7 @@ package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
 
-public class PietanzePerCategoriaForm {
+public class PietanzePerCategoriaForm extends Form {
 	
 	private String  categoria;
 	

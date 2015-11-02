@@ -147,6 +147,29 @@ public class DAORistorante extends DAO<Ristorante> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+ 
+public ArrayList<String> selectCategoria() throws DAOException {
+		
+		ArrayList<String> listaCategoria  = new ArrayList<String>();
+
+		String sql=" SELECT nome "
+				+ "FROM categoria_ristorante ";
+		
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while (res.next()) //scorre TUTTO il ResultSet
+				listaCategoria.add(res.getString("nome")); //popola la ArrayList
+
+			if(listaCategoria.isEmpty())
+				throw new DAOException("WARNING SELECT ALL: TABELLA VUOTA!");
+			else
+				return listaCategoria;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
+		}
+	}
 
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
@@ -169,6 +192,7 @@ public class DAORistorante extends DAO<Ristorante> {
 			
 			System.out.println("\nRead - selectByCategoria(categoria): "+dao.selectByCategoria("Ristorante"));
 
+			System.out.println("\nSeleziona categorie" + dao.selectCategoria());
 
 
 		} catch (DAOException e) {
@@ -177,6 +201,6 @@ public class DAORistorante extends DAO<Ristorante> {
 		}
 
 	}
-
-
+	
+	
 }

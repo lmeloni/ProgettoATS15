@@ -7,21 +7,33 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-HOME PAGE PAPPAeBUFFA
+AZIONI Giuseppe & Gian Carlo
 <hr>
-
-FORM LOGIN:
-<form action="motore">
-	<input type="hidden" name="azione" value="Login" >
+FORM LOGIN:<br><br>
+<form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
 	
-	EMAIL <input type="text" name="email" value="${LoginForm.email}" ><br>
-	PASSWORD <input type="text" name="password" value="${LoginForm.password}" ><br>
-	<input type="submit" value="   LOGIN   " >
+	Email<br>
+	<input type="text" name="email" value="${LoginForm.email}" >
+	<label style="color: red;">
+		<c:forEach var="e" items="${LoginForm.errori}">
+			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>
+
+	Password<br>
+	<input type="password" name="password" >
+	<label style="color: red;">
+		<c:forEach var="e" items="${LoginForm.errori}">
+			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>
+	<br>
+	<input type="submit" value="   LOGIN   " > &nbsp;
+	<a href="motore?azione=RecuperaPsw&email=${LoginForm.email}" >Password dimenticata?</a> <br>
 </form>
 <hr>
 
-PROVA HREF:<br>
-<a href="motore?azione=ProvaHref&nome=Cagliari&eta=1200" >vai con hyperlink</a>
+
 
 </body>
 </html>
