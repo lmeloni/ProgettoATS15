@@ -5,7 +5,6 @@ import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.DAOCliente;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.dao.eccezioni.DAOLoginException;
-import pappaebuffa.model.entity.Cliente;
 
 public class LoginForm extends Form {
 	

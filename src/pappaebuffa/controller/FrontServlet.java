@@ -32,8 +32,7 @@ public class FrontServlet extends HttpServlet {
 		//CONTROLLER 1) Factory dei Form (con tecnica java 'reflection'):
 		Form form = null;
 		try {
-			form = factoryForm(request); //potrebbe restiruire null ==> Azione senza Form
-			System.out.println("\nForm creato: "+form);
+			form = factoryForm(request); //potrebbe restiruire null ==> Azione senza Form			
 		}
 		catch (InstantiationException | IllegalAccessException e) {
 			request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
