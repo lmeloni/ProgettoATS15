@@ -52,6 +52,10 @@ public class Ordine {
 				+ ", importoTotale=" + importoTotale + ", dataRitiro="
 				+ dataRitiro + "]";
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 }

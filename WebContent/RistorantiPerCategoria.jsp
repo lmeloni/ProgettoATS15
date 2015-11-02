@@ -10,7 +10,7 @@
 <form action="motore" method="post">
 	<input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />
 	<h3>SELEZIONA LA CATEGORIA</h3><br><hr>
-<select name="ricerca_ristoranti">
+<select name="categoria">
 	<option value="Ristorante"> Ristorante</option>
 	<option value="Pizzeria">	Pizzeria</option>
 	<option value="Paninoteca"> Paninoteca</option>
