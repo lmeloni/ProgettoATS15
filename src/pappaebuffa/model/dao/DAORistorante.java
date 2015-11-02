@@ -71,22 +71,32 @@ public class DAORistorante extends DAO<Ristorante> {
 	}
 
 
-	public Ristorante selectByCategoria(String categoria) throws DAOException {
+	public ArrayList<Ristorante> selectByCategoria(String categoria) throws DAOException {
+		ArrayList<Ristorante> listarist = new ArrayList<Ristorante>();
 		String sql="SELECT id,email,password,nome,categoria,indirizzo,citta,telefono "
 				+ ",descrizione,orario_apertura,orario_chiusura "
 				+ "FROM ristorante "
 				+ "WHERE categoria = ? ";
+		
+//		String sql="SELECT nome "
+//				+ "FROM ristorante "
+//				+ "WHERE categoria = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setString(1, categoria); //sostituisco il marcatore
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+			while (res.next())  // scorre il result set
+			
+			listarist.add( componiEntity() );// popola
 
-			if(res.next()) 
-				return componiEntity(); 
+			if(listarist.isEmpty())
+				throw new DAOException("WARNING SELECT per CATEGORIA : TABELLA VUOTA!");
 			else
-				throw new DAOException("WARNING SELECT x CATEGORIA="+categoria+" DATI NON TROVATI");
+				return listarist; 
+			 
+			 
 
 		} catch (SQLException e) {
-			throw new DAOException("ERRORE SELECT x CATEGORIA="+categoria+". Causa: "+e.getMessage());
+			throw new DAOException("ERRORE SELECT per CATEGORIA="+categoria+". Causa: "+e.getMessage());
 		}
 
 	}

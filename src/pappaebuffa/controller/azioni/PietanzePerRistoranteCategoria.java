@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.controller.form.PietanzePerRistoranteCategoriaForm;
 import pappaebuffa.controller.form.RobertoForm;
+import pappaebuffa.model.dao.DAOPietanza;
 
 public class PietanzePerRistoranteCategoria implements Azione{
 
@@ -19,9 +20,11 @@ public class PietanzePerRistoranteCategoria implements Azione{
 				
 				
 				//scelgo di salvare in request il Form (NB: questo passo è cmq SEMPRE svolto in Servlet!)
-				request.setAttribute(f.getClass().getSimpleName(), f);
+			//	request.setAttribute(f.getClass().getSimpleName(), f);
 				
-		
+				DAOPietanza dao = new DAOPietanza();
+				
+	
 		
 		
 		return "PietanzePerCategoria.jsp";
