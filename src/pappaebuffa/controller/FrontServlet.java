@@ -33,6 +33,7 @@ public class FrontServlet extends HttpServlet {
 		Form form = null;
 		try {
 			form = factoryForm(request); //potrebbe restiruire null ==> Azione senza Form
+			System.out.println("\nForm creato: "+form);
 		}
 		catch (InstantiationException | IllegalAccessException e) {
 			request.setAttribute("errore", "ANOMALIA Factory Form: "+e.getMessage()); 
@@ -56,7 +57,7 @@ public class FrontServlet extends HttpServlet {
 
 		//CONTROLLER 3) Delega risorsa VIEW:
 		String pathView = "/"; 
-		if(risorsa.endsWith(".jsp"))
+		if(risorsa.endsWith(".jsp")) //se pagina JSP
 			pathView += "WEB-INF/pag/jsp/";
 		
 		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);
