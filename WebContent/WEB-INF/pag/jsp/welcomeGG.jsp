@@ -10,7 +10,7 @@
 AZIONI Giuseppe & Gian Carlo
 <hr>
 FORM LOGIN:<br><br>
-<form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
+<form action="motore" method="get" > <input type="hidden" name="azione" value="Login">
 	
 	Email<br>
 	<input type="text" name="email" value="${LoginForm.email}" >
