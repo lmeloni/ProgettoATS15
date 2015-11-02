@@ -1,6 +1,11 @@
 package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
+import pappaebuffa.model.Utilita;
+import pappaebuffa.model.dao.DAOCliente;
+import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
+import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.dao.eccezioni.DAOLoginException;
 
 public class LoginForm extends Form {
 	
@@ -30,11 +35,17 @@ public class LoginForm extends Form {
 		if(password==null || password.isEmpty())
 			super.errori.add(new Errore("password", "obbligatorio"));
 		
-		if (! email.matches("/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+.([a-zA-Z])+([a-zA-Z])"))
+		if (! Utilita.validaEmail(email))
 			super.errori.add(new Errore("email", "email formalmente errata"));
 		
-		
-			
+		try {
+			DAOCliente dao = new DAOCliente();
+			dao.login(email, password);
+		} catch (DAOLoginException e) {
+			super.errori.add(new Errore("email", e.getMessage()));
+		} catch (DAOException e) {
+			super.errori.add(new Errore("email", "problemi al DB, riprovare più tardi!"));
+		}
 		
 		return super.errori.size()==0 ? true:false;
 	}

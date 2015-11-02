@@ -2,12 +2,13 @@ package pappaebuffa.model;
 
 public class Utilita {
 	
-	public String crittografia(){
+	public static String crittografia(){
 		return null;
 	}
 	
-	public boolean validaEmail(){
-		return true;
+	public static boolean validaEmail(String email){
+
+		return email.matches("/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+.([a-zA-Z])+([a-zA-Z])");
 	}
 
 }
