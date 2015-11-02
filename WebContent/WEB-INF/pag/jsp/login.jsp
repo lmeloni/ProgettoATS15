@@ -10,7 +10,7 @@
 AZIONI Giuseppe & Gian Carlo
 <hr>
 FORM LOGIN:<br><br>
-<form action="motore" method="get" > <input type="hidden" name="azione" value="Login">
+<form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
 	
 	Email<br>
 	<input type="text" name="email" value="${LoginForm.email}" >
@@ -28,7 +28,7 @@ FORM LOGIN:<br><br>
 		</c:forEach>
 	</label><br>
 	<br>
-	<input type="submit" value="   LOGIN   " > &nbsp;<br><br>
+	<input type="submit" value="   Login  " > &nbsp;<br><br>
 	<a href="motore?azione=Vai&risorsa=recuperoPassword.jsp" >Password dimenticata?</a> <br>
 	<a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a> <br>
 </form>

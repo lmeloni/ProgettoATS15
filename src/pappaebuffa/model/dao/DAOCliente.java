@@ -29,7 +29,7 @@ public class DAOCliente extends DAO<Cliente> {
 			if(res.next()) 
 				return componiEntity(); 
 			else
-				throw new DAOLoginException("Credenziali login non valide");
+				throw new DAOLoginException("l'email o la password sono errati");
 
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE LOGIN x email="+email+". Causa: "+e.getMessage());
@@ -47,7 +47,7 @@ public class DAOCliente extends DAO<Cliente> {
 			if(res.next()) 
 				return res.getString(1); 
 			else
-				throw new DAOLoginException("USERED non trovato");
+				throw new DAOLoginException("email non trovata");
 
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE RECUPERA PASSWORD x email="+email+". Causa: "+e.getMessage());

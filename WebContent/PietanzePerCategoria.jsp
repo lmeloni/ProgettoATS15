@@ -9,13 +9,22 @@
 <body>
 
 <form action="motore" method="post" >
-	<input type="hidden" name="azione" value="MostraPietanzePerCategoria" />
+	<input type="hidden" name="azione" value="PietanzePerRistoranteCategoria" />
+	Seleziona il Ristorante <br />
+<select name="idRistorante">
+	<option value="1" >1</option>
+	<option value="2" >2</option>
+	<option value="3" >3</option>
+</select>
+<br />
 	Seleziona la categoria del pasto <br />
-<select name="parametro_combo">
+<select name="categoria">
 	<option value="Antipasto" >Antipasto</option>
 	<option value="Bevande" >Bevande</option>
 	<option value="Contorno" >Contorno</option>
 </select>
+<br />
+<input type="submit" value="  VAI ALLA LISTA  "/>
 </form>
 <br />
 <br />
