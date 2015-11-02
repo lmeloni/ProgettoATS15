@@ -17,6 +17,9 @@ PROVA FORM:
 	nome <input type="text" name="nome" value="${ProvaForm.nome}" ><br>
 	eta <input type="text" name="eta" value="${ProvaForm.eta}" ><br>
 	<input type="submit" value="  OK   " >
+	<br>
+	${ProvaForm.errori[1].errmsg}<br>
+	${ProvaForm.errori[2].errmsg}<br>
 </form>
 <hr>
 
@@ -26,7 +29,10 @@ Roberto FORM:
 	
 	altezza <input type="text" name="altezza" value="${RobertoForm.altezza}" ><br>
 	bellezza <input type="text" name="bellezza" value="${RobertoForm.bellezza}" ><br>
-	<input type="submit" value="  VAI!!   " >
+	<input type="submit" value="  VAI!!  " >
+	<br>
+	${RobertoForm.errori[1].errmsg}<br>
+	${RobertoForm.errori[2].errmsg}<br>
 </form>
 <hr>
 
