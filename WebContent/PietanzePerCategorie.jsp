@@ -10,12 +10,13 @@
 
 <form action="motore" method="post" >
 	<input type="hidden" name="azione" value="MostraPietanzePerCategoria" />
-	Lista a scomparsa <br />
+	Seleziona la categoria del pasto <br />
 <select name="parametro_combo">
 	<option value="Antipasto" >Antipasto</option>
 	<option value="Bevande" >Bevande</option>
 	<option value="Contorno" >Contorno</option>
 </select>
+</form>
 <br />
 <br />
 	
