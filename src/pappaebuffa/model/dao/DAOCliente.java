@@ -16,7 +16,7 @@ public class DAOCliente extends DAO<Cliente> {
 	}
 
 	
-	public Cliente login(String email,String password) throws DAOException {
+	public Cliente login(String email,String password) throws DAOException, DAOLoginException {
 		String sql="SELECT id,email,password,nome,cognome,indirizzo,citta,telefono "
 				+ "FROM CLIENTE "
 				+ "WHERE email = ? "
@@ -36,7 +36,7 @@ public class DAOCliente extends DAO<Cliente> {
 		}
 	}
 	
-	public String recuperaPassword(String email) throws DAOException {
+	public String recuperaPassword(String email) throws DAOException, DAOLoginException {
 		String sql="SELECT DISTINCT password "
 				+ "FROM CLIENTE "
 				+ "WHERE email = ? ";
