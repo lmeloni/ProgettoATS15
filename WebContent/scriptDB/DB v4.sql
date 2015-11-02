@@ -10,10 +10,25 @@ DROP TABLE "SCOTT"."CATEGORIA_RISTORANTE" cascade constraints;
 DROP TABLE "SCOTT"."CATEGORIA_PIETANZA" cascade constraints;
 DROP TABLE "SCOTT"."ASSOCIAZIONE" cascade constraints;
 --------------------------------------------------------
+--  DDL for Sequence CLIENTE_SEQ
+--------------------------------------------------------
+DROP SEQUENCE  "SCOTT"."CLIENTE_SEQ";
+   CREATE SEQUENCE  "SCOTT"."CLIENTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 8 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
 --  DDL for Sequence ORDINE_SEQ
 --------------------------------------------------------
-
+DROP SEQUENCE  "SCOTT"."ORDINE_SEQ";
    CREATE SEQUENCE  "SCOTT"."ORDINE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence PIETANZA_SEQ
+--------------------------------------------------------
+DROP SEQUENCE  "SCOTT"."PIETANZA_SEQ";
+   CREATE SEQUENCE  "SCOTT"."PIETANZA_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 79 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence RISTORANTE_SEQ
+--------------------------------------------------------
+DROP SEQUENCE  "SCOTT"."RISTORANTE_SEQ";
+   CREATE SEQUENCE  "SCOTT"."RISTORANTE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 34 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Table RISTORANTE
 --------------------------------------------------------
