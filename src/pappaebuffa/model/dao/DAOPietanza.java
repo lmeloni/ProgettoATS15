@@ -159,6 +159,30 @@ public class DAOPietanza extends DAO<Pietanza>{
 		return new String[] {"id","nome","categoria","prezzo","descrizione"};
 	}
 
+	public ArrayList<String> selectCategoria() throws DAOException {
+		ArrayList<String> lista = new ArrayList<String>();
+
+		String sql="SELECT nome "
+				+ "FROM CATEGORIA_PIETANZA ";
+		
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while (res.next()) //scorre TUTTO il ResultSet
+				lista.add(res.getString("nome")) ; //popola la ArrayList
+
+			if(lista.isEmpty())
+				throw new DAOException("WARNING SELECT ALL: DATI NON TROVATI");
+			else
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
+		}
+
+	}
+
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 
@@ -166,6 +190,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 		try {
 
 			DAOPietanza dao = new DAOPietanza();
+
 
 //			int id = dao.insert(l1);
 //			System.out.println("\nCreate - insert()..: "+id+" (ID generata o meno)");
@@ -178,6 +203,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 //
 //			System.out.println("\nRead_selectByCategoria()....: "+dao.selectByCategoria("Primo"));
 			System.out.println("\nRead_selectByRistoranteCategoria()....: "+dao.selectByRistoranteCategoria("Bevande",1));
+
 
 		} catch (DAOException e) {
 			System.out.println( e );
