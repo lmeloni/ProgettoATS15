@@ -13,6 +13,45 @@ public class DAOCliente extends DAO<Cliente> {
 	public DAOCliente() throws DAOConnessioneException {
 		super();
 	}
+
+	
+	public Cliente login(String email,String password) throws DAOException {
+		String sql="SELECT id,email,password,nome,cognome,indirizzo,citta,telefono "
+				+ "FROM CLIENTE "
+				+ "WHERE email = ? "
+				+ "  AND password = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, email); 
+			pst.setString(2, password); 
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return componiEntity(); 
+			else
+				throw new DAOLoginException("Credenziali login non valide");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE LOGIN x email="+email+". Causa: "+e.getMessage());
+		}
+	}
+	
+	public String recuperaPassword(String email) throws DAOException {
+		String sql="SELECT DISTINCT password "
+				+ "FROM CLIENTE "
+				+ "WHERE email = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, email); 			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return res.getString(1); 
+			else
+				throw new DAOLoginException("USERED non trovato");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE RECUPERA PASSWORD x email="+email+". Causa: "+e.getMessage());
+		}
+	}
 	
 	/**
 	 * ottiene TUTTI i clienti presenti in tabella CLIENTE, 
