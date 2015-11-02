@@ -9,7 +9,7 @@
 <body>
 <%@ include file="_top.jsp" %>
 Recupera Password
-<br>
+<br><br>
 <form action="motore" method="get" > <input type="hidden" name="azione" value="RecuperoPassword" >
 	
 	Email (inserisci quella usata per la registrazione)<br>
@@ -20,7 +20,8 @@ Recupera Password
 		</c:forEach>
 	</label><br>
 	<br>
-	<input type="submit" value="   Recupera   " > &nbsp;<br><br>
+	<input type="submit" value="   Recupera   " > &nbsp; ${RecuperoPasswordForm.feedback}
+	<br><br>
 	<a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a> <br>
 </form>
 </body>
