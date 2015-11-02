@@ -81,21 +81,26 @@ public class DAOPietanza extends DAO<Pietanza>{
 
 	}
 	
-	public Pietanza selectByRistoranteCategoria(String categoria, int idRistorante) throws DAOException {
+	public ArrayList<Pietanza> selectByRistoranteCategoria(String categoria, int idRistorante) throws DAOException {
+		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
 		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
 				+ "FROM pietanza p, preparazione "
-				+ "WHERE p.id = prep.id_pietanza AND id_ristorante=? AND p.categoria=? ";
+				+ "WHERE p.id = id_pietanza AND id_ristorante=? AND p.categoria=? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
-			pst.setString(1, idRistorante); //sostituisco il marcatore
+			pst.setInt(1,idRistorante); //sostituisco il marcatore
+			pst.setString(2,categoria);
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
 
-			if(res.next()) 
-				return componiEntity(); 
-			else
-				throw new DAOException("WARNING SELECT x CATEGORIA="+idRistorante+" DATI NON TROVATI");
+			while(res.next()) 
+				lista.add(componiEntity());
+			
+			if (lista.isEmpty())
+				throw new DAOException("WARNING SELECT x CATEGORIA="+categoria+" DATI NON TROVATI");
+			else	
+				return lista;
 
 		} catch (SQLException e) {
-			throw new DAOException("ERRORE SELECT x CATEGORIA="+idRistorante+". Causa: "+e.getMessage());
+			throw new DAOException("ERRORE SELECT x CATEGORIA="+categoria+". Causa: "+e.getMessage());
 		}
 
 	}	
@@ -154,6 +159,30 @@ public class DAOPietanza extends DAO<Pietanza>{
 		return new String[] {"id","nome","categoria","prezzo","descrizione"};
 	}
 
+	public ArrayList<String> selectCategoria() throws DAOException {
+		ArrayList<String> lista = new ArrayList<String>();
+
+		String sql="SELECT nome "
+				+ "FROM CATEGORIA_PIETANZA ";
+		
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while (res.next()) //scorre TUTTO il ResultSet
+				lista.add(res.getString("nome")) ; //popola la ArrayList
+
+			if(lista.isEmpty())
+				throw new DAOException("WARNING SELECT ALL: DATI NON TROVATI");
+			else
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
+		}
+
+	}
+
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 
@@ -162,16 +191,19 @@ public class DAOPietanza extends DAO<Pietanza>{
 
 			DAOPietanza dao = new DAOPietanza();
 
-			int id = dao.insert(l1);
-			System.out.println("\nCreate - insert()..: "+id+" (ID generata o meno)");
 
-			System.out.println("\nRead - select()....: "+dao.select());
-			System.out.println("\nRead - select(id)..: "+dao.select(id));
+//			int id = dao.insert(l1);
+//			System.out.println("\nCreate - insert()..: "+id+" (ID generata o meno)");
+//
+//			System.out.println("\nRead - select()....: "+dao.select());
+//			System.out.println("\nRead - select(id)..: "+dao.select(id));
+//
+//
+//			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
+//
+//			System.out.println("\nRead_selectByCategoria()....: "+dao.selectByCategoria("Primo"));
+			System.out.println("\nRead_selectByRistoranteCategoria()....: "+dao.selectByRistoranteCategoria("Bevande",1));
 
-
-			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
-
-			System.out.println("\nRead_selectByCategoria()....: "+dao.selectByCategoria("Primo"));
 
 		} catch (DAOException e) {
 			System.out.println( e );
