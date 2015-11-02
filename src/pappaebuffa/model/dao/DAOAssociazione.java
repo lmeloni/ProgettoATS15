@@ -151,8 +151,8 @@ public class DAOAssociazione extends DAO<Associazione>{
 	}
 	public static void main(String[] args) {
 		try {
-			Associazione a = new Associazione(new DAOOrdine().select(1), 
-									new DAOPietanza().select(2), 2);
+			Associazione a = new Associazione(new DAOOrdine().select(15), 
+									new DAOPietanza().select(1), 1);
 			
 			System.out.println("INSERT: " + new DAOAssociazione().insert(a));
 			System.out.println("SELECT ALL: " + new DAOAssociazione().select());

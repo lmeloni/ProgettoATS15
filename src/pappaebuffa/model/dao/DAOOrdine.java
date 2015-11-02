@@ -124,7 +124,7 @@ public class DAOOrdine extends DAO<Ordine>{
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 
 		try {
-			Cliente c = new Cliente(8, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+			Cliente c = new Cliente(7, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
 			Ristorante r = new Ristorante(33, "basilio56@tiscali.it", "peb", "Da Basilio"
 					, "ristorante", "Via Timavo,97"
 					, "Selargius", "0709805261", null, "10:00", "23:00");
