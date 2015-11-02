@@ -5,9 +5,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
+
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Pietanza;
+import pappaebuffa.model.entity.Ristorante;
 
 public class DAOPietanza extends DAO<Pietanza>{
 
@@ -23,7 +25,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 				+ "FROM PIETANZA "
 				+ "ORDER BY categoria,nome ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
-
+			
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
 
 			while (res.next()) //scorre TUTTO il ResultSet
@@ -58,6 +60,25 @@ public class DAOPietanza extends DAO<Pietanza>{
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE SELECT x ID="+id+". Causa: "+e.getMessage());
 		}
+	}
+	
+	public Pietanza selectByCategoria(String categoria) throws DAOException {
+		String sql="SELECT  id,nome,categoria,descrizione "
+				+ "FROM pietanza "
+				+ "WHERE categoria = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, categoria); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return componiEntity(); 
+			else
+				throw new DAOException("WARNING SELECT x CATEGORIA="+categoria+" DATI NON TROVATI");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x CATEGORIA="+categoria+". Causa: "+e.getMessage());
+		}
+
 	}
 
 	private Pietanza componiEntity() throws SQLException {
@@ -131,7 +152,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 
 			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
 
-
+			System.out.println("\nRead_selectByCategoria()....: "+dao.selectByCategoria("Primo"));
 
 		} catch (DAOException e) {
 			System.out.println( e );
