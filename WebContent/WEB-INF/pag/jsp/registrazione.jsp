@@ -40,6 +40,13 @@ Città<br>
 			<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
+Telefono<br>
+	<input type="text" name="telefono" value="${RegistrazioneForm.telefono}" >
+	<label style="color: red;">
+		<c:forEach var="e" items="${RegistrazioneForm.errori}">
+			<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>	
 Email<br>
 	<input type="text" name="email" value="${RegistrazioneForm.email}" >
 	<label style="color: red;">
