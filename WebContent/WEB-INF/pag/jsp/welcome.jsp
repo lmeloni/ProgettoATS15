@@ -7,6 +7,9 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+
+<%@ include file="menu.jsp" %>
+
 HOME PAGE PAPPAeBUFFA
 <hr>
 
