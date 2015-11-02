@@ -10,10 +10,10 @@ import pappaebuffa.model.entity.Cliente;
 
 public class DAOCliente extends DAO<Cliente> {
 
-	protected DAOCliente() throws DAOConnessioneException {
+	public DAOCliente() throws DAOConnessioneException {
 		super();
-		
 	}
+	
 	/**
 	 * ottiene TUTTI i clienti presenti in tabella CLIENTE, 
 	 * ordinati per nome,cognome,citta
@@ -26,18 +26,18 @@ public class DAOCliente extends DAO<Cliente> {
 		String sql="SELECT id,email,password,nome,cognome,indirizzo,citta,telefono "
 				+ "FROM CLIENTE "
 				+ "ORDER BY nome,cognome,citta ";
-		
+
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
 
 			while (res.next()) //scorre TUTTO il ResultSet
 				lista.add( componiEntity() ); //popola la ArrayList
-			
+
 			if(lista.isEmpty())
 				throw new DAOException("WARNING SELECT ALL: TABELLA VUOTA!");
 			else
 				return lista;
-			
+
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
 		}
@@ -62,7 +62,7 @@ public class DAOCliente extends DAO<Cliente> {
 				return componiEntity(); 
 			else
 				throw new DAOException("WARNING SELECT x PK="+pk+" DATI NON TROVATI");
-			
+
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE SELECT x PK="+pk+". Causa: "+e.getMessage());
 		}
@@ -77,8 +77,14 @@ public class DAOCliente extends DAO<Cliente> {
 	 */
 	@Override
 	public int insert(Cliente entity) throws DAOException {
-		String sql="INSERT INTO CLIENTE (email,password,nome,cognome,indirizzo,citta,telefono) "
-				+ "VALUES(?,?,?,?,?,?,?)";
+		boolean idValido = entity.getId() > 0;
+		
+		String sql="INSERT INTO CLIENTE (email,password,nome,cognome,indirizzo,citta,telefono"
+				+(idValido ? ",id" : "")
+				+") VALUES(?,?,?,?,?,?,?"
+				+(idValido ? ",?" : "")
+				+")";
+		
 		try(PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"})) {
 			//sostituire i marcatori ?:
 			pst.setString(1, entity.getEmail());
@@ -88,12 +94,16 @@ public class DAOCliente extends DAO<Cliente> {
 			pst.setString(5, entity.getIndirizzo());
 			pst.setString(6, entity.getCitta());
 			pst.setString(7, entity.getTelefono());
+			
+			if(idValido)
+				pst.setInt(8, entity.getId());
+			
 			return insertInto(pst);
-		
+
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
 		}
-		
+
 	}
 	/**
 	 * cancella la tupla corrispondente all'id (PK) del cliente in argomento
@@ -105,14 +115,14 @@ public class DAOCliente extends DAO<Cliente> {
 	@Override
 	public Cliente delete(int pk) throws DAOException {
 		Cliente tuplaOld = select(pk); //recupera il Cliente prima di cancellarlo!
-		
+
 		String sql="DELETE FROM CLIENTE WHERE id = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1, pk); //sostituisco il marcatore
 			pst.executeQuery(); //esegue la QUERY SQL così preparata!
-			
+
 			return tuplaOld;
-			
+
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE DELETE x PK="+pk+". Causa: "+e.getMessage());
 		}
@@ -129,39 +139,39 @@ public class DAOCliente extends DAO<Cliente> {
 				"indirizzo",
 				"citta",
 				"recapito"
-				};
+		};
 	}
 
 	private Cliente componiEntity() throws SQLException {
 		return new Cliente(res.getInt("id")
-						 , res.getString("email")
-						 , res.getString("password")
-						 , res.getString("nome")
-						 , res.getString("cognome")
-						 , res.getString("indirizzo")
-						 , res.getString("citta")
-						 , res.getString("telefono"));
+				, res.getString("email")
+				, res.getString("password")
+				, res.getString("nome")
+				, res.getString("cognome")
+				, res.getString("indirizzo")
+				, res.getString("citta")
+				, res.getString("telefono"));
 	}
 
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
-		
-		Cliente c1 = new Cliente(2, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+
+		Cliente c1 = new Cliente(0, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
 		try {
-		DAOCliente dao = new DAOCliente();
-		
+			DAOCliente dao = new DAOCliente();
+
 
 			int pk = dao.insert(c1);
 			System.out.println("\nCreate - insert()..: "+pk+" (PK generata o meno)");
 			System.out.println("\nRead - select()....: "+dao.select());
 			System.out.println("\nRead - select(pk)..: "+dao.select(pk));
 			System.out.println("\nDelete - delete(pk)....: "+dao.delete(pk));
-		
+
 		} catch (DAOException e) {
 			System.out.println( e );
 			e.printStackTrace();
 		}
-			
+
 	}
 
 }

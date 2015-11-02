@@ -13,7 +13,6 @@ public class Cliente implements Comparable<Cliente> {
 	
 	public Cliente(int id, String email, String password, String nome,
 			String cognome, String indirizzo, String citta, String telefono) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -24,7 +23,7 @@ public class Cliente implements Comparable<Cliente> {
 		this.telefono = telefono;
 	}
 	
-	public int getIdCliente() {
+	public int getId() {
 		return id;
 	}
 

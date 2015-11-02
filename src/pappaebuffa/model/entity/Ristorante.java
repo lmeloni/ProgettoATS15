@@ -1,8 +1,10 @@
 package pappaebuffa.model.entity;
 
+
 public class Ristorante {
 	private int id;
 	private String email;
+	private String password;
 	private String nome;
 	private String categoria;
 	private String indirizzo;
@@ -11,13 +13,15 @@ public class Ristorante {
 	private String descrizione;
 	private String orarioApertura;
 	private String orarioChiusura;
+	//private ArrayList<Preparazione> preparazioni;
 	
-	public Ristorante(int id, String email, String nome,
+	public Ristorante(int id, String email, String password, String nome,
 			String categoria, String indirizzo, String citta, String telefono,
-			String descrizione, String orarioApertura, String orarioChiusura) {
-		super();
+			String descrizione, String orarioApertura, String orarioChiusura/*,
+			ArrayList<Preparazione> preparazioni*/) {
 		this.id = id;
 		this.email = email;
+		this.password = password;
 		this.nome = nome;
 		this.categoria = categoria;
 		this.indirizzo = indirizzo;
@@ -26,9 +30,17 @@ public class Ristorante {
 		this.descrizione = descrizione;
 		this.orarioApertura = orarioApertura;
 		this.orarioChiusura = orarioChiusura;
+		/*this.preparazioni = preparazioni;
+	}
+	
+	public Ristorante(int id, String email, String password, String nome,
+			String categoria, String indirizzo, String citta, String telefono,
+			String descrizione, String orarioApertura, String orarioChiusura) {
+		this(id, email, password, nome, categoria, indirizzo, citta, telefono,
+				descrizione, orarioApertura, orarioChiusura, null);*/
 	}
 
-	public int getIdRistorante() {
+	public int getId() {
 		return id;
 	}
 
@@ -77,5 +89,13 @@ public class Ristorante {
 				+ ", orarioApertura=" + orarioApertura + ", orarioChiusura="
 				+ orarioChiusura + "]";
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	/*public ArrayList<Preparazione> getPreparazioni() {
+		return preparazioni;
+	}*/
 
 }

@@ -2,26 +2,25 @@ package pappaebuffa.model.entity;
 
 public class Preparazione {
 
-	private Pietanza pietanza;
 	private Ristorante ristorante;
+	private Pietanza pietanza;
 	private double prezzo;
 	private String note;
 	
-	public Preparazione(Pietanza pietanza, Ristorante ristorante,
+	public Preparazione(Ristorante ristorante, Pietanza pietanza,
 			double prezzo, String note) {
-		super();
-		this.pietanza = pietanza;
 		this.ristorante = ristorante;
+		this.pietanza = pietanza;
 		this.prezzo = prezzo;
 		this.note = note;
 	}
 
-	public Pietanza getPietanza() {
-		return pietanza;
-	}
-
 	public Ristorante getRistorante() {
 		return ristorante;
+	}
+
+	public Pietanza getPietanza() {
+		return pietanza;
 	}
 
 	public double getPrezzo() {

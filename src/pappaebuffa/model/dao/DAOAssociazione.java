@@ -4,34 +4,34 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Ordine;
+import pappaebuffa.model.entity.Associazione;
 
-public class DAOOrdine extends DAO<Ordine>{
+public class DAOAssociazione extends DAO<Associazione>{
 
-	public DAOOrdine() throws DAOConnessioneException {
+	public DAOAssociazione() throws DAOConnessioneException {
 		super();
 	}
 
 	@Override
-	public ArrayList<Ordine> select() throws DAOException {
+	public ArrayList<Associazione> select() throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Ordine select(int pk) throws DAOException {
+	public Associazione select(int pk) throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insert(Ordine entity) throws DAOException {
+	public int insert(Associazione entity) throws DAOException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public Ordine delete(int pk) throws DAOException {
+	public Associazione delete(int pk) throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
