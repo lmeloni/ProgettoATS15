@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.dao.eccezioni.DAOLoginException;
 import pappaebuffa.model.entity.Cliente;
 
 public class DAOCliente extends DAO<Cliente> {

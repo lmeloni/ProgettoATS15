@@ -1,6 +1,5 @@
-package pappaebuffa.model.dao;
+package pappaebuffa.model.dao.eccezioni;
 
-import pappaebuffa.model.dao.eccezioni.DAOException;
 
 public class DAOLoginException extends DAOException {
 
