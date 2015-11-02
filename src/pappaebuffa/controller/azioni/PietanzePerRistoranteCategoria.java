@@ -3,10 +3,10 @@ package pappaebuffa.controller.azioni;
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
-import pappaebuffa.controller.form.PietanzePerCategoriaForm;
+import pappaebuffa.controller.form.PietanzePerRistoranteCategoriaForm;
 import pappaebuffa.controller.form.RobertoForm;
 
-public class MostraPietanzePerCategoria implements Azione{
+public class PietanzePerRistoranteCategoria implements Azione{
 
 	
 
@@ -15,7 +15,7 @@ public class MostraPietanzePerCategoria implements Azione{
 		
 			
 			 //recupero il form relativo a questa Azione:
-				PietanzePerCategoriaForm f = (PietanzePerCategoriaForm) form;
+				PietanzePerRistoranteCategoriaForm f = (PietanzePerRistoranteCategoriaForm) form;
 				
 				
 				//scelgo di salvare in request il Form (NB: questo passo è cmq SEMPRE svolto in Servlet!)
