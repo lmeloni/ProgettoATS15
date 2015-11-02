@@ -17,6 +17,7 @@ public class Login implements Azione {
 	public String esegui(HttpServletRequest request, Form form) {
 		
 		LoginForm f = (LoginForm) form;
+		request.removeAttribute(form.getClass().getSimpleName());
 		
 		try {
 			DAOCliente dao = new DAOCliente();
