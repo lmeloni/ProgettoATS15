@@ -8,7 +8,7 @@ public class Vai implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
-				return request.getParameter("risorsa");
+		return request.getParameter("risorsa");
 	}
 
 }
