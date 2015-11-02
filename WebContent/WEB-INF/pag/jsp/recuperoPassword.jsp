@@ -10,7 +10,7 @@
 <%@ include file="_top.jsp" %>
 Recupera Password
 <br><br>
-<form action="motore" method="get" > <input type="hidden" name="azione" value="RecuperoPassword" >
+<form action="motore" method="post" > <input type="hidden" name="azione" value="RecuperoPassword" >
 	
 	Email (inserisci quella usata per la registrazione)<br>
 	<input type="text" name="email" value="${RecuperoPasswordForm.email}" >
