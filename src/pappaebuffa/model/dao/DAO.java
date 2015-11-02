@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.entity.Ristorante;
 
 public abstract class DAO<T> {
 	
@@ -62,5 +63,7 @@ public abstract class DAO<T> {
 
 	
 	public abstract String[] columnNames();
+
+
 	
 }
