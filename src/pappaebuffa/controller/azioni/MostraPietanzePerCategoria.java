@@ -1,0 +1,36 @@
+package pappaebuffa.controller.azioni;
+
+import javax.servlet.http.HttpServletRequest;
+
+import pappaebuffa.controller.form.Form;
+import pappaebuffa.controller.form.PietanzePerCategoriaForm;
+import pappaebuffa.controller.form.RobertoForm;
+
+public class MostraPietanzePerCategoria implements Azione{
+
+	
+
+	@Override
+	public String esegui(HttpServletRequest request, Form form) {
+		 try {
+			
+			 //recupero il form relativo a questa Azione:
+				PietanzePerCategoriaForm f = (PietanzePerCategoriaForm) form;
+				
+				f.setFeedback("msg feedback di Roberto: evviva! :-) ");
+				
+				//scelgo di salvare in request il Form (NB: questo passo è cmq SEMPRE svolto in Servlet!)
+				request.setAttribute(f.getClass().getSimpleName(), f);
+				
+				return "robertopage.jsp";
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		return "mostraPietanze.jsp";
+	}
+
+}
