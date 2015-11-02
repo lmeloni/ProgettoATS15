@@ -28,8 +28,9 @@ FORM LOGIN:<br><br>
 		</c:forEach>
 	</label><br>
 	<br>
-	<input type="submit" value="   LOGIN   " > &nbsp;
-	<a href="motore?azione=RecuperaPsw&email=${LoginForm.email}" >Password dimenticata?</a> <br>
+	<input type="submit" value="   LOGIN   " > &nbsp;<br><br>
+	<a href="motore?azione=Vai&risorsa=recuperoPassword.jsp" >Password dimenticata?</a> <br>
+	<a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a> <br>
 </form>
 <hr>
 
