@@ -1,6 +1,6 @@
 package pappaebuffa.model.dao.eccezioni;
 
-public class DAOLoginException extends Exception {
+public class DAOLoginException extends DAOException {
 
 	public DAOLoginException() {
 		// TODO Auto-generated constructor stub
