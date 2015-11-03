@@ -15,28 +15,27 @@ public class Login implements Azione {
 		
 		LoginForm f = (LoginForm) form;
 		
-		
 		try {
 			switch (f.getUtente()) {
 			case "cliente":
-				DAOCliente dao = new DAOCliente();
+				DAOCliente daoCliente = new DAOCliente();
 				//salvo l'oggetto cliente in sessione:
-				request.getSession().setAttribute("utente", dao.login(f.getEmail(), f.getPassword()));
-				return "homeCliente.jsp";	
+				request.getSession().setAttribute("utente", daoCliente.login(f.getEmail(), f.getPassword()));
+				return "homeUtente.jsp";	
 
 		    case "ristorante":
 		    	DAORistorante daoRistorante = new DAORistorante();
-				//salvo l'oggetto cliente in sessione:
+				//salvo l'oggetto ristorante in sessione:
 				request.getSession().setAttribute("utente", daoRistorante.login(f.getEmail(), f.getPassword()));
-				return "homeRistorante.jsp";	
+				return "homeUtente.jsp";	
 
 			default:
+				request.setAttribute("errore", "ANOMALIA: UTENTE INVALIDO: "+ f.getUtente());
 				return "errore.jsp";
 			}
 			
-			
-			
 		} catch (DAOException e) {
+			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
 		

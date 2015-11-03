@@ -1,11 +1,23 @@
 ATTIVITA' TODO...
-===================================================================
-Finire PietanzeByRistoranteCategoria (Laura, Elisa, Pierluigi)
-Finire creazione ordine e associazioni (iniziato da Noemi & Lucia)
-Aggiustare le view (JSP) e collegarle fra loro (da assegnare)
-Accesso e registrazione ristorante (in secondo piano, Giancarlo e Claudia)
-Update Cliente - modifica profilo utente (Federica e Simone)
-Rendere dinamica la scelta della categoria dei ristoranti (Roberto e Fabio)
+=================================================================================
+   Finire creazione ordine e associazioni [iniziato da Noemi & Lucia]
+   Rendere dinamica la scelta della categoria dei ristoranti [Roberto e Fabio]
+OK Accesso e registrazione ristorante [Giancarlo e Claudia]
+OK Update Cliente - modifica profilo utente [Federica, Simone]
+
+   Aggiustare le view (JSP) e collegarle fra loro (da assegnare)
+   Stile grafico (CSS, da assegnare)
+   
+OK Ristorante - modifica profilo [Federica, Simone]
+
+   Ristorante - aggiungere una pietanza 
+               (la pietanza deve appartenere ad una categoria)
+            
+   Ristorante - rimuovere una pietanza 
+               (si rimuove la preparazione di quella pietanza, NON LA PIETANZA!)
+            
+   Ristorante - un ristorante può visualizzare gli ordini 
+               (solo quelli che lo riguardano) [Pierluigi, Laura, Elisa]
 
 
-Stile grafico (CSS, da assegnare)
+

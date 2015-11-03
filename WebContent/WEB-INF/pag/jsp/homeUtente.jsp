@@ -3,13 +3,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>provaDaHref.jsp</title>
+<title>HomeCategoria</title>
 </head>
 <body>
-PAGINA provaDaHref.jsp
+<%@ include file="_top.jsp" %>
+pagina HomeCategoria
 <hr>
-nome: ${nome}<br>
-eta: ${eta}<br>
-<br>
+Benvenuto 
+
+<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<a href="motore?azione=ProfiloRistorante" >${utente.nome}</a> <br>
+
+
 </body>
 </html>
