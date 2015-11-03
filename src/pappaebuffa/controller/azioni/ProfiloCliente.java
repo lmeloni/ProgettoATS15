@@ -12,7 +12,7 @@ public class ProfiloCliente implements Azione {
 	public String esegui(HttpServletRequest request, Form form) {
 		
 		//recupero il cliente dalla sessione:
-		Cliente c = (Cliente) request.getSession().getAttribute("cliente");
+		Cliente c = (Cliente) request.getSession().getAttribute("utente");
 		
 		AggiornaProfiloForm apf= new AggiornaProfiloForm(c.getEmail(), c.getNome(), c.getCognome(), c.getIndirizzo(), 
 				c.getCitta(), c.getTelefono(), c.getPassword());
