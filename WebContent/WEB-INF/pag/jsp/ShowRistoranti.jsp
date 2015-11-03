@@ -10,7 +10,7 @@
  <br>	
 <br>
 <form action = "motore">
-	<input type = "hidden" name = "azione" value = "QUALCOSA">
+	<input type = "hidden" name = "azione" value = "PietanzePerRistoranteCategoria">
 	Scegli il ristorante...<br>
 	<select name = "ristorante">
 		<c:forEach var = "ristorante" items = "${ristoranti}">

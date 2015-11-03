@@ -1,6 +1,5 @@
 package pappaebuffa.controller.form;
 
-import pappaebuffa.controller.bean.Errore;
 
 public class PietanzePerRistoranteCategoriaForm extends Form {
 	
@@ -14,14 +13,14 @@ public class PietanzePerRistoranteCategoriaForm extends Form {
 	}
 
 	
-	public int getId_ristorante() {
+	public int getIdRistorante() {
 		return idRistorante;
 	}
 
 
 	public void parametri2campiForm() {
-		this.categoria = super.request.getParameter("categoria");
-		this.idRistorante = Integer.parseInt(super.request.getParameter("idRistorante"));
+		this.categoria = request.getParameter("categoria");
+		this.idRistorante = Integer.parseInt(request.getParameter("ristorante"));
 	}
 	
 
