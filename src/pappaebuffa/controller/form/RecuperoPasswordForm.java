@@ -4,15 +4,22 @@ import pappaebuffa.controller.bean.Errore;
 import pappaebuffa.model.Utilita;
 
 public class RecuperoPasswordForm extends Form {
+	
+	private String utente;
 	private String email;
 	
+	public String getUtente() {
+		return utente;
+	}
 	public String getEmail() {
 		return email;
 	}
+	
 	@Override
 	public void parametri2campiForm() {
 		this.email=super.request.getParameter("email");
 	}
+	
 	@Override
 	public boolean validazione() {
 		

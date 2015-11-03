@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registrazione</title>
+<title>registrazione</title>
 </head>
 <body>
 <%@ include file="_top.jsp" %>
@@ -14,6 +14,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 <form action="motore" method="get" > <input type="hidden" name="azione" value="Registrazione" >
 
 <table cellpadding="3" cellspacing="3" >
+
 	<tbody>
 	<tr>
 		<td align="right">(*) Nome</td>

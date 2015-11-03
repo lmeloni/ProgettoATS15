@@ -13,18 +13,16 @@ public class LoginForm extends Form {
 	private String email;
 	private String password;
 
+	public String getUtente() {
+		return utente;
+	}
 	public String getEmail() {
 		return email;
 	}
-
 	public String getPassword() {
 		return password;
 	}
 	
-	public String getUtente() {
-		return utente;
-	}
-
 	@Override
 	public void parametri2campiForm()  {
 		this.utente = super.request.getParameter("utente");

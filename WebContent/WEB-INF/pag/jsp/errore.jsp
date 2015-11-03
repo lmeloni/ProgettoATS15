@@ -3,11 +3,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Fattoria|errore</title>
+<title>errore</title>
 </head>
 <body bgcolor="yellow" text="red" >
-
-<h3><b>${errore}</b></h3>
-
+<%@ include file="_top.jsp" %>
+<br>
+<h4><b>${errore}</b></h4>
+<br>
 </body>
 </html>

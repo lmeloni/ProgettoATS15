@@ -3,10 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>PeB|welcome</title>
+<title>login</title>
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<strong>Entra in Pappa & Buffa!</strong>
 <br>
 <strong>${RegistrazioneForm.feedback}</strong>
 <br>
@@ -67,8 +68,10 @@
 </table>
 
 </form>
-Per Nunzia Elisa & Laura:<br>
-<a href="motore?azione=MostraPietanzePerCategoria">Pietanze per categoria</a>
+<br><br>
+<strong>AZIONI Elisa e Laura:</strong>
+<br>
+<a href="motore?azione=PietanzePerRistoranteCategoria">PietanzePerRistoranteCategoria</a>
 <br>
 <a href="motore?azione=MostraOrdinePerRistorante">MostraOrdinePerRistorante</a>
 
