@@ -30,9 +30,7 @@ public class ComponiOrdineForm extends Form{
 	public ArrayList<Integer> getQuantita() {
 		return quantita;
 	}
-
-
-
+	
 	@Override
 	public void parametri2campiForm() {
 		
