@@ -19,13 +19,12 @@ public class MostraRistorantiPerCategoria implements Azione {
 		try {
 			MostraRistorantiPerCategoriaForm f = (MostraRistorantiPerCategoriaForm) form;
 			DAORistorante dao = new DAORistorante();
-			ArrayList<Ristorante> arraylistRistorante = 
-					dao.selectByCategoria(f.getCategoria());
+			ArrayList<Ristorante> arraylistRistorante = dao.selectByCategoria(f.getCategoria());
 			
 			request.setAttribute("ristoranti",arraylistRistorante );
 			request.setAttribute("categorie",new DAOPietanza().selectCategoria());
 			
-			return "ShowRistoranti.jsp";
+			return "showRistoranti.jsp";
 		} catch (DAOException e) {
 			e.printStackTrace();
 			return "errore.jsp"; // VERIFICARE SE VA BENE
