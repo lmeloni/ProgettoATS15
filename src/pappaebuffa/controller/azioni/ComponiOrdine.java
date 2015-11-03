@@ -25,10 +25,17 @@ public class ComponiOrdine implements Azione{
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
-	ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
+	
+		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
+		
 		try {
+			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
+				Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), pietanza, pietanza.get);
+				
+			}
+			
 			double totaleOrdine = 0;
-			Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), );
+			
 			
 			for (int numeroPorzioni : quantita){
 				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
