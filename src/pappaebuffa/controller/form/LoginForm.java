@@ -3,11 +3,14 @@ package pappaebuffa.controller.form;
 import pappaebuffa.controller.bean.Errore;
 import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.DAOCliente;
+import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.dao.eccezioni.DAOLoginException;
 
 public class LoginForm extends Form {
 	
+	
+	private String utente;
 	private String email;
 	private String password;
 
@@ -18,9 +21,14 @@ public class LoginForm extends Form {
 	public String getPassword() {
 		return password;
 	}
+	
+	public String getUtente() {
+		return utente;
+	}
 
 	@Override
 	public void parametri2campiForm()  {
+		this.utente=super.request.getParameter("utente");
 		this.email=super.request.getParameter("email");
 		this.password=super.request.getParameter("password");
 	}
@@ -36,9 +44,23 @@ public class LoginForm extends Form {
 			else if (! Utilita.validaEmail(email))
 				super.errori.add(new Errore("email", "email formalmente errata"));
 			else {
+				//TODO switch case se l'utente è un cliente o un ristorante
 				try {
-					DAOCliente dao = new DAOCliente();
-					dao.login(email, password);	
+					
+					switch (utente) {
+					case "cliente":
+						DAOCliente dao = new DAOCliente();
+						dao.login(email, password);	
+						break;
+
+				    case "ristorante":
+				    	DAORistorante daoRistorante = new DAORistorante();
+				    	daoRistorante.login(email, password);		
+						break;
+
+					default:
+						break;
+					}
 					
 				} catch (DAOLoginException e) {
 					super.errori.add(new Errore("email", e.getMessage()));

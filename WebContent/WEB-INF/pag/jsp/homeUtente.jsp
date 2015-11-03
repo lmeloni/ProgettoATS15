@@ -9,8 +9,10 @@
 <%@ include file="_top.jsp" %>
 pagina HomeCategoria
 <hr>
-Benvenuto ${cliente.nome} <br>
+Benvenuto 
 
+<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<a href="motore?azione=ProfiloRistorante" >${utente.nome}</a> <br>
 
 
 </body>
