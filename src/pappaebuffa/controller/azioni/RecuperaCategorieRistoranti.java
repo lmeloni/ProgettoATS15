@@ -21,13 +21,14 @@ public class RecuperaCategorieRistoranti implements Azione {
 			 ArrayList<String> select = new ArrayList<String>();
 			select = dao.selectCategoria();
 			request.setAttribute("post_it", select);
+			
+			return "ristorantiPerCategorie.jsp";
+		
 		} catch (DAOException e) {
 			 
-			e.printStackTrace();
+			return "errore.jsp";
 		}
 		 
-		 
-		 return "RistorantiPerCategoria.jsp";
 		 
 	}
 

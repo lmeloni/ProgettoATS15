@@ -29,9 +29,10 @@ public abstract class DAO<T> {
 	}
 	
 	
-	public static DAO getIstanza(String entita) throws DAOException {
+	public DAO getIstanza(T entita) throws DAOException {
 		DAO dao;
-		switch(entita) { //istanziare il DAOxxx() opportuno:
+		//istanziare il DAOxxx() opportuno con factory tecnica reflection:
+		switch(entita.getClass().getSimpleName()) { 
 		case "entita1":	 dao = null;  break;
 		case "entita2":	 dao = null;  break;
 		case "entita3":	 dao = null;  break;
