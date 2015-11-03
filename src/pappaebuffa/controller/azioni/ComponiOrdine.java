@@ -19,16 +19,16 @@ import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Associazione;
 import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ordine;
+import pappaebuffa.model.entity.Pietanza;
 
 public class ComponiOrdine implements Azione{
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
-		
+	ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		try {
 			double totaleOrdine = 0;
-			/*ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
-			Preparazione p = new DAOPreparazione().select(((ComponiOrdineForm) form).getRistorante().getId(), idPietanza);
+			/*DAOPreparazione p = new DAOPreparazione();
 			
 			for (int numeroPorzioni : quantita){
 				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
@@ -46,23 +46,24 @@ public class ComponiOrdine implements Azione{
 			// per il DAOPietanza, costruire le associazioni fra l'ordine e le singole pietanze
 			
 			if(idOrdine > 0) {
-				String[] idPietanze = request.getParameterValues("pietanza");
+
 				DAOAssociazione dao = new DAOAssociazione();
 				
 				// Bisogna settare l'id dell'ordine in qualche modo,
 				// altrimenti l'insert del DAOAssociazione darà errore
-				ordine.setId(idOrdine);
 				
-				for (String idPietanza : idPietanze)
+				ordine.setId(idOrdine);
+				int i=0;
+				
+				for (Pietanza pietanza : ((ComponiOrdineForm)form).getPietanze()){
 					dao.insert(new Associazione(ordine
-							, new DAOPietanza().select(Integer.parseInt(idPietanza))
-							, 1));
-				// TODO Bisogna gestire le porzioni multiple in qualche modo...
-			} else {
-				// CHE MINCHIA STA SUCCEDENDO??
-				// Se l'ordine è stato inserito ma, per qualche motivo,
-				// non siamo riusciti a recuperarne l'id...siamonnellammerda 
+							, new DAOPietanza().select(pietanza.getId())
+							, quantita.get(i)));
+					i++;
+				}
+	
 			}
+			
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
