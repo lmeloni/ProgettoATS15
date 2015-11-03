@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.dao.eccezioni.DAOLoginException;
+import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ristorante;
 
 public class DAORistorante extends DAO<Ristorante> {
@@ -210,6 +212,26 @@ public class DAORistorante extends DAO<Ristorante> {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public Ristorante login(String email,String password) throws DAOException, DAOLoginException {
+		String sql="SELECT id,email,password,nome,categoria,indirizzo,citta,telefono,descrizione,orario_apertura,orario_chiusura "
+				+ "FROM RISTORANTE "
+				+ "WHERE email = ? "
+				+ "  AND password = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, email); 
+			pst.setString(2, password); 
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return componiEntity(); 
+			else
+				throw new DAOLoginException("l'email o la password sono errati");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE LOGIN x email="+email+". Causa: "+e.getMessage());
+		}
 	}
 	
 	
