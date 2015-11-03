@@ -13,13 +13,15 @@ Azione di Fabio da solo perchè Claudia è andata via prima!
 <form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
 Nome<br>
+
 	<input type="text" name="nome" value="${RegistrazioneForm.nome}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
-	</label><br>
-Cognome<br>
+	</label><br> *
+Cognome *<br>
+
 	<input type="text" name="cognome" value="${RegistrazioneForm.cognome}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
@@ -27,6 +29,7 @@ Cognome<br>
 		</c:forEach>
 	</label><br>	
 Indirizzo<br>
+* 
 	<input type="text" name="indirizzo" value="${RegistrazioneForm.indirizzo}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
@@ -34,6 +37,7 @@ Indirizzo<br>
 		</c:forEach>
 	</label><br>
 Città<br>
+*
 	<input type="text" name="citta" value="${RegistrazioneForm.citta}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
@@ -47,14 +51,16 @@ Telefono<br>
 			<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>	
-Email<br>
+Email<br>&nbsp&nbsp<h5>L'E-MAIL TI SERVIRÀ PER ACCEDERE E NOI LA USEREMO PER CONTATTARTI.</h5>
+*
 	<input type="text" name="email" value="${RegistrazioneForm.email}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
-Password<br>
+Password<br>&nbsp&nbsp<h5>LA PASSWORD DEVE CONTENERE TRA GLI 8 E I 25 CARATTERI E INCLUDERE LETTERE E NUMERI.</h5>
+*
 	<input type="password" name="password" >	
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
