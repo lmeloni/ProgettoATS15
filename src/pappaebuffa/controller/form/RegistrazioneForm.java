@@ -4,6 +4,7 @@ import pappaebuffa.controller.bean.Errore;
 import pappaebuffa.model.Utilita;
 
 public class RegistrazioneForm extends Form {
+	
 	private String email;
 	private String password;
 	private String passwordConferma;
@@ -12,6 +13,7 @@ public class RegistrazioneForm extends Form {
 	private String indirizzo;
 	private String citta;
 	private String telefono;
+	
 	@Override
 	public void parametri2campiForm() {
 		this.email=super.request.getParameter("email");
@@ -22,8 +24,8 @@ public class RegistrazioneForm extends Form {
 		this.citta=super.request.getParameter("citta");
 		this.telefono=super.request.getParameter("telefono");
 		this.passwordConferma=super.request.getParameter("passwordConferma");
-
 	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -48,6 +50,7 @@ public class RegistrazioneForm extends Form {
 	public String getTelefono() {
 		return telefono;
 	}
+	
 	@Override
 	public boolean validazione() {
 		

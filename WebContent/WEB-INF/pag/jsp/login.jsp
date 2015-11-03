@@ -7,7 +7,9 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-
+<br>
+<strong>${RegistrazioneForm.feedback}</strong>
+<br>
 <form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
 
 <table cellpadding="5" cellspacing="5" >
