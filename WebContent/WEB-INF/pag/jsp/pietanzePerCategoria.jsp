@@ -12,11 +12,11 @@
 <input type = "hidden" name = "azione" value = "ComponiOrdine">
 <input type = "hidden" name = "ristorante" value = "${PietanzePerRistoranteCategoriaForm.idRistorante}">
 <input type = "hidden" name = "cliente" value = "${sessionScope.cliente.id}">
-<c:forEach var = "pietanza" items = "${pietanze}" items = "${prepazione}">
-	<label><input type = "checkbox" name = "pietanza" value = "${pietanza.id}">${pietanza.nome}</label> 
-	<input type = "number" name = "quantita${pietanza.id}" min = "1" value = "1" style = "width: 50px;"><br>
-	<input type = "text" name = "prezzo" value = "${preparazione.prezzo}">${preparazione.prezzo} 
-</c:forEach>
+	<c:forEach var = "pietanza" items = "${pietanze}" >
+		<label><input type = "checkbox" name = "pietanza" value = "${pietanza.id}">${pietanza.nome}</label> 
+		<input type = "number" name = "quantita${pietanza.id}" min = "1" value = "1" style = "width: 50px;">
+		<br>
+	</c:forEach>
 <input type = "submit" value = "Ordina...">
 </form>	
 </body>

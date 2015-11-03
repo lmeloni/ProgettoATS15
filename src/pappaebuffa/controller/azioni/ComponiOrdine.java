@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import oracle.jdbc.proxy.annotation.Pre;
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.controller.form.ComponiOrdineForm;
 import pappaebuffa.model.dao.DAOAssociazione;
@@ -29,19 +30,18 @@ public class ComponiOrdine implements Azione{
 		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		
 		try {
-//			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
-//				Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), pietanza, pietanza.getId());
-//				
-//			}
 			
 			double totaleOrdine = 0;
+			int i=0;
 			
-			
-			for (int numeroPorzioni : quantita){
-//				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
+			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
 				
+				Preparazione p = new DAOPreparazione().select(((ComponiOrdineForm) form).getRistorante().getId(), pietanza.getId());
+				totaleOrdine += p.getPrezzo() * quantita.get(i);
+				i++;
 			}
-			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("cliente")
+			
+			Ordine ordine = new Ordine(0, new Cliente(1,null, null, null, null, null, null, null)//(Cliente) request.getSession().getAttribute("cliente")
 					, ((ComponiOrdineForm) form).getRistorante()
 					, (Timestamp) null, totaleOrdine, (Timestamp) null);
 			// TODO Gestire i Timestamp e il totale dell'ordine...
@@ -60,13 +60,13 @@ public class ComponiOrdine implements Azione{
 				// altrimenti l'insert del DAOAssociazione darà errore
 				
 				ordine.setId(idOrdine);
-				int i=0;
+				int j=0;
 				
 				for (Pietanza pietanza : ((ComponiOrdineForm)form).getPietanze()){
 					dao.insert(new Associazione(ordine
 							, new DAOPietanza().select(pietanza.getId())
 							, quantita.get(i)));
-					i++;
+					j++;
 				}
 	
 			}
@@ -75,7 +75,7 @@ public class ComponiOrdine implements Azione{
 			e.printStackTrace();
 		}
 
-		return null;
+		return "welcome.jsp";
 	}
 
 }
