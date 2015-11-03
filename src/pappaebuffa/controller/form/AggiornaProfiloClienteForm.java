@@ -2,7 +2,7 @@ package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
 
-public class AggiornaProfiloForm extends Form {
+public class AggiornaProfiloClienteForm extends Form {
 	
 	private String email; //non verrà mai modificato
 	private String nome;
@@ -17,7 +17,7 @@ public class AggiornaProfiloForm extends Form {
 	/**
 	 * Costruttore usato unicamente nell'azione ProfiloCliente
 	 */
-	public AggiornaProfiloForm(String email, String nome, String cognome, String indirizzo,
+	public AggiornaProfiloClienteForm(String email, String nome, String cognome, String indirizzo,
 			String citta, String telefono, String password) {
 		super();
 		this.email = email;

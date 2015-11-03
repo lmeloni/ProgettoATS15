@@ -10,7 +10,9 @@
 pagina HomeCategoria
 <hr>
 Benvenuto 
-<a href="motore?azione=ProfiloCliente" >${cliente.nome}</a> <br>
+
+<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<a href="motore?azione=ProfiloRistorante" >${utente.nome}</a> <br>
 
 
 </body>
