@@ -10,6 +10,8 @@
 
 <form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
+<table cellpadding="4" cellspacing="4" >
+<tbody>
 	Nome (*)<br>
 	<input type="text" name="nome" value="${RegistrazioneForm.nome}" ><br>
 	<font size="2" style="color: red;" >
@@ -78,7 +80,7 @@
 		</c:forEach>
 	</font><br>
 	<hr>
-	
+</table>tbody>	
 	(*) Campi obbligatori
 	<br><br>
 	
