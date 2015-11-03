@@ -1,26 +1,22 @@
 package pappaebuffa.controller.azioni;
 
-
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import oracle.jdbc.proxy.annotation.Pre;
-import pappaebuffa.controller.form.Form;
 import pappaebuffa.controller.form.ComponiOrdineForm;
+import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAOAssociazione;
-import pappaebuffa.model.dao.DAOCliente;
 import pappaebuffa.model.dao.DAOOrdine;
 import pappaebuffa.model.dao.DAOPietanza;
 import pappaebuffa.model.dao.DAOPreparazione;
-import pappaebuffa.model.entity.Preparazione;
-import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Associazione;
 import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ordine;
 import pappaebuffa.model.entity.Pietanza;
+import pappaebuffa.model.entity.Preparazione;
 
 public class ComponiOrdine implements Azione{
 
@@ -30,7 +26,6 @@ public class ComponiOrdine implements Azione{
 		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		
 		try {
-			
 			double totaleOrdine = 0;
 			int i=0;
 			
@@ -68,14 +63,15 @@ public class ComponiOrdine implements Azione{
 							, quantita.get(i)));
 					j++;
 				}
-	
 			}
 			
+			return "welcome.jsp";
+			
 		} catch (DAOException e) {
-			e.printStackTrace();
+			request.setAttribute("errore", e.getMessage());
+			return "errore.jsp";
 		}
-
-		return "welcome.jsp";
+		
 	}
 
 }

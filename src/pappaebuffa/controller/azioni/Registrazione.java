@@ -29,6 +29,7 @@ public class Registrazione implements Azione {
 			return "login.jsp";
 			
 		} catch (DAOException e) {
+			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
 		

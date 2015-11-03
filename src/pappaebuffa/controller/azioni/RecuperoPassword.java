@@ -24,6 +24,7 @@ public class RecuperoPassword implements Azione {
 			f.setFeedback("Spiacenti, email non registrata!");
 			return f.getPagina();
 		} catch (DAOException e) {
+			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
 	}

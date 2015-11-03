@@ -15,19 +15,20 @@ public class AggiornaProfiloCliente implements Azione {
 		
 		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
-		Cliente c = new Cliente(f.getId(), f.getEmail(), f.getPassword(), f.getNome(),
-				f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
+		//creo il Cliente con i NUOVI dati provenienti dal form:
+		Cliente cliente = new Cliente(f.getId(), f.getEmail(), f.getPassword(), 
+			f.getNome(), f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
 		
 		try {
-			DAOCliente dao=new DAOCliente();
-			//recupero il cliente dalla sessione:
-			dao.update(c);
+			DAOCliente dao = new DAOCliente();
+			dao.update(cliente);
 			
-			request.getSession().setAttribute("utente", c);
+			request.getSession().setAttribute("utente", cliente);
 			
-			return "MostraRistorantiPerCategoria";
+			return "homeUtente.jsp";
 			
 		} catch (DAOException e) {
+			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
 		

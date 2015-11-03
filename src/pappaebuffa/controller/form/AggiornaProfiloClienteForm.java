@@ -43,14 +43,10 @@ public class AggiornaProfiloClienteForm extends Form {
 		this.password=super.request.getParameter("password");
 		this.passwordConferma=super.request.getParameter("passwordConferma");
 	}
-	
-	
-
-	
+		
 	public int getId() {
 		return id;
 	}
-
 	public String getEmail() {
 		return email;
 	}

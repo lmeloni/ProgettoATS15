@@ -11,15 +11,16 @@ public class ProfiloCliente implements Azione {
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
-		//recupero il cliente dalla sessione:
+		//recupero il cliente (utente) dalla sessione:
 		Cliente c = (Cliente) request.getSession().getAttribute("utente");
 		
-		AggiornaProfiloClienteForm apf= new AggiornaProfiloClienteForm(1, c.getEmail(), c.getNome(), c.getCognome(), c.getIndirizzo(), 
+		//popolo il form che mostrerà i dati da modificare:
+		AggiornaProfiloClienteForm apf = new AggiornaProfiloClienteForm(c.getId(), c.getEmail(), 
+				c.getNome(), c.getCognome(), c.getIndirizzo(), 
 				c.getCitta(), c.getTelefono(), c.getPassword());
 		
 		//salvo in sessione il form che servirà alla pagina profiloCliente
 		request.getSession().setAttribute("AggiornaProfiloForm", apf);
-		
 		
 		return "profiloCliente.jsp";
 	}
