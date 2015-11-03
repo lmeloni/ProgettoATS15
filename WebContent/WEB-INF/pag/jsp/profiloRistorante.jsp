@@ -11,10 +11,10 @@
 <hr>
 <form action="motore" method="get" > <input type="hidden" name="azione" value="AggiornaProfilo" >
 ID(non modificabile)<br>
-	<input type="text" disabled name="email" value="${AggiornaProfiloForm.email}" >
+	<input type="text" disabled name="id" value="${AggiornaProfiloForm.email}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${AggiornaProfiloForm.errori}">
-			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
+			<c:if test="${e.param=='id'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
 Email(non modificabile)<br>
@@ -39,10 +39,10 @@ Nome<br>
 		</c:forEach>
 	</label><br>
 Categoria<br>
-	<input type="text" name="cognome" value="${AggiornaProfiloForm.cognome}" >
+	<input type="text" name="categoria" value="${AggiornaProfiloForm.cognome}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${AggiornaProfiloForm.errori}">
-			<c:if test="${e.param=='cognome'}"> <c:out value="${e.errmsg}"/> </c:if>
+			<c:if test="${e.param=='categoria'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>	
 Indirizzo<br>
@@ -67,10 +67,24 @@ Telefono<br>
 		</c:forEach>
 	</label><br>	
 Descrizione<br>
-	<input type="password" name="passwordConferma" >	
+	<input type="password" name="descrizione" >	
 	<label style="color: red;">
 		<c:forEach var="e" items="${AggiornaProfiloForm.errori}">
-			<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
+			<c:if test="${e.param=='descrizione'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>
+Orario di Apertura<br>
+	<input type="password" name="orarioApertura" >	
+	<label style="color: red;">
+		<c:forEach var="e" items="${AggiornaProfiloForm.errori}">
+			<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>
+Orario di chiusura<br>
+	<input type="password" name="orarioChiusura" >	
+	<label style="color: red;">
+		<c:forEach var="e" items="${AggiornaProfiloForm.errori}">
+			<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
 <br>	

@@ -180,6 +180,8 @@ public class DAORistorante extends DAO<Ristorante> {
 			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
