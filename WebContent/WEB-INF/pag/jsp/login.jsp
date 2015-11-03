@@ -7,11 +7,11 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-AZIONI Giuseppe & Gian Carlo
-<hr>
-FORM LOGIN:<br><br>
-<form action="motore" method="post" > <input type="hidden" name="azione" value="Login" >
-	
+
+<form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
+	<input type="radio" name="utente" value="cliente" checked="checked" />Cliente &nbsp;
+	<input type="radio" name="utente" value="ristorante"/>Ristoratore
+	<br><br>
 	Email<br>
 	<input type="text" name="email" value="${LoginForm.email}" >
 	<label style="color: red;">
@@ -33,9 +33,6 @@ FORM LOGIN:<br><br>
 	<a href="motore?azione=Vai&risorsa=recuperoPassword.jsp" >Password dimenticata?</a> <br>
 	<a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a> <br>
 </form>
-<hr>
-
-
 
 </body>
 </html>

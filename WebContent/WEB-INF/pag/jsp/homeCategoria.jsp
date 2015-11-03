@@ -9,8 +9,8 @@
 <%@ include file="_top.jsp" %>
 pagina HomeCategoria
 <hr>
-Benvenuto ${cliente.nome} <br>
-
+Benvenuto 
+<a href="motore?azione=ProfiloCliente" >${cliente.nome}</a> <br>
 
 
 </body>
