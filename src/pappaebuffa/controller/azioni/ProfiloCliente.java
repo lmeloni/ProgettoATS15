@@ -14,7 +14,7 @@ public class ProfiloCliente implements Azione {
 		//recupero il cliente dalla sessione:
 		Cliente c = (Cliente) request.getSession().getAttribute("utente");
 		
-		AggiornaProfiloClienteForm apf= new AggiornaProfiloClienteForm(c.getEmail(), c.getNome(), c.getCognome(), c.getIndirizzo(), 
+		AggiornaProfiloClienteForm apf= new AggiornaProfiloClienteForm(1, c.getEmail(), c.getNome(), c.getCognome(), c.getIndirizzo(), 
 				c.getCitta(), c.getTelefono(), c.getPassword());
 		
 		//salvo in sessione il form che servirà alla pagina profiloCliente

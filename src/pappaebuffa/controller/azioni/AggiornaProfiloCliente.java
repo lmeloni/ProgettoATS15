@@ -15,13 +15,15 @@ public class AggiornaProfiloCliente implements Azione {
 		
 		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
-		Cliente c = new Cliente(id, email, password, nome, cognome, indirizzo, citta, telefono)
+		Cliente c = new Cliente(f.getId(), f.getEmail(), f.getPassword(), f.getNome(),
+				f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
 		
 		try {
 			DAOCliente dao=new DAOCliente();
 			//recupero il cliente dalla sessione:
-			Cliente c = (Cliente) request.getSession().getAttribute("utente");
 			dao.update(c);
+			
+			request.getSession().setAttribute("utente", c);
 			
 			return "MostraRistorantiPerCategoria";
 			
