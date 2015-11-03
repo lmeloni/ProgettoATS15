@@ -13,7 +13,7 @@
 	<input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />
 	<h3>SELEZIONA LA CATEGORIA</h3><br><hr>
 <select name="categoria">
-	<c:forEach var = "categoria" items = "${post_it}">
+	<c:forEach var = "categoria" items = "${ristoranti}">
 			<option value = "${categoria}">${categoria}</option>
 		</c:forEach>
 	

@@ -24,7 +24,7 @@ public class MostraRistorantiPerCategoria implements Azione {
 			request.setAttribute("ristoranti",arraylistRistorante );
 			request.setAttribute("categorie",new DAOPietanza().selectCategoria());
 			
-			return "showRistoranti.jsp";
+			return "ristorantiPerCategorie.jsp";
 		} catch (DAOException e) {
 			e.printStackTrace();
 			return "errore.jsp"; // VERIFICARE SE VA BENE
