@@ -29,16 +29,16 @@ public class ComponiOrdine implements Azione{
 		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		
 		try {
-			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
-				Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), pietanza, pietanza.get);
-				
-			}
+//			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
+//				Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), pietanza, pietanza.getId());
+//				
+//			}
 			
 			double totaleOrdine = 0;
 			
 			
 			for (int numeroPorzioni : quantita){
-				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
+//				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
 				
 			}
 			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("cliente")
