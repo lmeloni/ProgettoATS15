@@ -28,12 +28,12 @@ public class ComponiOrdine implements Azione{
 	ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		try {
 			double totaleOrdine = 0;
-			/*DAOPreparazione p = new DAOPreparazione();
+			Preparazione p = new Preparazione(((ComponiOrdineForm) form).getRistorante(), );
 			
 			for (int numeroPorzioni : quantita){
 				totaleOrdine = totaleOrdine + (numeroPorzioni * p.getPrezzo());
 				
-			}*/
+			}
 			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("cliente")
 					, ((ComponiOrdineForm) form).getRistorante()
 					, (Timestamp) null, totaleOrdine, (Timestamp) null);
