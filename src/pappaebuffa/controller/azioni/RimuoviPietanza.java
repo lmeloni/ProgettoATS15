@@ -25,8 +25,9 @@ public class RimuoviPietanza implements Azione {
 		} catch (DAOException e) {
 			
 			e.printStackTrace();
+			return "errore.jsp";
 		}
-		return null;
+		return "welcome.jsp";
 		
 	}
 
