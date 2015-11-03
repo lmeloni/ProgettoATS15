@@ -11,83 +11,128 @@
 <form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
 <table cellpadding="4" cellspacing="4" >
-<tbody>
-	Nome (*)<br>
-	<input type="text" name="nome" value="${RegistrazioneForm.nome}" ><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach> 
-	</font><br>
+	<tbody>
+	<tr>
+		<td align="right">(*) Nome</td>
+		<td><input type="text" name="nome" value="${RegistrazioneForm.nome}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
 	
-	Cognome (*)<br>
-	<input type="text" name="cognome" value="${RegistrazioneForm.cognome}" ><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='cognome'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
+	<tr>
+		<td align="right">(*) Cognome</td>
+		<td><input type="text" name="cognome" value="${RegistrazioneForm.cognome}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='cognome'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Email</td>
+		<td><input type="text" name="email" value="${RegistrazioneForm.email}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Indirizzo di consegna</td>
+		<td><input type="text" name="indirizzo" value="${RegistrazioneForm.indirizzo}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='indirizzo'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Città</td>
+		<td><input type="text" name="citta" value="${RegistrazioneForm.citta}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">Telefono </td>
+		<td><input type="text" name="telefono" value="${RegistrazioneForm.telefono}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
 		
-	Email (*)<br>
-	<input type="text" name="email" value="${RegistrazioneForm.email}" >
-	<font size="2">L'email ti servirà per accedere.</font><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
+	<tr>
+		<td align="right">(*) Password (*) </td>
+		<td><input type="password" name="password" value="${RegistrazioneForm.password}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
 	
-	Indirizzo di consegna (*)<br>
-	<input type="text" name="indirizzo" value="${RegistrazioneForm.indirizzo}" ><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='indirizzo'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
+	<tr>
+		<td align="right">(*) Conferma password </td>
+		<td><input type="password" name="passwordConferma" value="${RegistrazioneForm.passwordConferma}" ></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneForm.errori}">
+				<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
 	
-	Città (*)<br>
-	<input type="text" name="citta" value="${RegistrazioneForm.citta}" ><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
 	
-	Telefono <br>
-	<input type="text" name="telefono" value="${RegistrazioneForm.telefono}" >
-	<font size="2">Useremo il tuo numero per contattarti.</font><br>
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
+	<tfoot>
+	<tr>
+		<td>(*) Campi obbligatori</td>
+	</tr>	
+	<tr>
+		<td><input type="submit" value="   Registrati   " ></td>
+	</tr>
+	<tr>
+		<td>Sei già registrato? 
+		</td>
+		<td>
+		<a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a></td>
 	
-	<hr>
-	Password (*) <br>
-	<input type="password" name="password" >
-	<font size="2">La password deve contenere almeno 8 caratteri e includere numeri e lettere.</font><br>	
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
-	
-	Conferma password<br>
-	<input type="password" name="passwordConferma" ><br>	
-	<font size="2" style="color: red;" >
-		<c:forEach var="e" items="${RegistrazioneForm.errori}">
-			<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</font><br>
-	<hr>
-</table>tbody>	
-	(*) Campi obbligatori
-	<br><br>
-	
-	<input type="submit" value="   Registrati   " > &nbsp;&nbsp;
-	
-	Sei già registrato?	<a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
-	
+	</tr>
+	</tfoot>
+</table>
 </form>
 
 </body>

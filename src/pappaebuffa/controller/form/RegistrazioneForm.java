@@ -70,6 +70,8 @@ public class RegistrazioneForm extends Form {
 		
 		if (password==null || password.isEmpty())
 			super.errori.add(new Errore("password", "obbligatorio"));
+		else if (! Utilita.validaPassword(password))
+			super.errori.add(new Errore("password", "password formalmente errata:almeno 8 caratteri e includere numeri e lettere"));
 		
 		if (passwordConferma==null || passwordConferma.isEmpty())
 			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
