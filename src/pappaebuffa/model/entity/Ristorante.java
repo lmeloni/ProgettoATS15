@@ -17,32 +17,8 @@ public class Ristorante extends Utente {
 		this.orarioChiusura = orarioChiusura;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
 	public String getCategoria() {
 		return categoria;
-	}
-
-	public String getIndirizzo() {
-		return indirizzo;
-	}
-
-	public String getCitta() {
-		return citta;
-	}
-
-	public String getTelefono() {
-		return telefono;
 	}
 
 	public String getDescrizione() {

@@ -20,7 +20,7 @@ public class ProfiloCliente implements Azione {
 				c.getCitta(), c.getTelefono(), c.getPassword());
 		
 		//salvo in sessione il form che servirà alla pagina profiloCliente
-		request.getSession().setAttribute("AggiornaProfiloForm", apf);
+		request.setAttribute("AggiornaProfiloClienteForm", apf);
 		
 		return "profiloCliente.jsp";
 	}

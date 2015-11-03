@@ -19,5 +19,18 @@ OK Ristorante - modifica profilo [Federica, Simone]
    Ristorante - un ristorante può visualizzare gli ordini 
                (solo quelli che lo riguardano) [Pierluigi, Laura, Elisa]
 
+PER GIANLUCA:
+Nella modifica del profilo utente (sia cliente che ristorante),
+se la password è vuota non bisogna cambiarla (allo stato attuale
+non supera la validazione perchè vuota)
 
+Come/dove viene fatta la registrazione di un ristorante?
 
+Aggiungere la confermaPassword nel form AggiornaRistorante...
+
+Controllare che la modifica del profilo ristorante funzioni fino in fondo!
+
+Prima di accettare l'ordine, bisogna verificare che l'orario 
+di ritiro sia consono agli orari specificati dal ristorante! 
+
+Verificare che l'utente sia loggato nelle varie azioni/JSP

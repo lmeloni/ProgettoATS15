@@ -20,19 +20,18 @@ public class Login implements Azione {
 			case "cliente":
 				DAOCliente daoCliente = new DAOCliente();
 				request.getSession().setAttribute("utente", daoCliente.login(f.getEmail(), f.getPassword()));
-				break;	
+				return "motore?azione=RecuperaCategorieRistoranti";
 			case "ristorante":
 		    	DAORistorante daoRistorante = new DAORistorante();
 				request.getSession().setAttribute("utente", daoRistorante.login(f.getEmail(), f.getPassword()));
-				break;
+				return "homeUtente.jsp";
 			}
-			return "homeUtente.jsp";
+			
 			
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());
-			return "errore.jsp";
 		}
-		
+		return "errore.jsp";
 	}
 
 }

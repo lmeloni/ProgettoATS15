@@ -9,37 +9,9 @@ public class Cliente extends Utente implements Comparable<Cliente> {
 		super(id, email, password, nome, indirizzo, citta, telefono);
 		this.cognome = cognome;
 	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getNome() {
-		return nome;
-	}
 
 	public String getCognome() {
 		return cognome;
-	}
-
-	public String getIndirizzo() {
-		return indirizzo;
-	}
-
-	public String getCitta() {
-		return citta;
-	}
-
-	public String getTelefono() {
-		return telefono;
 	}
 
 	@Override

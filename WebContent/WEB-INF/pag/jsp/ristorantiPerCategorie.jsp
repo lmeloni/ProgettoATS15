@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="menu.jsp"/>
 <form action="motore" method="post">
 	
 	<input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />

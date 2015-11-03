@@ -7,6 +7,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 pagina HomeCategoria
 <hr>
 Benvenuto 

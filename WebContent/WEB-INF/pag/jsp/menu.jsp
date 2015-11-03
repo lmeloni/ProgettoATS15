@@ -3,12 +3,13 @@
 <html>
 
 <body>
-FattoriaWeb MVC2
+Pappa e buffa!
 <hr>
 <a href="welcome.jsp">HOME</a> |
 
-<a href="motore?azione=MostraPietanzePerCategoria">Pietanze per categoria</a> |
-
+<!-- <a href="motore?azione=MostraPietanzePerCategoria">Pietanze per categoria</a> | -->
+<a href = "motore?azione=ProfiloCliente">Profilo personale (cliente)</a> |
+<a href = "motore?azione=ProfiloRistorante">Profilo personale (ristorante)</a> |
 
 <a href='javascript:history.back();'>indietro</a>
 <hr>

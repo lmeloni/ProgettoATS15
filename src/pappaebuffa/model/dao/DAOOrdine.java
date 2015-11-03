@@ -109,7 +109,10 @@ public class DAOOrdine extends DAO<Ordine>{
 				PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"});
 				pst.setInt(1, entity.getCliente().getId());
 				pst.setInt(2, entity.getRistorante().getId());
-				pst.setTimestamp(3, entity.getDataOrdine());
+				pst.setTimestamp(3, 
+						entity.getDataOrdine() == null ? 
+								new Timestamp(System.currentTimeMillis()) : 
+									entity.getDataOrdine());
 				pst.setDouble(4, entity.getImportoTotale());
 				pst.setTimestamp(5, entity.getDataRitiro());
 				

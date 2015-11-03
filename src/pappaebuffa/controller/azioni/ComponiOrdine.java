@@ -36,9 +36,9 @@ public class ComponiOrdine implements Azione{
 				i++;
 			}
 			
-			Ordine ordine = new Ordine(0, new Cliente(1,null, null, null, null, null, null, null)//(Cliente) request.getSession().getAttribute("cliente")
+			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, ((ComponiOrdineForm) form).getRistorante()
-					, (Timestamp) null, totaleOrdine, (Timestamp) null);
+					, null, totaleOrdine, null);
 			// TODO Gestire i Timestamp e il totale dell'ordine...
 			
 			// Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
@@ -55,17 +55,17 @@ public class ComponiOrdine implements Azione{
 				// altrimenti l'insert del DAOAssociazione darà errore
 				
 				ordine.setId(idOrdine);
-				int j=0;
+				i=0;
 				
 				for (Pietanza pietanza : ((ComponiOrdineForm)form).getPietanze()){
 					dao.insert(new Associazione(ordine
 							, new DAOPietanza().select(pietanza.getId())
 							, quantita.get(i)));
-					j++;
+					i++;
 				}
 			}
 			
-			return "welcome.jsp";
+			return "ordineRiuscito.jsp";
 			
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());
