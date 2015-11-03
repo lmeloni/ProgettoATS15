@@ -158,7 +158,7 @@ public class DAORistorante extends DAO<Ristorante> {
 		return null;
 	}
  
-public ArrayList<String> selectCategoria() throws DAOException {
+	public ArrayList<String> selectCategoria() throws DAOException {
 		
 		ArrayList<String> listaCategoria  = new ArrayList<String>();
 
