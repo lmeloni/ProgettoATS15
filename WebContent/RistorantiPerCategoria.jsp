@@ -8,6 +8,7 @@
 </head>
 <body>
 <form action="motore" method="post">
+
 	<input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />
 	<h3>SELEZIONA LA CATEGORIA</h3><br><hr>
 <select name="categoria">
