@@ -18,6 +18,7 @@ public class AggiornaProfilo implements Azione {
 		try {
 			DAOCliente dao=new DAOCliente();
 			
+			
 			//recupero il cliente dalla sessione:
 			Cliente c = (Cliente) request.getSession().getAttribute("cliente");
 			dao.update(c);
