@@ -2,7 +2,7 @@ package pappaebuffa.controller.azioni;
 
 import javax.servlet.http.HttpServletRequest;
 
-import pappaebuffa.controller.form.AggiornaProfiloForm;
+import pappaebuffa.controller.form.AggiornaProfiloClienteForm;
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAOCliente;
 import pappaebuffa.model.dao.DAORistorante;
@@ -11,12 +11,12 @@ import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ristorante;
 import pappaebuffa.model.entity.Utente;
 
-public class AggiornaProfilo implements Azione {
+public class AggiornaProfiloCliente implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
-		AggiornaProfiloForm f = (AggiornaProfiloForm) form;
+		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
 		try {
 
