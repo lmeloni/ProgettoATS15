@@ -19,7 +19,7 @@ public class AggiornaProfilo implements Azione {
 			DAOCliente dao=new DAOCliente();
 			
 			//recupero il cliente dalla sessione:
-			Cliente c = (Cliente) request.getSession().getAttribute("cliente");
+			Cliente c = (Cliente) request.getSession().getAttribute("utente");
 			dao.update(c);
 			
 			return "MostraRistorantiPerCategoria";

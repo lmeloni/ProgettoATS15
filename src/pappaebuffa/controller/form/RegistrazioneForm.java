@@ -1,6 +1,7 @@
 package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
+import pappaebuffa.model.Utilita;
 
 public class RegistrazioneForm extends Form {
 	private String email;
@@ -49,18 +50,27 @@ public class RegistrazioneForm extends Form {
 	}
 	@Override
 	public boolean validazione() {
+		
 		if (nome==null || nome.isEmpty())
 			super.errori.add(new Errore("nome", "obbligatorio"));
+		
 		if (cognome==null || cognome.isEmpty())
 			super.errori.add(new Errore("cognome", "obbligatorio"));
+		
 		if (indirizzo==null || indirizzo.isEmpty())
 			super.errori.add(new Errore("indirizzo", "obbligatorio"));
+		
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
+		
 		if (email==null || email.isEmpty())
 			super.errori.add(new Errore("email", "obbligatorio"));
+		else if (! Utilita.validaEmail(email))
+			super.errori.add(new Errore("email", "email formalmente errata"));
+		
 		if (password==null || password.isEmpty())
 			super.errori.add(new Errore("password", "obbligatorio"));
+		
 		if (passwordConferma==null || passwordConferma.isEmpty())
 			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
 		else
