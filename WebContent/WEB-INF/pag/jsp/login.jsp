@@ -10,7 +10,7 @@
 
 <form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
 
-<table cellpadding="3" cellspacing="3" >
+<table cellpadding="5" cellspacing="5" >
 	<thead>
 	<tr>
 		<th></th>
@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td valign="baseline" style="color: red; font-size: small;">
+		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>
@@ -40,7 +40,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td valign="baseline" style="color: red; font-size: small;">
+		<td style="color: red; font-size: small;">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>

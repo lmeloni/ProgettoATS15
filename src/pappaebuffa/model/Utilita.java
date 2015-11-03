@@ -22,12 +22,6 @@ public class Utilita {
 	}
 	
 	public static boolean validaPassword(String password){
-		return password.matches("^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$");
+		return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
 	}
-	
-	
-	
-	
-	
-	
 }

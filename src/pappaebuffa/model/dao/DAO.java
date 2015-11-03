@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.sun.xml.internal.stream.Entity;
+
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Ristorante;
@@ -30,17 +32,13 @@ public abstract class DAO<T> {
 	
 	
 	public DAO getIstanza(T entita) throws DAOException {
-		DAO dao;
-		//istanziare il DAOxxx() opportuno con factory tecnica reflection:
-		switch(entita.getClass().getSimpleName()) { 
-		case "entita1":	 dao = null;  break;
-		case "entita2":	 dao = null;  break;
-		case "entita3":	 dao = null;  break;
-		default:
+		try {
+			Class c = Class.forName("DAO" + Entity.class.getSimpleName());
+			return (DAO) c.newInstance();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			throw new DAOException
 			("ANOMALIA Factory DAO: entità '"+entita+"' non prevista!");
 		}
-		return dao;
 	}
 	
 	
