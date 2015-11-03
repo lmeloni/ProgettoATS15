@@ -21,8 +21,8 @@ public class MostraOrdinePerRistorante implements Azione{
 //		MostraOrdinePerRistoranteForm f=(MostraOrdinePerRistoranteForm) form;
 		
 		DAOOrdine dao = new DAOOrdine();
-		ArrayList<Ordine> arraylistOrdine = dao.selectByRistorante((Ristorante)request.getSession().getAttribute("utente"));
-		
+		ArrayList<Ordine> arraylistOrdine = dao.selectByRistorante(new Ristorante(1,null,null,null,null,null,null,null,null,null,null));//(Ristorante)request.getSession().getAttribute("utente"));
+
 		request.setAttribute("ordiniRistorante", arraylistOrdine);
 
 		return "showOrdiniRistorante.jsp";

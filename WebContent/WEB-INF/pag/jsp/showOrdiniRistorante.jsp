@@ -9,5 +9,16 @@
 <body>
 <b>Lista degli ordini ${ordiniRistorante}:</b><br>
 <br>
+<br>
+<table border="0" style="color:#ffffff">
+	<tr bgcolor=#808080>
+	<c:forEach var="h" items="${tableH}">
+		<th><c:out value="${h}"/></th>
+	</c:forEach>
+	</tr>
+	<c:forEach var="l" items="${ordiniRistorante}" varStatus="loop">
+		<tr bgcolor="${loop.index % 2 == 0 ? '#00a0a0':'#008080'}">${l}</tr>
+	</c:forEach>
+</table>
 </body>
 </html>
