@@ -193,20 +193,46 @@ public class DAOCliente extends DAO<Cliente> {
 				, res.getString("telefono"));
 	}
 
+	public Cliente update(Cliente cliente) throws DAOException{
+		
+		Cliente tuplaOld = select(cliente.getId()); //recupera cliente prima di aggiornarlo!
+		
+		String sql="UPDATE CLIENTE "
+				+ "SET PASSWORD=?,NOME=?,COGNOME=?,INDIRIZZO=?,CITTA=?,TELEFONO=? "
+				+ "WHERE ID = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			//sostituire i marcatori ?:			
+			pst.setString(1, cliente.getPassword());
+			pst.setString(2, cliente.getNome());
+			pst.setString(3, cliente.getCognome());
+			pst.setString(4, cliente.getIndirizzo());
+			pst.setString(5, cliente.getCitta());
+			pst.setString(6, cliente.getTelefono());
+			pst.setInt(7, cliente.getId());
+			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
+			
+			return tuplaOld;
+			
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE UPDATE x PK="+cliente.getId()+". Causa: "+e.getMessage());
+		}
+	}
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 
 		Cliente c1 = new Cliente(0, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+		
 		try {
 			DAOCliente dao = new DAOCliente();
-
-
 			int pk = dao.insert(c1);
+			Cliente c2 = new Cliente(pk, "ciarlotta87@gmail.com", "012d", "Federica", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+			
 			System.out.println("\nCreate - insert()..: "+pk+" (PK generata o meno)");
 			System.out.println("\nRead - select()....: "+dao.select());
 			System.out.println("\nRead - select(pk)..: "+dao.select(pk));
+			
+			System.out.println("\nUpdate ..."+dao.update(c2));
 			System.out.println("\nDelete - delete(pk)....: "+dao.delete(pk));
-
 		} catch (DAOException e) {
 			System.out.println( e );
 			e.printStackTrace();
