@@ -22,7 +22,7 @@ public class AggiornaProfilo implements Azione {
 			Cliente c = (Cliente) request.getSession().getAttribute("cliente");
 			dao.update(c);
 			
-			return "RecuperaCategorieRistoranti";
+			return "MostraRistorantiPerCategoria";
 			
 		} catch (DAOException e) {
 			return "errore.jsp";
