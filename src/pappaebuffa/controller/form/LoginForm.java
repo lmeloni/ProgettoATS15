@@ -3,6 +3,7 @@ package pappaebuffa.controller.form;
 import pappaebuffa.controller.bean.Errore;
 import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.DAOCliente;
+import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.dao.eccezioni.DAOLoginException;
 
@@ -45,8 +46,21 @@ public class LoginForm extends Form {
 			else {
 				//TODO switch case se l'utente è un cliente o un ristorante
 				try {
-					DAOCliente dao = new DAOCliente();
-					dao.login(email, password);	
+					
+					switch (utente) {
+					case "cliente":
+						DAOCliente dao = new DAOCliente();
+						dao.login(email, password);	
+						break;
+
+				    case "ristorante":
+				    	DAORistorante daoRistorante = new DAORistorante();
+				    	daoRistorante.login(email, password);		
+						break;
+
+					default:
+						break;
+					}
 					
 				} catch (DAOLoginException e) {
 					super.errori.add(new Errore("email", e.getMessage()));

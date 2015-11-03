@@ -20,18 +20,10 @@ public class AggiornaProfilo implements Azione {
 		
 		try {
 
-			
-			if (((Utente) request.getSession().getAttribute("utente")).isCliente()) {
-				DAOCliente dao=new DAOCliente();
-				Cliente c = (Cliente) request.getSession().getAttribute("cliente");
-				dao.update(c);
-			}
-			else{
-				DAORistorante dao = new DAORistorante();
-				Ristorante r = (Ristorante) request.getSession().getAttribute("ristorante");
-				dao.update(r);
-			}
-			
+			DAOCliente dao=new DAOCliente();
+			//recupero il cliente dalla sessione:
+			Cliente c = (Cliente) request.getSession().getAttribute("utente");
+			dao.update(c);
 
 			
 			return "MostraRistorantiPerCategoria";
