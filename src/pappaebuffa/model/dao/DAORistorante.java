@@ -182,6 +182,35 @@ public class DAORistorante extends DAO<Ristorante> {
 			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
 		}
 	}
+    public Ristorante update(Ristorante ristorante) throws DAOException{
+		
+		Ristorante tuplaOld = select(ristorante.getId()); //recupera ristorante prima di aggiornarlo!
+		
+		String sql="UPDATE RISTORANTE "
+				+ "SET PASSWORD=?,NOME=?,CATEGORIA=?,INDIRIZZO=?,CITTA=?,TELEFONO=?, DESCRIZIONE=?, ORARIO_APERTURA=?, "
+				+ "ORARIO_CHIUSURA=? "
+				+ "WHERE ID = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			//sostituire i marcatori ?:			
+			pst.setString(1, ristorante.getPassword());
+			pst.setString(2, ristorante.getNome());
+			pst.setString(3, ristorante.getCategoria());
+			pst.setString(4, ristorante.getIndirizzo());
+			pst.setString(5, ristorante.getCitta());
+			pst.setString(6, ristorante.getTelefono());
+			pst.setString(7, ristorante.getDescrizione());
+			pst.setString(8, ristorante.getOrarioApertura());
+			pst.setString(9, ristorante.getOrarioChiusura());
+			pst.setInt(10, ristorante.getId());
+			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
+			
+			return tuplaOld;
+			
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE UPDATE x PK="+ristorante.getId()+". Causa: "+e.getMessage());
+		}
+	}
+	
 
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
