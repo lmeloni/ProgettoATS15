@@ -18,8 +18,9 @@ public class Registrazione implements Azione {
 		RegistrazioneForm f = (RegistrazioneForm) form;		
 
 		//crea il cliente attraverso questi dati
-		Cliente nuovoCliente = new Cliente(0, f.getNome(), f.getCognome(), f.getIndirizzo()
-				, f.getCitta(), f.getTelefono(), f.getEmail(), f.getPassword());
+		Cliente nuovoCliente = new Cliente(0, f.getEmail(), f.getPassword(), 
+				f.getNome(), f.getCognome(), f.getIndirizzo()
+				, f.getCitta(), f.getTelefono());
 		
 		//inserire il cliente nel DB
 		

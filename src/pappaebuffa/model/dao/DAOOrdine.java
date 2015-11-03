@@ -11,6 +11,7 @@ import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ordine;
+import pappaebuffa.model.entity.Pietanza;
 import pappaebuffa.model.entity.Ristorante;
 import sun.security.action.GetIntegerAction;
 
@@ -67,6 +68,30 @@ public class DAOOrdine extends DAO<Ordine>{
 
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE SELECT x PK="+pk+". Causa: "+e.getMessage());
+		}
+		
+	}
+	
+	public ArrayList<Ordine> selectByRistorante(Ristorante locale) throws DAOException {
+		ArrayList<Ordine> lista = new ArrayList<Ordine>();
+		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
+				+ "FROM ordine "
+				+ "WHERE id_ristorante = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, locale.getId()); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			
+			
+			while(res.next()) 
+				lista.add(componiEntity());
+			if (lista.isEmpty())
+				throw new DAOException("WARNING SELECT x PK="+locale.getId()+" DATI NON TROVATI");
+			else
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x PK="+locale.getId()+". Causa: "+e.getMessage());
 		}
 		
 	}
