@@ -57,8 +57,6 @@ public class RegistrazioneForm extends Form {
 			super.errori.add(new Errore("indirizzo", "obbligatorio"));
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
-		if (telefono==null || telefono.isEmpty())
-			super.errori.add(new Errore("telefono", "obbligatorio"));
 		if (email==null || email.isEmpty())
 			super.errori.add(new Errore("email", "obbligatorio"));
 		if (password==null || password.isEmpty())

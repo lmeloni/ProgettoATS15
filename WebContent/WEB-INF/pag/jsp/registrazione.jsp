@@ -12,14 +12,14 @@ Azione di Fabio da solo perchè Claudia è andata via prima!
 <hr>
 <form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
-Nome<br>
+Nome *<br>
 
 	<input type="text" name="nome" value="${RegistrazioneForm.nome}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br> *
+		</c:forEach> 
+	</label><br> 
 Cognome *<br>
 
 	<input type="text" name="cognome" value="${RegistrazioneForm.cognome}" >
@@ -28,16 +28,16 @@ Cognome *<br>
 			<c:if test="${e.param=='cognome'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>	
-Indirizzo<br>
-* 
+Indirizzo *<br>
+ 
 	<input type="text" name="indirizzo" value="${RegistrazioneForm.indirizzo}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='indirizzo'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
-Città<br>
-*
+Città *<br>
+
 	<input type="text" name="citta" value="${RegistrazioneForm.citta}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
@@ -49,24 +49,22 @@ Telefono<br>
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>	
-Email<br>&nbsp&nbsp<h5>L'E-MAIL TI SERVIRÀ PER ACCEDERE E NOI LA USEREMO PER CONTATTARTI.</h5>
-*
+		</c:forEach></label>Useremo il tuo numero per contattarti.
+	<br>	
+Email *<br>
 	<input type="text" name="email" value="${RegistrazioneForm.email}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Password<br>&nbsp&nbsp<h5>LA PASSWORD DEVE CONTENERE TRA GLI 8 E I 25 CARATTERI E INCLUDERE LETTERE E NUMERI.</h5>
-*
+		</c:forEach></label>L'e-mail ti servirà per accedere.
+	<br>
+Password *<br>
 	<input type="password" name="password" >	
 	<label style="color: red;">
 		<c:forEach var="e" items="${RegistrazioneForm.errori}">
 			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
+		</c:forEach></label>La password deve contenere almeno 8 caratteri e includere numeri e lettere
+	<br>
 Conferma password<br>
 	<input type="password" name="passwordConferma" >	
 	<label style="color: red;">
@@ -74,8 +72,9 @@ Conferma password<br>
 			<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
-<br>	
-<input type="submit" value="   Registrati   " > <br><br>
+
+	
+<br><input type="submit" value="   Registrati   " > <br><br>(*) &nbspCampi obbligatori<br> <br>
 Sei già registrato?	<a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a> <br>	
 	
 	
