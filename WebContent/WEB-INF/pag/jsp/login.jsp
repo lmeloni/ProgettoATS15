@@ -67,7 +67,10 @@
 </table>
 
 </form>
-
+Per Nunzia Elisa & Laura:<br>
+<a href="motore?azione=MostraPietanzePerCategoria">Pietanze per categoria</a>
+<br>
+<a href="motore?azione=MostraOrdinePerRistorante">MostraOrdinePerRistorante</a>
 
 </body>
 </html>
