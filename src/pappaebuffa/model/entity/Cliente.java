@@ -1,26 +1,13 @@
 package pappaebuffa.model.entity;
 
 
-public class Cliente implements Comparable<Cliente> {
-	private int id;
-	private String email;
-	private String password;
-	private String nome;
+public class Cliente extends Utente implements Comparable<Cliente> {
 	private String cognome;
-	private String indirizzo;
-	private String citta;
-	private String telefono;
 	
 	public Cliente(int id, String email, String password, String nome,
 			String cognome, String indirizzo, String citta, String telefono) {
-		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.nome = nome;
+		super(id, email, password, nome, indirizzo, citta, telefono);
 		this.cognome = cognome;
-		this.indirizzo = indirizzo;
-		this.citta = citta;
-		this.telefono = telefono;
 	}
 	
 	public int getId() {
@@ -57,10 +44,7 @@ public class Cliente implements Comparable<Cliente> {
 
 	@Override
 	public String toString() {
-		return "\nCliente [idCliente=" + id + ", email=" + email
-				+ ", password=" + password + ", nome=" + nome + ", cognome="
-				+ cognome + ", indirizzo=" + indirizzo + ", citta=" + citta
-				+ ", telefono=" + telefono + "]";
+		return "\nCliente [" + super.toString() + ", cognome=" + cognome + "]";
 	}
 	@Override
 	public int compareTo(Cliente altro) {
@@ -68,5 +52,10 @@ public class Cliente implements Comparable<Cliente> {
 		return (citta+nome+cognome).compareTo
 				(altro.citta+altro.nome+altro.cognome);
 		
+	}
+
+	@Override
+	public boolean isCliente() {
+		return true;
 	}
 }

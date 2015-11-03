@@ -11,18 +11,18 @@
 <br>
 <form action = "motore">
 	<input type = "hidden" name = "azione" value = "PietanzePerRistoranteCategoria">
-	Scegli il ristorante...<br>
-	<select name = "ristorante">
-		<c:forEach var = "ristorante" items = "${ristoranti}">
-			<option value = "${ristorante.id}">${ristorante.nome}</option>
-		</c:forEach>
-	</select><br>
-	Scegli la categoria della pietanza...<br>
-	<select name = "categoria">
-		<c:forEach var = "categoria" items = "${categorie}">
-			<option value = "${categoria}">${categoria}</option>
-		</c:forEach>
-	</select><br>
+		Scegli il ristorante...<br>
+		<select name = "ristorante">
+			<c:forEach var = "ristorante" items = "${ristoranti}">
+				<option value = "${ristorante.id}">${ristorante.nome}</option>
+			</c:forEach>
+		</select><br>
+		Scegli la categoria della pietanza...<br>
+		<select name = "categoria">
+			<c:forEach var = "categoria" items = "${categorie}">
+				<option value = "${categoria}">${categoria}</option>
+			</c:forEach>
+		</select><br>
 	<input type = "submit" value = "Scegli...">
 </form>
 </body>

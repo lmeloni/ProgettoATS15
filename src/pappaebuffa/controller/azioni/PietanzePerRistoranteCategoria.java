@@ -1,11 +1,14 @@
 package pappaebuffa.controller.azioni;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.controller.form.PietanzePerRistoranteCategoriaForm;
 import pappaebuffa.model.dao.DAOPietanza;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.entity.Pietanza;
 
 public class PietanzePerRistoranteCategoria implements Azione{
 
@@ -28,10 +31,13 @@ public class PietanzePerRistoranteCategoria implements Azione{
 					// TODO Recuperare i dati necessari dal form... Usare questi dati
 					// per selezionare le pietanze che rispettano il criterio...!
 					// Queste pietanze vanno "passate" alla prossima pagina (come?)
+					ArrayList<Pietanza> arraylistPietanza = 
+							dao.selectByRistoranteCategoria(f.getCategoria(), f.getIdRistorante());
 					
-					request.setAttribute("pietanze", dao.selectByRistoranteCategoria(f.getCategoria(), f.getIdRistorante()));
+					request.setAttribute("pietanze", arraylistPietanza);
+				
 					
-					return "PietanzePerCategoria.jsp";
+					return "pietanzePerCategoria.jsp";
 				} catch (DAOException e) {
 //					e.printStackTrace();
 					return "errore.jsp"; // DA VERIFICARE
