@@ -9,7 +9,6 @@ import pappaebuffa.model.dao.eccezioni.DAOLoginException;
 
 public class LoginForm extends Form {
 	
-	
 	private String utente;
 	private String email;
 	private String password;
@@ -28,45 +27,40 @@ public class LoginForm extends Form {
 
 	@Override
 	public void parametri2campiForm()  {
-		this.utente=super.request.getParameter("utente");
-		this.email=super.request.getParameter("email");
-		this.password=super.request.getParameter("password");
+		this.utente = super.request.getParameter("utente");
+		this.email = super.request.getParameter("email");
+		this.password = super.request.getParameter("password");
 	}
 
 	@Override
 	public boolean validazione() {
 		
+		if(password==null || password.isEmpty())
+			super.errori.add(new Errore("password", "obbligatorio"));
+		
 		if (email==null || email.isEmpty())
 			super.errori.add(new Errore("email", "obbligatorio"));
-		else {
-			if(password==null || password.isEmpty())
-				super.errori.add(new Errore("password", "obbligatorio"));
-			else if (! Utilita.validaEmail(email))
-				super.errori.add(new Errore("email", "email formalmente errata"));
-			else {
-				//TODO switch case se l'utente è un cliente o un ristorante
-				try {
-					
-					switch (utente) {
-					case "cliente":
-						DAOCliente dao = new DAOCliente();
-						dao.login(email, password);	
-						break;
-
-				    case "ristorante":
-				    	DAORistorante daoRistorante = new DAORistorante();
-				    	daoRistorante.login(email, password);		
-						break;
-
-					default:
-						break;
-					}
-					
-				} catch (DAOLoginException e) {
-					super.errori.add(new Errore("email", e.getMessage()));
-				} catch (DAOException e) {
-					super.errori.add(new Errore("email", "problemi al DB, riprovare più tardi!"));
+		else if (! Utilita.validaEmail(email))
+			super.errori.add(new Errore("email", "email formalmente errata"));
+		else { //se email formalmente valida
+			try {
+				switch (utente) {
+				case "cliente":
+					DAOCliente daoCliente = new DAOCliente();
+					daoCliente.login(email, password);	
+					break;
+			    case "ristorante":
+			    	DAORistorante daoRistorante = new DAORistorante();
+			    	daoRistorante.login(email, password);		
+					break;
+				default:
+					super.errori.add(new Errore("utente", "specificare cliente | ristorante"));
 				}
+				
+			} catch (DAOLoginException e) {
+				super.errori.add(new Errore("email", e.getMessage()));
+			} catch (DAOException e) {
+				super.errori.add(new Errore("email", "problemi al DB! Per favore riprova più tardi.."));
 			}
 		}
 		

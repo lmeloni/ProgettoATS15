@@ -160,14 +160,16 @@ public class DAOOrdine extends DAO<Ordine>{
 			DAOOrdine dao = new DAOOrdine();
 
 			int id = dao.insert(o);
+			
 			System.out.println("\nCreate - insert()..: "+id+" (ID generata o meno)");
 
 			System.out.println("\nRead - select()....: "+dao.select());
 			System.out.println("\nRead - select(id)..: "+dao.select(id));
 
-
+			
 			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
-
+			
+			System.out.println("\nRead-selectarray"+ dao.selectByRistorante(r));
 
 
 		} catch (DAOException e) {

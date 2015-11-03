@@ -59,7 +59,7 @@ public class Ristorante extends Utente {
 
 	@Override
 	public String toString() {
-		return "\nCliente [" + super.toString() + ", categoria=" + categoria + 
+		return "\nRistorante [" + super.toString() + ", categoria=" + categoria + 
 				", descrizione=" + descrizione + ", orarioApertura=" + orarioApertura + 
 				", orarioChiusura=" + orarioChiusura + "]";
 	}
