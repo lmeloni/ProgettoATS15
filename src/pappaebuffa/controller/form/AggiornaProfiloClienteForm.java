@@ -2,8 +2,9 @@ package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
 
-public class AggiornaProfiloForm extends Form {
+public class AggiornaProfiloClienteForm extends Form {
 	
+	private String email; //non verrà mai modificato
 	private String nome;
 	private String cognome;
 	private String indirizzo;
@@ -13,9 +14,24 @@ public class AggiornaProfiloForm extends Form {
 	private String passwordConferma;
 
 
-	
+	/**
+	 * Costruttore usato unicamente nell'azione ProfiloCliente
+	 */
+	public AggiornaProfiloClienteForm(String email, String nome, String cognome, String indirizzo,
+			String citta, String telefono, String password) {
+		super();
+		this.email = email;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.indirizzo = indirizzo;
+		this.citta = citta;
+		this.telefono = telefono;
+		this.password = password;
+	}
+
 	@Override
 	public void parametri2campiForm() {
+		this.email=super.request.getParameter("email");
 		this.nome=super.request.getParameter("nome");
 		this.cognome=super.request.getParameter("cognome");
 		this.indirizzo=super.request.getParameter("indirizzo");
@@ -23,6 +39,11 @@ public class AggiornaProfiloForm extends Form {
 		this.telefono=super.request.getParameter("telefono");
 		this.password=super.request.getParameter("password");
 		this.passwordConferma=super.request.getParameter("passwordConferma");
+	}
+
+	
+	public String getEmail() {
+		return email;
 	}
 
 	public String getPassword() {

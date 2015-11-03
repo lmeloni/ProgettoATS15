@@ -7,6 +7,7 @@ import pappaebuffa.controller.form.RegistrazioneForm;
 import pappaebuffa.model.dao.DAO;
 import pappaebuffa.model.dao.DAOCliente;
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
+import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
 
 public class Registrazione implements Azione {
@@ -17,20 +18,20 @@ public class Registrazione implements Azione {
 		RegistrazioneForm f = (RegistrazioneForm) form;		
 
 		//crea il cliente attraverso questi dati
-		Cliente nuovoCliente = new Cliente(0, f.getNome(), f.getCognome(), f.getIndirizzo()
-				, f.getCitta(), f.getTelefono(), f.getEmail(), f.getPassword());
+		Cliente nuovoCliente = new Cliente(0, f.getEmail(), f.getPassword(), 
+				f.getNome(), f.getCognome(), f.getIndirizzo()
+				, f.getCitta(), f.getTelefono());
 		
 		//inserire il cliente nel DB
 		
 		try {
 			DAO<Cliente> dao = new DAOCliente();
-			
-			
-			
-		} catch (DAOConnessioneException e) {
-
+			dao.insert(nuovoCliente);
+			return "registrazioneOk.jsp";
+		} catch (DAOException e) {
+			return "errore.jsp";
 		}
-		return null;
+		
 	}
 
 }
