@@ -22,7 +22,7 @@ public class RecuperaCategorieRistoranti implements Azione {
 			select = dao.selectCategoria();
 			request.setAttribute("post_it", select);
 			
-			return "RistorantiPerCategoria.jsp";
+			return "ristorantiPerCategorie.jsp";
 		
 		} catch (DAOException e) {
 			 
