@@ -55,6 +55,9 @@ public class Utilita {
 	}
 	
 	public static String timestampToString(Timestamp data) throws ParseException{
-		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(new Date(data.getTime()));
+		return data == null ? "N.D." : new SimpleDateFormat("dd-MM-yyyy hh:mm").format(new Date(data.getTime()));
+	}
+	public static void main(String[] args) throws ParseException {
+		System.out.println(timestampToString(stringToTimestamp("2015-11-11T15:12")));
 	}
 }
