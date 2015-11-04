@@ -4,10 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PeB|welcome</title>
-<head>
-<link rel="stylesheet" type="text/css" href="Style.css"
-media="screen">
-</head>
+
 </head>
 <body>
 <%@ include file="_top.jsp" %>
