@@ -76,7 +76,8 @@ public class DAOOrdine extends DAO<Ordine>{
 		ArrayList<Ordine> lista = new ArrayList<Ordine>();
 		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
 				+ "FROM ordine "
-				+ "WHERE id_ristorante = ? ";
+				+ "WHERE id_ristorante = ? "
+				+ "ORDER BY data ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1, locale.getId()); //sostituisco il marcatore
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!

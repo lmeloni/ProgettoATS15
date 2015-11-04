@@ -12,12 +12,15 @@
 <table border="0" cellpadding="2" cellspacing="2" style="color:#ffffff">
 	<thead>
 	<tr>
-		<th></th>
+		<th>Cliente</th>
+		<th>Data ordine</th>
+		<th>Data ritiro</th>
+		<th align="right" >Importo totale</th>
 	</tr>
 	</thead>
 	
 	<tbody>
-	
+		<td>Cliente</td>
 	</tbody>
 
 
