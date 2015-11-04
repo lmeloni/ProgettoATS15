@@ -18,6 +18,20 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 
 	<tbody>
 	<tr>
+		<td align="right">(*) Categoria</td>
+		<td> <select name="categoria">
+				<c:forEach var="categoria" items="${listaCategorie}">
+					<option value="${categoria}">${categoria}</option>
+				</c:forEach>
+			</select> </td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>	
 		<td align="right">(*) E-mail</td>
 		<td><input type="text" size="30" name="email" value="${RegistrazioneRistoranteForm.email}" ></td>
 		<td></td>
@@ -41,20 +55,6 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
 				<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
-			</c:forEach> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td align="right">(*) Categoria</td>
-		<td><input type="text" size="30" name="categoria" value="${RegistrazioneRistoranteForm.categoria}" ></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td style="color: red; font-size: small; ">
-			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='categoria'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>

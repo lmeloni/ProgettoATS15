@@ -26,8 +26,8 @@
 	<c:forEach var="ordine" items="${ordiniRistorante}">
 	<tr style="color: purple;">
 		<td>${ordine.cliente.nome}</td>
-		<td>${ordine.dataOrdine}</td>
-		<td>${ordine.dataRitiro}</td>
+		<td>${ordine.getDataOrdineS()}</td>
+		<td>${ordine.getDataRitiroS()}</td>
 		<td align="right">${ordine.importoTotale}</td>
 	</tr>
 	</c:forEach>
