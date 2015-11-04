@@ -1,6 +1,9 @@
 package pappaebuffa.model.entity;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+
+import pappaebuffa.model.Utilita;
 
 public class Ordine {
 
@@ -36,16 +39,16 @@ public class Ordine {
 		return ristorante;
 	}
 
-	public Timestamp getDataOrdine() {
-		return dataOrdine;
+	public String getDataOrdine() throws ParseException {
+		return Utilita.timestampToString(dataOrdine);
 	}
 
 	public double getImportoTotale() {
 		return importoTotale;
 	}
 
-	public Timestamp getDataRitiro() {
-		return dataRitiro;
+	public String getDataRitiro() throws ParseException {
+		return Utilita.timestampToString(dataRitiro);
 	}
 
 	@Override

@@ -12,8 +12,7 @@ public class MostraOrdinePerRistorante implements Azione{
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
-		//(Ristorante)request.getSession().getAttribute("utente")); //???
-		Ristorante ristorante = new Ristorante(1,null,null,null,null,null,null,null,null,null,null);
+		Ristorante ristorante = (Ristorante) request.getSession().getAttribute("utente");
 		try {
 			DAOOrdine dao = new DAOOrdine();
 	
