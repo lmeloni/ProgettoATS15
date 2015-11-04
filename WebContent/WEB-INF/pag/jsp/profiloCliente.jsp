@@ -21,7 +21,7 @@
 	
 	<tr>
 		<td align="right">Email</td>
-		<td><input type="text" size="30" disabled name="email" value="${AggiornaProfiloClienteForm.email}" ></td>
+		<td><input type="text" size="30" readonly name="email" value="${AggiornaProfiloClienteForm.email}" ></td>
 		<td style="font-size: small;">Associata al profilo, impossibile modificarla</td>
 	</tr>
 	<tr>
