@@ -9,7 +9,6 @@
 <%@ include file="menu.jsp" %>
 <h4>
 	<b>
-	Oooppsss.. qualcosa è andato storto:<br>
 	${errore}
 	</b>
 </h4>
