@@ -64,7 +64,7 @@ Telefono <br>
 	</label><br>
 	
 		
-Password (*) <br>
+Password <br>
 	<input type="password" name="password" >	
 	<font size="2">La password deve contenere almeno 8 caratteri e includere numeri e lettere.</font><br>
 	<label style="color: red;">

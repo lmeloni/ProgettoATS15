@@ -12,15 +12,19 @@ public class PietanzePerRistoranteCategoriaForm extends Form {
 		return categoria;
 	}
 
-	
 	public int getIdRistorante() {
 		return idRistorante;
 	}
 
-
 	public void parametri2campiForm() {
 		this.categoria = request.getParameter("categoria");
 		this.idRistorante = Integer.parseInt(request.getParameter("ristorante"));
+	}
+
+	@Override
+	public boolean validazione() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 

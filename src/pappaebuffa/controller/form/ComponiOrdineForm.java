@@ -13,19 +13,13 @@ public class ComponiOrdineForm extends Form{
 	private ArrayList<Pietanza> pietanze;
 	private ArrayList<Integer> quantita;
 	
-	
-	
 	public Ristorante getRistorante() {
 		return ristorante;
 	}
 
-
-
 	public ArrayList<Pietanza> getPietanze() {
 		return pietanze;
 	}
-
-
 
 	public ArrayList<Integer> getQuantita() {
 		return quantita;
@@ -51,5 +45,12 @@ public class ComponiOrdineForm extends Form{
 		} catch (NumberFormatException | DAOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	//TODO creare la validazione del componi ordine se serve
+	@Override
+	public boolean validazione() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

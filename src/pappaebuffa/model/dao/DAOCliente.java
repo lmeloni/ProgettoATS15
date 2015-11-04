@@ -197,6 +197,11 @@ public class DAOCliente extends DAO<Cliente> {
 		
 		Cliente tuplaOld = select(cliente.getId()); //recupera cliente prima di aggiornarlo!
 		
+		//nel caso in cui la password sia null non la aggiorniamo
+		if (cliente.getPassword() ==null ||cliente.getPassword().isEmpty() ){
+			cliente.setPassword(tuplaOld.getPassword());
+		}
+
 		String sql="UPDATE CLIENTE "
 				+ "SET PASSWORD=?,NOME=?,COGNOME=?,INDIRIZZO=?,CITTA=?,TELEFONO=? "
 				+ "WHERE ID = ? ";
@@ -211,6 +216,7 @@ public class DAOCliente extends DAO<Cliente> {
 			pst.setInt(7, cliente.getId());
 			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
 			
+			//perchè restiuiamo la tupla vecchia?
 			return tuplaOld;
 			
 		} catch (SQLException e) {

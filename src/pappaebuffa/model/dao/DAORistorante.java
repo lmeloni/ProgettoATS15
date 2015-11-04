@@ -40,9 +40,6 @@ public class DAORistorante extends DAO<Ristorante> {
 		}
 	}
 
-
-
-
 	private Ristorante componiEntity() throws SQLException, DAOConnessioneException, DAOException {
 		return   new Ristorante(res.getInt("id"), res.getString("email"), res.getString("password"), res.getString("nome")
 				, res.getString("categoria"), res.getString("indirizzo"), res.getString("citta")
@@ -185,6 +182,11 @@ public class DAORistorante extends DAO<Ristorante> {
     public Ristorante update(Ristorante ristorante) throws DAOException{
 		
 		Ristorante tuplaOld = select(ristorante.getId()); //recupera ristorante prima di aggiornarlo!
+		
+		//nel caso in cui la password sia null non la aggiorniamo
+		if (ristorante.getPassword() ==null ||ristorante.getPassword().isEmpty() ){
+			ristorante.setPassword(tuplaOld.getPassword());
+		}
 		
 		String sql="UPDATE RISTORANTE "
 				+ "SET PASSWORD=?,NOME=?,CATEGORIA=?,INDIRIZZO=?,CITTA=?,TELEFONO=?, DESCRIZIONE=?, ORARIO_APERTURA=?, "

@@ -17,13 +17,6 @@ Email(non modificabile)<br>
 			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
-Password<br>
-	<input type="password" name="password" >	
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
 Nome<br>
 	<input type="text" name="nome" value="${AggiornaProfiloRistoranteForm.nome}" >
 	<label style="color: red;">
@@ -80,7 +73,21 @@ Orario chiusura<br>
 			<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
 		</c:forEach>
 	</label><br>
-<br>	
+Password<br>
+	<input type="password" name="password" >	
+	<label style="color: red;">
+		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br>
+Conferma password<br>
+	<input type="password" name="passwordConferma" >	
+	<label style="color: red;">
+		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+			<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach>
+	</label><br><br>
+<br>
 <input type="submit" value="   Aggiorna   " > <br><br>
 	
 	

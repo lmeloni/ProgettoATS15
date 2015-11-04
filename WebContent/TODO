@@ -23,12 +23,23 @@ PER GIANLUCA:
 Nella modifica del profilo utente (sia cliente che ristorante),
 se la password è vuota non bisogna cambiarla (allo stato attuale
 non supera la validazione perchè vuota)
+//fatto
 
-Come/dove viene fatta la registrazione di un ristorante?
+//note
+//Form.java creato la validazione come metodo astratto
+//TODO da creare se serve la validazione del componiOrdine.java
+//TODO da creare se serve la validazione del MostraRistorantiPerCategoriaForm
+//TODO da creare se serve la validazione del PietanzePerRistoranteCategoriaForm
 
 Aggiungere la confermaPassword nel form AggiornaRistorante...
+//fatto
 
 Controllare che la modifica del profilo ristorante funzioni fino in fondo!
+//fatto  se per modifica intendi update dati ristorante
+
+
+
+Come/dove viene fatta la registrazione di un ristorante?
 
 Prima di accettare l'ordine, bisogna verificare che l'orario 
 di ritiro sia consono agli orari specificati dal ristorante! 

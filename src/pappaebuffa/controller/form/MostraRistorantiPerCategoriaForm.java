@@ -12,4 +12,10 @@ public class MostraRistorantiPerCategoriaForm extends Form {
 	public String getCategoria() {
 		return categoria;
 	}
+
+	@Override
+	public boolean validazione() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

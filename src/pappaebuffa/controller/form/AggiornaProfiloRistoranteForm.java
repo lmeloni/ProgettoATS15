@@ -67,6 +67,9 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	public String getPassword() {
 		return password;
 	}
+	public void setPassword (String password) {
+		this.password = password;
+	}
 	public String getPasswordConferma() {
 		return passwordConferma;
 	}
@@ -98,14 +101,21 @@ public class AggiornaProfiloRistoranteForm extends Form {
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
 		
-		if (password==null || password.isEmpty())
-			super.errori.add(new Errore("password", "obbligatorio"));
+		if(passwordConferma.equals(password) && password!=null && !password.isEmpty()){
+			if (password.length()<8)
+				super.errori.add(new Errore("password", "inserire almeno 8 caratteri"));
+			if (passwordConferma.length()<8)
+				super.errori.add(new Errore("passwordConferma", "inserire almeno 8 caratteri"));
+		}
 		
-		if (passwordConferma==null || passwordConferma.isEmpty())
-			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
-		else
-			if(!passwordConferma.equals(password))
-				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
+//		if (password==null || password.isEmpty())
+//			super.errori.add(new Errore("password", "obbligatorio"));
+//		
+//		if (passwordConferma==null || passwordConferma.isEmpty())
+//			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
+//		else
+//			if(!passwordConferma.equals(password))
+//				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
 		
 		//niente controlli per descrizione che può essere null
 		

@@ -11,6 +11,16 @@ Pappa e buffa!
 <a href = "motore?azione=ProfiloCliente">Profilo personale (cliente)</a> |
 <a href = "motore?azione=ProfiloRistorante">Profilo personale (ristorante)</a> |
 
+<!--
+	ho fatto una prova per eliminare l'iperlink che da errorema non funziona
+	<a href = "motore?azione=ProfiloCliente">
+		<c:if test="${utente.isCliente()==false}"> <c:out value="Profilo personale (ristorante)" /> </c:if>
+	</a> |
+	<a href = "motore?azione=ProfiloRistorante">
+		<c:if test="${utente.isCliente()}"> <c:out value="Profilo personale cliente" /> </c:if>
+	</a> 
+ -->
+
 <a href='javascript:history.back();'>indietro</a>
 <hr>
 
