@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Utilita {
 	
@@ -36,7 +37,6 @@ public class Utilita {
 	}
 	
 	public static String timestampToString(Timestamp data) throws ParseException{
-		return DateFormat.getDateInstance(DateFormat.LONG).format(new Date(data.getTime()));
-		
+		return new SimpleDateFormat("dd-MM-yyyy hh:mm").format(new Date(data.getTime()));
 	}
 }
