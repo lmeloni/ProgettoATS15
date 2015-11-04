@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<strong>Inizia a usare Pappa & Buffa, crea il tuo account personale...</strong>
+<strong>Inizia a usare Pappa e Buffa, crea il tuo account personale...</strong>
 <br><br>
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 <br><br>
@@ -89,7 +89,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">Telefono </td>
 		<td><input type="text" size="30" name="telefono" value="${RegistrazioneForm.telefono}" ></td>
-		<td><font size="2">Useremo il tuo numero per contattarti</font>
+		<td style="font-size: small;">Useremo il tuo numero per contattarti</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -103,7 +103,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Password</td>
 		<td><input type="password" size="30" name="password" value="${RegistrazioneForm.password}" ></td>
-		<td><font size="2">La password deve contenere almeno 8 caratteri e almeno un numero</font>
+		<td style="font-size: small;">La password deve contenere almeno 8 caratteri e almeno un numero</td>
 	</tr>
 	<tr>
 		<td></td>
