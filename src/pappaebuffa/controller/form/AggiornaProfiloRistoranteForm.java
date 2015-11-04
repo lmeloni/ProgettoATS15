@@ -1,6 +1,7 @@
 package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
+import pappaebuffa.model.Utilita;
 
 public class AggiornaProfiloRistoranteForm extends Form {
 	
@@ -101,29 +102,27 @@ public class AggiornaProfiloRistoranteForm extends Form {
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
 		
-		if(passwordConferma.equals(password) && password!=null && !password.isEmpty()){
-			if (password.length()<8)
-				super.errori.add(new Errore("password", "inserire almeno 8 caratteri"));
-			if (passwordConferma.length()<8)
-				super.errori.add(new Errore("passwordConferma", "inserire almeno 8 caratteri"));
-		}
-		
-//		if (password==null || password.isEmpty())
-//			super.errori.add(new Errore("password", "obbligatorio"));
-//		
-//		if (passwordConferma==null || passwordConferma.isEmpty())
-//			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
-//		else
-//			if(!passwordConferma.equals(password))
-//				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
-		
-		//niente controlli per descrizione che può essere null
+		if (telefono==null || telefono.isEmpty())
+			super.errori.add(new Errore("telefono", "obbligatorio"));
+		else if (! Utilita.validaTelefono(telefono))
+			super.errori.add(new Errore("telefono", "formalmente errato: solo numeri, +, - e spazi"));
 		
 		if (orarioApertura==null || orarioApertura.isEmpty())
 			super.errori.add(new Errore("orarioApertura", "obbligatorio"));
 		
 		if (orarioChiusura==null || orarioChiusura.isEmpty())
 			super.errori.add(new Errore("orarioChiusura", "obbligatorio"));
+		
+		if (password==null || password.isEmpty())
+			super.errori.add(new Errore("password", "obbligatorio"));
+		else if (! Utilita.validaPassword(password))
+			super.errori.add(new Errore("password", "formalmente errata: almeno 8 caratteri e includere numeri e lettere"));
+		
+		if (passwordConferma==null || passwordConferma.isEmpty())
+			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
+		else
+			if(!passwordConferma.equals(password))
+				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
 		
 		return super.errori.size()==0 ? true:false;
 	}

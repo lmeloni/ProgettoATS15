@@ -17,6 +17,11 @@ public class ProfiloUtente implements Azione {
 		//recupero l'utente dalla sessione:
 		Utente u = (Utente) request.getSession().getAttribute("utente");
 
+		if(u==null){
+			request.setAttribute("errore", "ERRORE - DEVI ESSERE LOGGATO PER ACCEDERE A QUESTA PAGINA");
+		return "errore.jsp"; 
+		}
+		
 		if(u.isCliente()) {
 			Cliente c = (Cliente) u;
 			//popolo il form che mostrerà i dati da modificare:

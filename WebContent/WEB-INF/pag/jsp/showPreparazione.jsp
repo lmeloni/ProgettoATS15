@@ -9,13 +9,14 @@
 </head>
 <body>
 <form action = "motore">
+	<input type = "hidden" name = "azione" value = "RimuoviPreparazione">
 		Elenco pietanze per ristorante<br>
 		<select name = "idPietanza">
 			<c:forEach var = "pietanza" items = "${listaPreparazioni}">
 				<option value ="${pietanza.id}" >${pietanza.nome}</option>
 			</c:forEach>
 		</select><br>
+		<input type = "submit" value = "Cancella preparazione">
 </form>
-
 </body>
 </html>

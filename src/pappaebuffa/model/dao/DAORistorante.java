@@ -15,6 +15,23 @@ public class DAORistorante extends DAO<Ristorante> {
 	public DAORistorante() throws DAOConnessioneException {
 		super();
 	}
+	public String recuperaPassword(String email) throws DAOException, DAOLoginException {
+		String sql="SELECT DISTINCT password "
+				+ "FROM RISTORANTE "
+				+ "WHERE email = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setString(1, email); 			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) 
+				return res.getString(1); 
+			else
+				throw new DAOLoginException("email non trovata");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE RECUPERA PASSWORD x email="+email+". Causa: "+e.getMessage());
+		}
+	}
 
 	@Override
 	public ArrayList<Ristorante> select() throws DAOException {

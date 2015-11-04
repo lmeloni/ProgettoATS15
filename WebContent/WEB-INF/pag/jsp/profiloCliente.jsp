@@ -6,26 +6,27 @@
 <title>profiloCliente</title>
 </head>
 <body>
-
 <%@ include file="_top.jsp" %>
-<strong>Vuoi modificare il tuo profilo?</strong><br><br>
+<%@ include file="menu.jsp" %>
 
-<form action="motore" method="get" >
+<strong>Vuoi modificare il tuo profilo?</strong>
+<br><br>
+<form action="motore" method="post" >
 <input type="hidden" name="azione" value="AggiornaProfiloCliente" >
 <input type="hidden" name="id" value="${AggiornaProfiloClienteForm.id}" >
 
-<table cellpadding="3" cellspacing="3" >
+<table cellpadding="2" cellspacing="2" >
 
-<tbody>
-
+	<tbody>
+	
 	<tr>
 		<td align="right">Email</td>
-		<td><input type="text" size="30" readonly name="email" value="${AggiornaProfiloClienteForm.email}" ></td>
-		<td><font size="2">Associata al profilo, impossibile modificarla</font>
+		<td><input type="text" size="30" disabled name="email" value="${AggiornaProfiloClienteForm.email}" ></td>
+		<td style="font-size: small;">Associata al profilo, impossibile modificarla</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td style="color: red; font-size: small; ">
+		<td style="color: red; font-size: small;">
 			<c:forEach var="e" items="${AggiornaProfiloClienteForm.errori}">
 				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
@@ -86,13 +87,12 @@
 				<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
-	</tr>
-	
+	</tr>	
 	
 	<tr>
 		<td align="right">Telefono </td>
 		<td><input type="text" size="30" name="telefono" value="${AggiornaProfiloClienteForm.telefono}" ></td>
-		<td><font size="2">Useremo il tuo numero per contattarti</font>
+		<td style="font-size: small;">Useremo il tuo numero per contattarti</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -105,8 +105,8 @@
 	
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="text" size="30" name="password" " ></td>
-		<td><font size="2">La password deve contenere almeno 8 caratteri e almeno un numero</font>
+		<td><input type="password" size="30" name="password"></td>
+		<td style="font-size: small;">La password deve contenere almeno 8 caratteri e almeno un numero</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -119,7 +119,8 @@
 	
 	<tr>
 		<td align="right">(*) Conferma password</td>
-		<td><input type="text" size="30" name="passwordConferma" " ></td>
+		<td><input type="password" size="30" name="passwordConferma"></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -129,6 +130,7 @@
 			</c:forEach> 
 		</td>
 	</tr>
+	</tbody>
 	
 	<tfoot>
 	<tr>
@@ -137,9 +139,7 @@
 	</tr>	
 	<tr>
 		<td></td>
-		<td>
-			<input type="submit" value="  Aggiorna  " > &nbsp;
-		</td>
+		<td><input type="submit" value="  Aggiorna  " ></td>
 	</tr>
 	</tfoot>
 </table>

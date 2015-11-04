@@ -9,10 +9,11 @@
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 
-Benvenuto <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
-<br>
-<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> <br>
-<br>
+Benvenuto 
+<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> 
+<br><br>
+
 <c:if test="${utente.isCliente()==false}">
 	<a href = "motore?azione=AggiungiPietanzaPreparazione">Aggiungi una nuova pietanza nel "menù" del tuo locale</a><br>
 	<a href = "motore?azione=ModificaPreparazione">Modifica una delle tue preparazioni esistenti</a><br>
@@ -20,5 +21,18 @@ Benvenuto <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "
 	<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a><br>
 </c:if>
 
+<c:if test="${utente.isCliente()==true}">
+	<form action="motore" method="post"> <input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />
+		
+		Scegli la categoria ristorante
+		<select name="categoria">
+			<c:forEach var="categoria" items="${listaCategorie}">
+				<option value="${categoria}">${categoria}</option>
+			</c:forEach>
+		</select>
+		<br><br>
+		<input type="submit" value="   Continua   "> 
+	</form>
+</c:if>
 </body>
 </html>
