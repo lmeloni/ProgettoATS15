@@ -10,7 +10,7 @@ import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Pietanza;
 
-import pappaebuffa.model.entity.Ristorante;;
+import pappaebuffa.model.entity.Ristorante;
 
 public class PreparazioniPerRistorante implements Azione {
 
