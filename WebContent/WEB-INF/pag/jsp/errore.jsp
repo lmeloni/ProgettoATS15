@@ -9,10 +9,12 @@
 <%@ include file="menu.jsp" %>
 <h4>
 	<b>
+	Oooppssss... Qualcosa è andato storto! 
+	<br><br>
 	${errore}
 	</b>
 </h4>
-<br><br>
+<br>
 <a href="motore?azione=Vai&risorsa=${pagina}">indietro</a>
 </body>
 </html>
