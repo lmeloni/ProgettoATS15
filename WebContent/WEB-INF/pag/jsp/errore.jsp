@@ -5,10 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>errore</title>
 </head>
-<%
-//recupera la pagina a cui tornare:
-String pagina = (String)session.getAttribute("pagina");
-%>
 <body bgcolor="yellow" text="red" >
 <%@ include file="menu.jsp" %>
 <h4>

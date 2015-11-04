@@ -140,7 +140,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<input type="submit" value="  Aggiorna  " > &nbsp;
+			<input type="submit" value="  Aggiorna  " >
 		</td>
 	</tr>
 	</tfoot>
