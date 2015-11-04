@@ -25,6 +25,7 @@
 		<input type="datetime-local" name="ordinedatetime">
 	</label>
 	<br><br><br>
+	<input type="reset" value="   Reset  ">
 	<input type="submit" value="   Ordina...  ">
 
 </form>	

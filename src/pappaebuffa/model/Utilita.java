@@ -38,8 +38,20 @@ public class Utilita {
 	
 	public static Timestamp stringToTimestamp(String data) throws ParseException{
 		
-		return new Timestamp(DateFormat.getDateInstance(DateFormat.LONG).parse(data).getTime());
+		return new Timestamp(new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(data.replace('T', ' ')).getTime());
 		
+	}
+	
+	public static Timestamp stringToTimestamp(String orario, Timestamp dataOrdine){
+		
+		String[] elementiOrario = orario.split(":");
+		
+		Timestamp nuovo = (Timestamp) dataOrdine.clone();
+		
+		nuovo.setHours(Integer.parseInt(elementiOrario[0]));
+		nuovo.setMinutes(Integer.parseInt(elementiOrario[1]));
+		
+		return nuovo;
 	}
 	
 	public static String timestampToString(Timestamp data) throws ParseException{
