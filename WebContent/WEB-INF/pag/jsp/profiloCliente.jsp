@@ -27,7 +27,7 @@
 		<td></td>
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${AggiornaProfiloClienteForm.errori}">
-				<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
+				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>
