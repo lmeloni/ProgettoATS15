@@ -7,6 +7,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <b>Ordini Ristorante</b>
 <hr><br>
 <b>Hai ${ordiniRistorante.size()} ordini:</b>
