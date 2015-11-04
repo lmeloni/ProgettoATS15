@@ -24,7 +24,8 @@
 	<br><br><br>
 	<label>Quando vuoi ritirare l'ordine? 
 		<input type="datetime-local" name="ordinedatetime">
-	</label>
+	</label><br>
+	<label><input type = "checkbox" name = "finalizzato"> Ho finito il mio ordine</label>
 	<br><br><br>
 	<input type="reset" value="   Reset  ">
 	<input type="submit" value="   Ordina...  ">

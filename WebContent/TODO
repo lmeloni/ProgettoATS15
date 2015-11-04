@@ -2,13 +2,17 @@ ATTIVITA' TODO...
 =================================================================================
    Aggiustare le view (JSP) e collegarle fra loro (Luca e bootstrap!)
    Stile grafico (CSS, da assegnare)
+   
+   Possibilita di continuare l'ordine con altre categorie di pietanze
+   
+   Visualizzazione prezzo delle singole pietanze
 
    Ristorante - aggiungere una pietanza 
                (la pietanza deve appartenere ad una categoria)
             
-   Ristorante - un ristorante può visualizzare gli ordini 
-               (solo quelli che lo riguardano) [Pierluigi, Laura, Elisa]
-
+   Ristorante - un ristorante può visualizzare il dettaglio di un singolo ordine selezionato
+   
+   Cliente - visualizza i propri ordini e li può annullare 
 
 Come/dove viene fatta la registrazione di un ristorante? [Fabio & Roberto]
 
@@ -19,3 +23,6 @@ Verificare che l'utente sia loggato nelle varie azioni/JSP
 ALTRE NOTE:
 Allo stato attuale, con opportuni accorgimenti, è possibile modificare il proprio indirizzo
 email e, cosa più IMPORTANTE, è possibile modificare i profili degli altri utenti!
+
+
+categorie delle pietanze da filtrare per tipologia ristorante

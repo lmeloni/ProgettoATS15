@@ -43,9 +43,7 @@ public class ComponiOrdine implements Azione{
 				totaleOrdine += p.getPrezzo() * quantita.get(i);
 				i++;
 			}
-			System.out.println(request.getParameter("ordinedatetime"));
 			Timestamp dataRitiro = Utilita.stringToTimestamp(request.getParameter("ordinedatetime"));
-			System.out.println(dataRitiro);
 			Timestamp dataAttuale = new Timestamp(new Date().getTime());
 			Timestamp orarioApertura = Utilita.stringToTimestamp(r.getOrarioApertura(), dataRitiro);
 			Timestamp orarioChiusura = Utilita.stringToTimestamp(r.getOrarioChiusura(), dataRitiro);
@@ -56,11 +54,20 @@ public class ComponiOrdine implements Azione{
 				throw new DAOException("Data ritiro non valida.");
 			}
 			
-			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
+			String ordineEsistente = request.getParameter("idOrdine"); // VA PASSATO
+			Ordine ordine = null;
+			int idOrdine = 0;
+			
+			if(ordineEsistente != null) {
+				idOrdine = Integer.parseInt(ordineEsistente);
+				ordine = new DAOOrdine().select(idOrdine);
+			}else {
+				ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, r, null, totaleOrdine, dataRitiro );
 			
-			// Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
-			int idOrdine = new DAOOrdine().insert(ordine);
+			// 	Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
+				idOrdine = new DAOOrdine().insert(ordine);
+			}
 			
 			// Scorrere l'array di Stringhe che contiene gli id delle pietanze e, passando
 			// per il DAOPietanza, costruire le associazioni fra l'ordine e le singole pietanze
@@ -83,7 +90,12 @@ public class ComponiOrdine implements Azione{
 				}
 			}
 			
-			return "ordineRiuscito.jsp";
+			String finalizzato = request.getParameter("finalizzato");
+			
+			if(finalizzato != null && finalizzato.equalsIgnoreCase("on"))
+				return "ordineRiuscito.jsp";
+			else
+				return "pietanzePerCategoria.jsp"; // BISOGNA PASSARE L'ID ORDINE CREATO
 			
 		} catch (DAOException | ParseException e) {
 			request.setAttribute("errore", e.getMessage());
