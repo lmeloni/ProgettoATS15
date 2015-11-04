@@ -1,12 +1,17 @@
 package pappaebuffa.controller.azioni;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.ComponiOrdineForm;
 import pappaebuffa.controller.form.Form;
+import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.DAOAssociazione;
 import pappaebuffa.model.dao.DAOOrdine;
 import pappaebuffa.model.dao.DAOPietanza;
@@ -38,7 +43,7 @@ public class ComponiOrdine implements Azione{
 		
 			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, ((ComponiOrdineForm) form).getRistorante()
-					, null, totaleOrdine, null);
+					, null, totaleOrdine, Utilita.stringToTimestamp(request.getParameter("ordinedatetime")));
 			
 			// Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 			int idOrdine = new DAOOrdine().insert(ordine);
@@ -66,7 +71,7 @@ public class ComponiOrdine implements Azione{
 			
 			return "ordineRiuscito.jsp";
 			
-		} catch (DAOException e) {
+		} catch (DAOException | ParseException e) {
 			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
