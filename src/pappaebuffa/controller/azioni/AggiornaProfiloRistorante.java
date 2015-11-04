@@ -10,6 +10,7 @@ import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ristorante;
+import pappaebuffa.model.entity.Utente;
 
 public class AggiornaProfiloRistorante implements Azione {
 
@@ -24,6 +25,8 @@ public class AggiornaProfiloRistorante implements Azione {
 			, f.getDescrizione(), f.getOrarioApertura(), f.getOrarioChiusura());
 		
 		try {
+			if(ristorante.getId() != ((Utente) request.getSession().getAttribute("utente")).getId())
+				throw new DAOException("Stai cercando di modificare un profilo che non è il tuo!");
 			DAORistorante dao = new DAORistorante();
 			dao.update(ristorante);
 			

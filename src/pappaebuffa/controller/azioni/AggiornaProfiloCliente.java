@@ -7,6 +7,7 @@ import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAOCliente;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
+import pappaebuffa.model.entity.Utente;
 
 public class AggiornaProfiloCliente implements Azione {
 
@@ -20,6 +21,8 @@ public class AggiornaProfiloCliente implements Azione {
 			f.getNome(), f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
 		
 		try {
+			if(cliente.getId() != ((Utente) request.getSession().getAttribute("utente")).getId())
+				throw new DAOException("Stai cercando di modificare un profilo che non è il tuo!");
 			DAOCliente dao = new DAOCliente();
 			dao.update(cliente);
 			
