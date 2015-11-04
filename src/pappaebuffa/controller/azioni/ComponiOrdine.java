@@ -22,6 +22,7 @@ import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ordine;
 import pappaebuffa.model.entity.Pietanza;
 import pappaebuffa.model.entity.Preparazione;
+import pappaebuffa.model.entity.Ristorante;
 
 public class ComponiOrdine implements Azione{
 
@@ -34,16 +35,27 @@ public class ComponiOrdine implements Azione{
 			double totaleOrdine = 0;
 			int i=0;
 			
+			Ristorante r = ((ComponiOrdineForm) form).getRistorante();
+			
 			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
 				
-				Preparazione p = new DAOPreparazione().select(((ComponiOrdineForm) form).getRistorante().getId(), pietanza.getId());
+				Preparazione p = new DAOPreparazione().select(r.getId(), pietanza.getId());
 				totaleOrdine += p.getPrezzo() * quantita.get(i);
 				i++;
 			}
-		
+			Timestamp dataRitiro = Utilita.stringToTimestamp(request.getParameter("ordinedatetime"));
+			Timestamp dataAttuale = new Timestamp(new Date().getTime());
+			Timestamp orarioApertura = Utilita.stringToTimestamp(r.getOrarioApertura(), dataRitiro);
+			Timestamp orarioChiusura = Utilita.stringToTimestamp(r.getOrarioChiusura(), dataRitiro);
+
+			if (dataRitiro == null || dataRitiro.compareTo(dataAttuale) < 0 
+					|| orarioApertura.compareTo(dataRitiro) > 0 
+					|| orarioChiusura.compareTo(dataRitiro) < 0){
+				throw new DAOException("Data ritiro non valida.");
+			}
+			
 			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
-					, ((ComponiOrdineForm) form).getRistorante()
-					, null, totaleOrdine, Utilita.stringToTimestamp(request.getParameter("ordinedatetime")));
+					, r, null, totaleOrdine, dataRitiro );
 			
 			// Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 			int idOrdine = new DAOOrdine().insert(ordine);

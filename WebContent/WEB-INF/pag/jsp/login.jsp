@@ -7,7 +7,9 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<strong>Entra in Pappa & Buffa!</strong>
+<img src="img/pappa&buffa.jpg" width="300" height="150" title="pappa&buffa" />
+<br>
+<strong>Entra in Pappa e Buffa!</strong>
 <br>
 <strong>${RegistrazioneForm.feedback}</strong>
 <br>
@@ -18,8 +20,8 @@
 	<tr>
 		<th></th>
 		<th align="left" >
-			<input type="radio" name="utente" value="cliente" checked />Cliente &nbsp;
-		    <input type="radio" name="utente" value="ristorante"/>Ristoratore
+			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;
+		    <label><input type="radio" name="utente" value="ristorante"/>Ristoratore</label>
 		</th>
 	</tr>
 	</thead>
@@ -62,7 +64,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a></td>
+		<td>Sei un nuovo utente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

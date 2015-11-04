@@ -5,21 +5,11 @@
 <body>
 <b>Pappa e Buffa!</b>
 <hr>
-<a href="motore?azione=Vai&risorsa=login.jsp">HOME</a> |
+<a href="motore?azione=Vai&risorsa=homeUtente.jsp">Home</a> |
 
-<!-- <a href="motore?azione=MostraPietanzePerCategoria">Pietanze per categoria</a> | -->
-<a href = "motore?azione=ProfiloUtente">Profilo personale</a> | 
-<a href = "motore?azione=Logout">Esci dal profilo</a> | 
+<a href="motore?azione=ProfiloUtente">Profilo personale</a> | 
 
-<!--
-	ho fatto una prova per eliminare l'iperlink che da errorema non funziona
-	<a href = "motore?azione=ProfiloCliente">
-		<c:if test="${utente.isCliente()==false}"> <c:out value="Profilo personale (ristorante)" /> </c:if>
-	</a> |
-	<a href = "motore?azione=ProfiloRistorante">
-		<c:if test="${utente.isCliente()}"> <c:out value="Profilo personale cliente" /> </c:if>
-	</a> 
- -->
+<a href="motore?azione=Logout">Esci dal profilo</a> | 
 
 <a href='javascript:history.back();'>indietro</a>
 <hr>

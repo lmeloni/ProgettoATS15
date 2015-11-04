@@ -22,9 +22,9 @@ public class RegistrazioneRistorante implements Azione {
 				   r.getCategoria(), r.getIndirizzo(), r.getCitta(), r.getTelefono(),
 				   r.getDescrizione(), r.getOrario_apertura(), r.getOrario_chiusura());
 		
-		DAO<Ristorante> dao;
+		
 		try {
-			dao = new DAORistorante();
+			DAO<Ristorante> dao = new DAORistorante();			
 			dao.insert(ristorante);
 			r.setFeedback("La tua registrazione è andata buon fine...Buon lavoro!");
 			return "login.jsp";
