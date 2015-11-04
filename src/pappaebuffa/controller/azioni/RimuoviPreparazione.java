@@ -10,7 +10,7 @@ import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Pietanza;
 import pappaebuffa.model.entity.Ristorante;
 
-public class RimuoviPietanza implements Azione {
+public class RimuoviPreparazione implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
