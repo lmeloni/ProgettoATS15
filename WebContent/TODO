@@ -5,7 +5,6 @@ ATTIVITA' TODO...
 
    Ristorante - aggiungere una pietanza 
                (la pietanza deve appartenere ad una categoria)
-            
    Ristorante - un ristorante può visualizzare gli ordini 
                (solo quelli che lo riguardano) [Pierluigi, Laura, Elisa]
 
@@ -19,3 +18,6 @@ Verificare che l'utente sia loggato nelle varie azioni/JSP
 ALTRE NOTE:
 Allo stato attuale, con opportuni accorgimenti, è possibile modificare il proprio indirizzo
 email e, cosa più IMPORTANTE, è possibile modificare i profili degli altri utenti!
+
+
+categorie delle pietanze da filtrare per tipologia ristorante

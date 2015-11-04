@@ -112,14 +112,14 @@ public class DAOOrdine extends DAO<Ordine>{
 				pst.setInt(1, entity.getCliente().getId());
 				pst.setInt(2, entity.getRistorante().getId());
 				pst.setDouble(3, entity.getImportoTotale());
-				pst.setTimestamp(4, Utilita.stringToTimestamp(entity.getDataRitiro()));
+				pst.setTimestamp(4, entity.getDataRitiro());
 				
 				if(idValido)
 					pst.setInt(5, entity.getId());
 
 				return insertInto(pst);
 
-			} catch (SQLException | ParseException e) {
+			} catch (SQLException e) {
 				throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
 			}
 	}

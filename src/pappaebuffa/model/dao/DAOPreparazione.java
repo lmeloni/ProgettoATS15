@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Preparazione;
 
 public class DAOPreparazione extends DAO<Preparazione> {
@@ -117,6 +118,33 @@ public class DAOPreparazione extends DAO<Preparazione> {
 		}
 
 	}
+	
+	public void update(Preparazione preparazione) throws DAOException{
+		
+		//verifichiamo che la tupla preparazione esista
+		Preparazione tuplaOld =null;
+		try {
+			tuplaOld = select( preparazione.getRistorante().getId(), preparazione.getPietanza().getId());
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			throw new DAOException("ERRORE select x PK=("+preparazione.getRistorante().getId()+","+preparazione.getPietanza().getId()+"). Causa: "+e.getMessage());
+		}
+		
+		String sql="UPDATE PREPARAZIONE " 
+				+ "SET PREZZO = ?, NOTE = ? "
+				+ "WHERE id_ristorante = ? AND id_pietanza = ?";
+		
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setDouble(1, preparazione.getPrezzo());
+			pst.setString(2, preparazione.getNote());
+			pst.setInt(3, preparazione.getRistorante().getId());
+			pst.setInt(4, preparazione.getPietanza().getId());
+			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE DELETE x PK=("+preparazione.getRistorante().getId()+","+preparazione.getPietanza().getId()+"). Causa: "+e.getMessage());
+		}
+	}
+
 
 	public Preparazione select(int idRistorante, int idPietanza) throws DAOException {
 		String sql="SELECT id_ristorante,id_pietanza,prezzo,note "
@@ -137,6 +165,7 @@ public class DAOPreparazione extends DAO<Preparazione> {
 		}
 
 	}
+	
 	public String[] columnNames() {
 		// TODO Auto-generated method stub
 		return null;

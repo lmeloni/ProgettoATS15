@@ -12,7 +12,7 @@
 	${errore}
 	</b>
 </h4>
-<br><br>
+<br>
 <a href="motore?azione=Vai&risorsa=${pagina}">indietro</a>
 </body>
 </html>
