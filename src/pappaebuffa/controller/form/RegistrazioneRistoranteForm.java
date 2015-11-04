@@ -7,15 +7,15 @@ public class RegistrazioneRistoranteForm extends Form {
 	
 	private String email;
 	private String password;
-	private String confermaPassword;
+	private String passwordConferma;
 	private String nome;
 	private String categoria;
 	private String indirizzo;
 	private String citta;
 	private String telefono;
 	private String descrizione;
-	private String orario_apertura;
-	private String orario_chiusura;
+	private String orarioApertura;
+	private String orarioChiusura;
 
 	
 	
@@ -25,15 +25,15 @@ public class RegistrazioneRistoranteForm extends Form {
 	public void parametri2campiForm() {
 		this.email = super.request.getParameter("email");
 		this.password = super.request.getParameter("password");
-		this.confermaPassword = super.request.getParameter("confermaPassword");
+		this.passwordConferma = super.request.getParameter("passwordConferma");
 		this.nome = super.request.getParameter("nome");
 		this.categoria = super.request.getParameter("categoria");
 		this.indirizzo = super.request.getParameter("indirizzo");
 		this.citta = super.request.getParameter("citta");
 		this.telefono = super.request.getParameter("telefono");
 		this.descrizione = super.request.getParameter("descrizione");
-		this.orario_apertura = super.request.getParameter("orario_apertura");
-		this.orario_chiusura = super.request.getParameter("orario_chiusura");
+		this.orarioApertura = super.request.getParameter("orarioApertura");
+		this.orarioChiusura = super.request.getParameter("orarioChiusura");
 		
 	}
 
@@ -47,8 +47,8 @@ public class RegistrazioneRistoranteForm extends Form {
 		return password;
 	}
 	
-	public String getConfermaPassword() {
-		return confermaPassword;
+	public String getPasswordConferma() {
+		return passwordConferma;
 	}
 
 	public String getNome() {
@@ -81,13 +81,13 @@ public class RegistrazioneRistoranteForm extends Form {
 	}
 
 
-	public String getOrario_apertura() {
-		return orario_apertura;
+	public String getOrarioApertura() {
+		return orarioApertura;
 	}
 
 
-	public String getOrario_chiusura() {
-		return orario_chiusura;
+	public String getOrarioChiusura() {
+		return orarioChiusura;
 	}
 
 
@@ -104,11 +104,11 @@ public class RegistrazioneRistoranteForm extends Form {
 		else if (! Utilita.validaPassword(password))
 			super.errori.add(new Errore("password", "password formalmente errata:almeno 8 caratteri e includere numeri e lettere"));
 		
-		if (confermaPassword==null || confermaPassword.isEmpty())
-			super.errori.add(new Errore("confermaPassword", "obbligatorio"));
+		if (passwordConferma==null || passwordConferma.isEmpty())
+			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
 		else
-			if(!confermaPassword.equals(password))
-				super.errori.add(new Errore("confermaPassword", "le password non corrispondono"));
+			if(!passwordConferma.equals(password))
+				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
 			
 		if (nome==null || nome.isEmpty())
 			super.errori.add(new Errore("nome", "obbligatorio"));
@@ -125,11 +125,11 @@ public class RegistrazioneRistoranteForm extends Form {
 		if (telefono==null || telefono.isEmpty())
 			super.errori.add(new Errore("telefono", "obbligatorio"));
 		
-		if (orario_apertura==null || orario_apertura.isEmpty())
-			super.errori.add(new Errore("orario_apertura", "obbligatorio"));
+		if (orarioApertura==null || orarioApertura.isEmpty())
+			super.errori.add(new Errore("orarioApertura", "obbligatorio"));
 		
-		if (orario_chiusura==null || orario_chiusura.isEmpty())
-			super.errori.add(new Errore("orario_chiusura", "obbligatorio"));
+		if (orarioChiusura==null || orarioChiusura.isEmpty())
+			super.errori.add(new Errore("orarioChiusura", "obbligatorio"));
 		
 		return super.errori.size()==0 ? true:false;
 	
