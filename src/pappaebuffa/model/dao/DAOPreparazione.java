@@ -103,7 +103,7 @@ public class DAOPreparazione extends DAO<Preparazione> {
 		return null;
 	}
 
-	public Preparazione delete(int idRistorante, int idPietanza) throws DAOException {
+	public void delete(int idRistorante, int idPietanza) throws DAOException {
 		Preparazione tuplaOld = select(idRistorante, idPietanza);
 
 		String sql="DELETE FROM preparazione WHERE id_ristorante = ? AND id_pietanza = ?";
@@ -111,8 +111,6 @@ public class DAOPreparazione extends DAO<Preparazione> {
 			pst.setInt(1, idRistorante);
 			pst.setInt(2, idPietanza);
 			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
-
-			return tuplaOld;
 
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE DELETE x PK=("+idRistorante+","+idPietanza+"). Causa: "+e.getMessage());
@@ -151,9 +149,9 @@ public class DAOPreparazione extends DAO<Preparazione> {
 			
 			System.out.println("INSERT: " + new DAOPreparazione().insert(p));
 			System.out.println("SELECT ALL: " + new DAOPreparazione().select());
-			System.out.println("DELETE: " + 
-					new DAOPreparazione().delete(p.getRistorante().getId(),
-							p.getPietanza().getId()));
+//			System.out.println("DELETE: " + 
+//					new DAOPreparazione().delete(p.getRistorante().getId(),
+//							p.getPietanza().getId()));
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
