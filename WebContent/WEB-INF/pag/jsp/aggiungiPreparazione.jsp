@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
+<b>Aggiungi una pietanza alla tua preparazione </b>
+
 <form action = "motore">
 	<input type = "hidden" name = "azione" value = "AggiungiPreparazione">
 		Elenco delle pietanze<br>

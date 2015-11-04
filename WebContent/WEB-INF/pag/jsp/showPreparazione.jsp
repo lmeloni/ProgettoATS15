@@ -11,13 +11,14 @@
 <%@ include file="menu.jsp" %>
 <form action = "motore">
 	<input type = "hidden" name = "azione" value = "RimuoviPreparazione">
-		Elenco pietanze per ristorante<br>
+		Elenco pietanze per ristorante
 		<select name = "idPietanza">
 			<c:forEach var = "pietanza" items = "${listaPreparazioni}">
 				<option value ="${pietanza.id}" >${pietanza.nome}</option>
 			</c:forEach>
-		</select><br>
-		<input type = "submit" value = "Cancella preparazione">
+		</select>
+		<br><br>
+		<input type = "submit" value = "Cancella preparazione"> &nbsp; ${feedback}
 </form>
 </body>
 </html>
