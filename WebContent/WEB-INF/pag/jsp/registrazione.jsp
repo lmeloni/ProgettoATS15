@@ -19,6 +19,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Nome</td>
 		<td><input type="text" size="30" name="nome" value="${RegistrazioneForm.nome}" ></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -32,6 +33,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Cognome</td>
 		<td><input type="text" size="30" name="cognome" value="${RegistrazioneForm.cognome}" ></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -45,6 +47,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Email</td>
 		<td><input type="text" size="30" name="email" value="${RegistrazioneForm.email}" ></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -58,6 +61,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Indirizzo di consegna</td>
 		<td><input type="text" size="30" name="indirizzo" value="${RegistrazioneForm.indirizzo}" ></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -71,6 +75,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Città</td>
 		<td><input type="text" size="30" name="citta" value="${RegistrazioneForm.citta}" ></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -84,6 +89,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">Telefono </td>
 		<td><input type="text" size="30" name="telefono" value="${RegistrazioneForm.telefono}" ></td>
+		<td><font size="2">Useremo il tuo numero per contattarti</font>
 	</tr>
 	<tr>
 		<td></td>
@@ -97,6 +103,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">(*) Password</td>
 		<td><input type="text" size="30" name="password" value="${RegistrazioneForm.password}" ></td>
+		<td><font size="2">La password deve contenere almeno 8 caratteri e almeno un numero</font>
 	</tr>
 	<tr>
 		<td></td>
