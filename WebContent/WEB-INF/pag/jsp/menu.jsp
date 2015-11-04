@@ -3,7 +3,7 @@
 <html>
 
 <body>
-Pappa e buffa!
+<b>Pappa e Buffa!</b>
 <hr>
 <a href="motore?azione=Vai&risorsa=login.jsp">HOME</a> |
 

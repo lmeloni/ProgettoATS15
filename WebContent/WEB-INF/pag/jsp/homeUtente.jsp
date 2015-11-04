@@ -3,22 +3,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomeCategoria</title>
+<title>HomeUtente</title>
 </head>
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-pagina HomeCategoria
-<hr>
-Benvenuto 
 
-<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+Benvenuto <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<br>
 <a href="motore?azione=ProfiloUtente" >${utente.nome}</a> <br>
+<br>
 <c:if test="${utente.isCliente()==false}">
-<a href = "motore?azione=AggiungiPietanzaPreparazione">Aggiungi una nuova pietanza nel "menù" del tuo locale</a><br>
-<a href = "motore?azione=ModificaPreparazione">Modifica una delle tue preparazioni esistenti</a><br>
-<a href = "motore?azione=RimuoviPreparazione">Cancella una delle tue preparazioni esistenti</a><br>
-<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a><br>
+	<a href = "motore?azione=AggiungiPietanzaPreparazione">Aggiungi una nuova pietanza nel "menù" del tuo locale</a><br>
+	<a href = "motore?azione=ModificaPreparazione">Modifica una delle tue preparazioni esistenti</a><br>
+	<a href = "motore?azione=RimuoviPreparazione">Cancella una delle tue preparazioni esistenti</a><br>
+	<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a><br>
 </c:if>
 
 </body>
