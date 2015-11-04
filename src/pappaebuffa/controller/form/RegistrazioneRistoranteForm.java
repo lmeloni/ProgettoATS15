@@ -116,9 +116,6 @@ public class RegistrazioneRistoranteForm extends Form {
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
 		
-		if (categoria==null || categoria.isEmpty())
-			super.errori.add(new Errore("categoria", "obbligatorio"));
-		
 		if (indirizzo==null || indirizzo.isEmpty())
 			super.errori.add(new Errore("indirizzo", "obbligatorio"));
 		
