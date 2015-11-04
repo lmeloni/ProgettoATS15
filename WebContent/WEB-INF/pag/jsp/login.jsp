@@ -7,7 +7,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<strong>Entra in Pappa & Buffa!</strong>
+<strong>Entra in Pappa e Buffa!</strong>
 <br>
 <strong>${RegistrazioneForm.feedback}</strong>
 <br>
