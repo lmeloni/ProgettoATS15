@@ -14,7 +14,7 @@ public class RecuperaCategorieRistoranti implements Azione {
 		try {
 			DAORistorante dao = new DAORistorante();
 
-			request.setAttribute("listaCategorie", dao.selectCategoria());
+			request.getSession().setAttribute("listaCategorie", dao.selectCategoria());
 			
 			return "homeUtente.jsp"; 
 		

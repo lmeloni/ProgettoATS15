@@ -18,6 +18,7 @@ public class RecuperoPasswordForm extends Form {
 	@Override
 	public void parametri2campiForm() {
 		this.email=super.request.getParameter("email");
+		this.utente=super.request.getParameter("utente");
 	}
 	
 	@Override
