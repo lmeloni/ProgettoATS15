@@ -10,7 +10,7 @@
 <b>Lista degli ordini:</b>
 <br>
 <br>
-<table border="0" cellpadding="2" cellspacing="2" style="color:#ffffff">
+<table border="0" cellpadding="5" cellspacing="5" style="color: maroon;">
 	<thead>
 	<tr>
 		<th>Cliente</th>

@@ -3,6 +3,10 @@ package pappaebuffa.model;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
 
 public class Utilita {
 	
@@ -23,5 +27,16 @@ public class Utilita {
 	
 	public static boolean validaPassword(String password){
 		return password.matches("^(?=.*[a-z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
+	}
+	
+	public static Timestamp stringToTimestamp(String data) throws ParseException{
+		
+		return new Timestamp(DateFormat.getDateInstance(DateFormat.LONG).parse(data).getTime());
+		
+	}
+	
+	public static String timestampToString(Timestamp data) throws ParseException{
+		return DateFormat.getDateInstance(DateFormat.LONG).format(new Date(data.getTime()));
+		
 	}
 }
