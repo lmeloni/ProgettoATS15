@@ -7,6 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
@@ -111,14 +112,14 @@ public class DAOOrdine extends DAO<Ordine>{
 				pst.setInt(1, entity.getCliente().getId());
 				pst.setInt(2, entity.getRistorante().getId());
 				pst.setDouble(3, entity.getImportoTotale());
-				pst.setTimestamp(4, entity.getDataRitiro());
+				pst.setTimestamp(4, Utilita.stringToTimestamp(entity.getDataRitiro()));
 				
 				if(idValido)
 					pst.setInt(5, entity.getId());
 
 				return insertInto(pst);
 
-			} catch (SQLException e) {
+			} catch (SQLException | ParseException e) {
 				throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
 			}
 	}
