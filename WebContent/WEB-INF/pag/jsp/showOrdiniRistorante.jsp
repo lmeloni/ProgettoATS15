@@ -6,34 +6,31 @@
 <title>showOrdiniRistorante</title>
 </head>
 <body>
-<b>Lista degli ordini ${ordiniRistorante}:</b>
+<%@ include file="_top.jsp" %>
+<b>Lista degli ordini:</b>
 <br>
 <br>
-<table border="0" cellpadding="2" cellspacing="2" style="color:#ffffff">
+<table border="0" cellpadding="5" cellspacing="5" style="color: maroon;">
 	<thead>
 	<tr>
 		<th>Cliente</th>
 		<th>Data ordine</th>
 		<th>Data ritiro</th>
-		<th align="right" >Importo totale</th>
+		<th align="right">Importo totale</th>
 	</tr>
 	</thead>
 	
 	<tbody>
-		<td>Cliente</td>
-	</tbody>
-
-
-
-	<tr bgcolor=#808080>
-		<c:forEach var="h" items="${tableH}">
-			<th><c:out value="${h}"/></th>
-		</c:forEach>
+	<c:forEach var="ordine" items="${ordiniRistorante}">
+	<tr>
+		<td>${ordine.cliente.nome}</td>
+		<td>${ordine.dataOrdine}</td>
+		<td>${ordine.dataRitiro}</td>
+		<td align="right">${ordine.importoTotale}</td>
 	</tr>
-	<c:forEach var="l" items="${ordiniRistorante}" varStatus="loop">
-		<tr bgcolor="${loop.index % 2 == 0 ? '#00a0a0':'#008080'}">${l}</tr>
 	</c:forEach>
-	
+	</tbody>
 </table>
+
 </body>
 </html>

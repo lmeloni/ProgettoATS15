@@ -7,6 +7,7 @@
 <title>showRistoranti</title>
 </head>
 <body>
+<%@ include file="_top.jsp" %>
 <b>Mostra Ristoranti per Categoria:</b>
 <br>	
 <br>
