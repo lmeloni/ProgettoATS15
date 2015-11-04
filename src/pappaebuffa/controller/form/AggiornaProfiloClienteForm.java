@@ -1,6 +1,7 @@
 package pappaebuffa.controller.form;
 
 import pappaebuffa.controller.bean.Errore;
+import pappaebuffa.model.Utilita;
 
 public class AggiornaProfiloClienteForm extends Form {
 	
@@ -78,7 +79,7 @@ public class AggiornaProfiloClienteForm extends Form {
 
 	@Override
 	public boolean validazione() {
-		System.out.println("OK?");
+		
 		if (nome==null || nome.isEmpty())
 			super.errori.add(new Errore("nome", "obbligatorio"));
 		
@@ -91,22 +92,16 @@ public class AggiornaProfiloClienteForm extends Form {
 		if (citta==null || citta.isEmpty())
 			super.errori.add(new Errore("citta", "obbligatorio"));
 		
-		if(passwordConferma.equals(password) && password!=null && !password.isEmpty()){
-			if (password.length()<8)
-				super.errori.add(new Errore("password", "inserire almeno 8 caratteri"));
-			if (passwordConferma.length()<8)
-				super.errori.add(new Errore("passwordConferma", "inserire almeno 8 caratteri"));
-		}
-			
-//		if (password==null || password.isEmpty())
-//			super.errori.add(new Errore("password", "obbligatorio"));
-//		if (password.length()<8)
-//			super.errori.add(new Errore("password", "inserire almeno 8 caratteri"));
+		if (password==null || password.isEmpty())
+			super.errori.add(new Errore("password", "obbligatorio"));
+		else if (! Utilita.validaPassword(password))
+			super.errori.add(new Errore("password", "formalmente errata: almeno 8 caratteri e includere numeri e lettere"));
 		
-//		if (passwordConferma==null || passwordConferma.isEmpty())
-//			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
-//		if (passwordConferma.length()<8)
-//			super.errori.add(new Errore("passwordConferma", "inserire almeno 8 caratteri"));
+		if (passwordConferma==null || passwordConferma.isEmpty())
+			super.errori.add(new Errore("passwordConferma", "obbligatorio"));
+		else
+			if(!passwordConferma.equals(password))
+				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
 		
 		return super.errori.size()==0 ? true:false;
 	}
