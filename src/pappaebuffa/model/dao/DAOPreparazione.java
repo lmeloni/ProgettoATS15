@@ -72,6 +72,27 @@ public class DAOPreparazione extends DAO<Preparazione> {
 
 	}
 
+	public double selectPrezzoByPietanzaRistorante(int idPietanza, int idRistorante) throws DAOException {
+		String sql="SELECT prezzo "
+				+ "FROM preparazione "
+				+ "WHERE id_pietanza = ? AND id_ristorante = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, idPietanza);
+			pst.setInt(2, idRistorante);
+			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			if(res.next()) //scorre TUTTO il ResultSet
+				return res.getDouble("prezzo");
+			else
+				throw new DAOException("WARNING SELECT Prezzo by Ristorante & Pietanza: TABELLA VUOTA!");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT Prezzo by Ristorante & Pietanza. Causa: "+e.getMessage());
+		}
+
+	}
+
 	private Preparazione componiEntity() throws DAOException, SQLException {
 		return new Preparazione(new DAORistorante().select(res.getInt("id_ristorante")),
 				new DAOPietanza().select(res.getInt("id_pietanza")), 

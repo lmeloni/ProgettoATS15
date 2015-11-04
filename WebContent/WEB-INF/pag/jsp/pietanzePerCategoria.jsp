@@ -17,9 +17,10 @@
 	<input type="hidden" name="ordinedatetime" value="${ordinedatetime}" >
 	<input type="hidden" name="idOrdine" value="${idOrdine}" >
 	
-	<c:forEach var="pietanza" items="${pietanze}" >
+	<c:forEach var="pietanza" items="${pietanze}" varStatus = "i">
 		<label><input type="checkbox" name="pietanza" value="${pietanza.id}">${pietanza.nome}</label> 
 		<input type="number" name="quantita${pietanza.id}" min="1" value="1" style="width: 50px;">
+		<c:out value="${prezzi[i.index]}"/> Euro cadauno/a
 		<br>
 	</c:forEach>
 	<br><br><br>
