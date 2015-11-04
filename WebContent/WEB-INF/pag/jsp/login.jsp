@@ -18,8 +18,8 @@
 	<tr>
 		<th></th>
 		<th align="left" >
-			<input type="radio" name="utente" value="cliente" checked />Cliente &nbsp;
-		    <input type="radio" name="utente" value="ristorante"/>Ristoratore
+			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;
+		    <label><input type="radio" name="utente" value="ristorante"/>Ristoratore</label>
 		</th>
 	</tr>
 	</thead>
