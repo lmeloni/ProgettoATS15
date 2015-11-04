@@ -117,39 +117,39 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	
 	<tr>
 		<td align="right">(*) Conferma password</td>
-		<td><input type="password" size="30" name="passwordConferma" value="${RegistrazioneRistoranteForm.confermaPassword}" ></td>
+		<td><input type="password" size="30" name="passwordConferma" value="${RegistrazioneRistoranteForm.passwordConferma}" ></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='confermaPassword'}"> <c:out value="${e.errmsg}"/> </c:if>
+				<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="right">(*) Orario di apertura</td>
-		<td><input type="text" size="30" name="orario_apertura" value="${RegistrazioneRistoranteForm.orario_apertura}" ></td>
+		<td><input type="text" size="30" name="orarioApertura" value="${RegistrazioneRistoranteForm.orarioApertura}" ></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='orario_apertura'}"> <c:out value="${e.errmsg}"/> </c:if>
+				<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>
 	
 	<tr>
 		<td align="right">(*) Orario di chiusura</td>
-		<td><input type="text" size="30" name="orario_chiusura" value="${RegistrazioneRistoranteForm.orario_chiusura}" ></td>
+		<td><input type="text" size="30" name="orarioChiusura" value="${RegistrazioneRistoranteForm.orarioChiusura}" ></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='orario_chiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
+				<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>

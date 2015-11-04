@@ -64,7 +64,11 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo utente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
+		<td>Sei un nuovo cliente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Sei un nuovo ristoratore? <a href="motore?azione=RecuperaCategorieRistoranti" >Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>
