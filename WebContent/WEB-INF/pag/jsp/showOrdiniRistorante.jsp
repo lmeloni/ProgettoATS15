@@ -9,7 +9,7 @@
 <%@ include file="_top.jsp" %>
 <b>Ordini Ristorante</b>
 <hr><br>
-<b>Trovati ${ordiniRistorante.size()} ordini:</b>
+<b>Hai ${ordiniRistorante.size()} ordini:</b>
 <br>
 <table border="0" cellpadding="3" cellspacing="3" >
 	<thead>

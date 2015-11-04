@@ -9,10 +9,10 @@
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 
-Benvenuto <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
-<br>
-<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> <br>
-<br>
+Benvenuto 
+<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
+<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> 
+<br><br>
 <c:if test="${utente.isCliente()==false}">
 	<a href = "motore?azione=AggiungiPietanzaPreparazione">Aggiungi una nuova pietanza nel "menù" del tuo locale</a><br>
 	<a href = "motore?azione=ModificaPreparazione">Modifica una delle tue preparazioni esistenti</a><br>
