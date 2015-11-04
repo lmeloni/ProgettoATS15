@@ -12,7 +12,7 @@ import pappaebuffa.model.entity.Pietanza;
 
 import pappaebuffa.model.entity.Ristorante;
 
-public class PreparazioniPerRistorante implements Azione {
+public class CancellaPreparazioniPerRistorante implements Azione {
 
 
 	@Override
