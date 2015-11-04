@@ -35,11 +35,10 @@ public class ComponiOrdine implements Azione{
 				totaleOrdine += p.getPrezzo() * quantita.get(i);
 				i++;
 			}
-			
+		
 			Ordine ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, ((ComponiOrdineForm) form).getRistorante()
 					, null, totaleOrdine, null);
-			// TODO Gestire i Timestamp e il totale dell'ordine...
 			
 			// Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 			int idOrdine = new DAOOrdine().insert(ordine);
