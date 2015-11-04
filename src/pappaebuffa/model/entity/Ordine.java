@@ -1,6 +1,9 @@
 package pappaebuffa.model.entity;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+
+import pappaebuffa.model.Utilita;
 
 public class Ordine {
 
@@ -21,6 +24,9 @@ public class Ordine {
 		this.dataRitiro = dataRitiro;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getId() {
 		return id;
 	}
@@ -33,29 +39,24 @@ public class Ordine {
 		return ristorante;
 	}
 
-	public Timestamp getDataOrdine() {
-		return dataOrdine;
+	public String getDataOrdine() throws ParseException {
+		return Utilita.timestampToString(dataOrdine);
 	}
 
 	public double getImportoTotale() {
 		return importoTotale;
 	}
 
-	public Timestamp getDataRitiro() {
-		return dataRitiro;
+	public String getDataRitiro() throws ParseException {
+		return Utilita.timestampToString(dataRitiro);
 	}
 
 	@Override
 	public String toString() {
 		return "\nOrdine [id=" + id + ", cliente=" + cliente + ", ristorante="
 				+ ristorante + ", dataOrdine=" + dataOrdine
-				+ ", importoTotale=" + importoTotale + ", dataRitiro="
-				+ dataRitiro + "]";
+				+ ", importoTotale=" + importoTotale + ", dataRitiro=" + dataRitiro + "]";
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	
 }

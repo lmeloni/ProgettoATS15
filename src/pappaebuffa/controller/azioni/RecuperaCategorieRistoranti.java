@@ -1,7 +1,5 @@
 package pappaebuffa.controller.azioni;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
@@ -15,11 +13,10 @@ public class RecuperaCategorieRistoranti implements Azione {
 		 
 		try {
 			DAORistorante dao = new DAORistorante();
-			ArrayList<String> select = new ArrayList<String>();
-			select = dao.selectCategoria();
-			request.setAttribute("post_it", select);
+
+			request.setAttribute("listaCategorie", dao.selectCategoria());
 			
-			return "ristorantiPerCategorie.jsp";
+			return "homeUtente.jsp"; 
 		
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());

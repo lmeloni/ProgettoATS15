@@ -62,18 +62,12 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a></td>
+		<td>Sei un nuovo utente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>
 
 </form>
-<br><br>
-<strong>AZIONI Elisa e Laura:</strong>
-<br>
-<a href="motore?azione=PietanzePerRistoranteCategoria">PietanzePerRistoranteCategoria</a>
-<br>
-<a href="motore?azione=MostraOrdinePerRistorante">MostraOrdinePerRistorante</a>
 
 </body>
 </html>

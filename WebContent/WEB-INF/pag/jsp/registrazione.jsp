@@ -11,7 +11,7 @@
 <br><br>
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 <br><br>
-<form action="motore" method="get" > <input type="hidden" name="azione" value="Registrazione" >
+<form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
 <table cellpadding="3" cellspacing="3" >
 
@@ -102,7 +102,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 		
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="text" size="30" name="password" value="${RegistrazioneForm.password}" ></td>
+		<td><input type="password" size="30" name="password" value="${RegistrazioneForm.password}" ></td>
 		<td><font size="2">La password deve contenere almeno 8 caratteri e almeno un numero</font>
 	</tr>
 	<tr>
@@ -116,7 +116,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	
 	<tr>
 		<td align="right">(*) Conferma password</td>
-		<td><input type="text" size="30" name="passwordConferma" value="${RegistrazioneForm.passwordConferma}" ></td>
+		<td><input type="password" size="30" name="passwordConferma" value="${RegistrazioneForm.passwordConferma}" ></td>
 	</tr>
 	<tr>
 		<td></td>

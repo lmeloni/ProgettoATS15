@@ -30,8 +30,8 @@ public class Pietanza {
 	
 	@Override
 	public String toString() {
-		return "\nPietanza [nome=" + nome + ", categoria=" + categoria
-				+ ", descrizione=" + descrizione
-				+ ", id=" + id + "]";
+		return "\n" + nome + ", " + categoria
+				+ "," + descrizione
+				+ ", " + id + "]";
 	}
 }

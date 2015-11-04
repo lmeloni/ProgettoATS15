@@ -46,7 +46,9 @@ public abstract class Form {
 	 * da mettere in OVERRIDE nelle sottoclassi Form
 	 * @return boolean (true = validazione OK | false = validazione KO)
 	 */
-	public abstract boolean validazione();
+	public boolean validazione() {
+		return true;
+	}
 	
 	/**
 	 * metodo astratto che deve valorizzare tutti i campi della sottoclasse Form
