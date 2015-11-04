@@ -101,24 +101,20 @@ public class DAOOrdine extends DAO<Ordine>{
 	public int insert(Ordine entity) throws DAOException {
 			boolean idValido = entity.getId() > 0;
 			
-			String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,data,importo,data_ritiro "
+			String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,importo,data_ritiro "
 					+(idValido ? ",id" : "")
-					+ " ) VALUES (?,?,?,?,? "
+					+ " ) VALUES (?,?,?,? "
 					+(idValido ? ",?" : "")
 					+ ")";
 			try {
 				PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"});
 				pst.setInt(1, entity.getCliente().getId());
 				pst.setInt(2, entity.getRistorante().getId());
-				pst.setTimestamp(3, 
-						entity.getDataOrdine() == null ? 
-								new Timestamp(System.currentTimeMillis()) : 
-									entity.getDataOrdine());
-				pst.setDouble(4, entity.getImportoTotale());
-				pst.setTimestamp(5, entity.getDataRitiro());
+				pst.setDouble(3, entity.getImportoTotale());
+				pst.setTimestamp(4, entity.getDataRitiro());
 				
 				if(idValido)
-					pst.setInt(6, entity.getId());
+					pst.setInt(5, entity.getId());
 
 				return insertInto(pst);
 
