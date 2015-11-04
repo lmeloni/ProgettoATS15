@@ -19,18 +19,18 @@ public class RecuperoPassword implements Azione {
 			switch (f.getUtente()) {
 			case "cliente":
 				DAOCliente dao = new DAOCliente();
-				f.setFeedback("OK, password recuperata: "+dao.recuperaPassword(f.getEmail()));
+				f.setFeedback("Ti abbiamo inviato la password alla tua email");//"OK, password recuperata: "+dao.recuperaPassword(f.getEmail()));
 				return f.getPagina();
 			case "ristorante":
 				DAORistorante dao1 = new DAORistorante();
-				f.setFeedback("OK, password recuperata: "+dao1.recuperaPassword(f.getEmail()));
+				f.setFeedback("Ti abbiamo inviato la password alla tua email");//"OK, password recuperata: "+dao1.recuperaPassword(f.getEmail()));
 				return f.getPagina();
 			default: 
 				return "errore.jsp";
 			} 
-		}catch (DAOLoginException e) {
-			f.setFeedback("Spiacenti, email non registrata!");
-			return f.getPagina();
+//		}catch (DAOLoginException e) {
+//			f.setFeedback("Spiacenti, email non registrata!");
+//			return f.getPagina();
 		  } catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
