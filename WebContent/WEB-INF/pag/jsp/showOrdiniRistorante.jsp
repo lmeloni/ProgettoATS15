@@ -7,12 +7,13 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<b>Lista degli ordini:</b>
+<b>Ordini Ristorante</b>
+<hr><br>
+<b>Trovati ${ordiniRistorante.size()} ordini:</b>
 <br>
-<br>
-<table border="0" cellpadding="5" cellspacing="5" style="color: maroon;">
+<table border="0" cellpadding="3" cellspacing="3" >
 	<thead>
-	<tr>
+	<tr style="color: white; background-color: blue;"  >
 		<th>Cliente</th>
 		<th>Data ordine</th>
 		<th>Data ritiro</th>
@@ -22,7 +23,7 @@
 	
 	<tbody>
 	<c:forEach var="ordine" items="${ordiniRistorante}">
-	<tr>
+	<tr style="color: purple;">
 		<td>${ordine.cliente.nome}</td>
 		<td>${ordine.dataOrdine}</td>
 		<td>${ordine.dataRitiro}</td>

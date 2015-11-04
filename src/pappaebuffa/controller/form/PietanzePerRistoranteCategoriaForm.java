@@ -1,6 +1,5 @@
 package pappaebuffa.controller.form;
 
-
 public class PietanzePerRistoranteCategoriaForm extends Form {
 	
 	private String  categoria;
@@ -20,12 +19,8 @@ public class PietanzePerRistoranteCategoriaForm extends Form {
 		this.categoria = request.getParameter("categoria");
 		this.idRistorante = Integer.parseInt(request.getParameter("ristorante"));
 	}
-
-	@Override
-	public boolean validazione() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+	
 	
 
 }
