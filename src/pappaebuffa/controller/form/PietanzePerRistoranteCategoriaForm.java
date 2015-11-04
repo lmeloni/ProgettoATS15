@@ -2,7 +2,7 @@ package pappaebuffa.controller.form;
 
 public class PietanzePerRistoranteCategoriaForm extends Form {
 	
-	private String  categoria;
+	private String categoria;
 	private int idRistorante;
 	
 	//NON SERVE IL COSTRUTTORE: usa quello di DEFAULT della superclasse Form
@@ -21,6 +21,4 @@ public class PietanzePerRistoranteCategoriaForm extends Form {
 	}
 	
 	
-	
-
 }
