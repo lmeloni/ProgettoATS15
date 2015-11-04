@@ -4,26 +4,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>showRistoranti</title>
 </head>
 <body>
- <br>	
+<%@ include file="_top.jsp" %>
+<b>Mostra Ristoranti per Categoria:</b>
+<br>	
 <br>
-<form action = "motore">
-	<input type = "hidden" name = "azione" value = "PietanzePerRistoranteCategoria">
-		Scegli il ristorante...<br>
-		<select name = "ristorante">
-			<c:forEach var = "ristorante" items = "${ristoranti}">
-				<option value = "${ristorante.id}">${ristorante.nome}</option>
-			</c:forEach>
-		</select><br>
-		Scegli la categoria della pietanza...<br>
-		<select name = "categoria">
-			<c:forEach var = "categoria" items = "${categorie}">
-				<option value = "${categoria}">${categoria}</option>
-			</c:forEach>
-		</select><br>
-	<input type = "submit" value = "Scegli...">
+<form action="motore"> 	<input type="hidden" name="azione" value="PietanzePerRistoranteCategoria" >
+
+	Scegli il ristorante...<br>
+	<select name="ristorante">
+		<c:forEach var="ristorante" items="${ristoranti}">
+			<option value="${ristorante.id}">${ristorante.nome}</option>
+		</c:forEach>
+	</select>
+	<br>
+	Scegli la categoria della pietanza...<br>
+	<select name="categoria">
+		<c:forEach var="categoria" items="${categorie}">
+			<option value="${categoria}">${categoria}</option>
+		</c:forEach>
+	</select>
+	<br><br>
+	<input type="submit" value="   Scegli...  ">
 </form>
 </body>
 </html>
