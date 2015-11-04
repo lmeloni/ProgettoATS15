@@ -1,7 +1,5 @@
 package pappaebuffa.controller.azioni;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
@@ -9,25 +7,25 @@ import pappaebuffa.controller.form.MostraRistorantiPerCategoriaForm;
 import pappaebuffa.model.dao.DAOPietanza;
 import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Ristorante;
 
 public class MostraRistorantiPerCategoria implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
+		MostraRistorantiPerCategoriaForm f = (MostraRistorantiPerCategoriaForm) form;
 		try {
-			MostraRistorantiPerCategoriaForm f = (MostraRistorantiPerCategoriaForm) form;
-			DAORistorante dao = new DAORistorante();
-			ArrayList<Ristorante> arraylistRistorante = dao.selectByCategoria(f.getCategoria());
+			DAORistorante daor = new DAORistorante();
+			DAOPietanza daop = new DAOPietanza();
 			
-			request.setAttribute("ristoranti",arraylistRistorante );
-			request.setAttribute("categorie",new DAOPietanza().selectCategoria());
+			request.setAttribute("ristoranti", daor.selectByCategoria(f.getCategoria()));
+			request.setAttribute("categorie", daop.selectCategoria());
 			
 			return "showRistoranti.jsp";
+			
 		} catch (DAOException e) {
-			e.printStackTrace();
-			return "errore.jsp"; // VERIFICARE SE VA BENE
+			request.setAttribute("errore", e.getMessage());
+			return "errore.jsp"; 
 		}
 	}
 
