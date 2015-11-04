@@ -16,6 +16,7 @@
 	<input type="hidden" name="ristorante" value="${PietanzePerRistoranteCategoriaForm.idRistorante}">
 	<input type="hidden" name="ordinedatetime" value="${ordinedatetime}" >
 	<input type="hidden" name="idOrdine" value="${idOrdine}" >
+	<input type="hidden" name="totaleParziale" value="${totaleParziale}" >
 	
 	<c:forEach var="pietanza" items="${pietanze}" varStatus = "i">
 		<label><input type="checkbox" name="pietanza" value="${pietanza.id}">${pietanza.nome}</label> 

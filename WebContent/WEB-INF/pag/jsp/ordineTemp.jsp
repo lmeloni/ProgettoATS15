@@ -16,6 +16,7 @@
 <input type="hidden" name="azione" value="PietanzePerRistoranteCategoria" >
 <input type="hidden" name="ristorante" value="${ristorante}" >
 <input type="hidden" name="idOrdine" value="${idOrdine}" >
+<input type="hidden" name="totaleParziale" value="${totaleParziale}" >
 <input type="hidden" name="ordinedatetime" value="${ordinedatetime}" >
 
 <table cellpadding="5" cellspacing="5" >

@@ -32,8 +32,11 @@ public class ComponiOrdine implements Azione{
 		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
 		
 		try {
-			double totaleOrdine = 0;
 			int i=0;
+			double totaleOrdine = 0;
+			
+			if(request.getParameter("totaleParziale") != null && !request.getParameter("totaleParziale").isEmpty())
+				totaleOrdine = Double.parseDouble(request.getParameter("totaleParziale"));
 			
 			Ristorante r = ((ComponiOrdineForm) form).getRistorante();
 			
@@ -58,18 +61,15 @@ public class ComponiOrdine implements Azione{
 			Ordine ordine = null;
 			int idOrdine = 0;
 			
-			System.out.println("ordineEsistente='"+ordineEsistente+"'");
 			if(ordineEsistente != null && !ordineEsistente.isEmpty()) {
 				idOrdine = Integer.parseInt(ordineEsistente);
 				ordine = new DAOOrdine().select(idOrdine);
-				System.out.println("1");
 			}else {
 				ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, r, null, totaleOrdine, dataRitiro );
 			
 			// 	Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 				idOrdine = new DAOOrdine().insert(ordine);
-				System.out.println("2");
 			}
 			
 			// Scorrere l'array di Stringhe che contiene gli id delle pietanze e, passando
@@ -95,9 +95,12 @@ public class ComponiOrdine implements Azione{
 			
 			String finalizzato = request.getParameter("finalizzato");
 			
-			if(finalizzato != null && finalizzato.equalsIgnoreCase("on"))
+			if(finalizzato != null && finalizzato.equalsIgnoreCase("on")) {
+				request.setAttribute("totaleOrdine", totaleOrdine);
+				request.setAttribute("associazioni", new DAOAssociazione().selectByOrdine(idOrdine));
 				return "ordineRiuscito.jsp";
-			else{
+			}else{
+				request.setAttribute("totaleParziale", totaleOrdine);
 				request.setAttribute("idOrdine", idOrdine);
 				return "motore?azione=OrdineTemp";
 			}

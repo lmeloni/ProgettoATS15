@@ -15,6 +15,7 @@ public class OrdineTemp implements Azione {
 			request.setAttribute("ordinedatetime", request.getParameter("ordinedatetime"));
 			request.setAttribute("categorie", new DAOPietanza().selectCategoriaByRistorante(Integer.parseInt(request.getParameter("ristorante"))));
 			request.setAttribute("idOrdine", request.getAttribute("idOrdine"));
+			request.setAttribute("totaleParziale", request.getAttribute("totaleParziale"));
 			
 			return "ordineTemp.jsp";
 		} catch (DAOException e) {

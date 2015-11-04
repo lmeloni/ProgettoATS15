@@ -36,6 +36,7 @@ public class PietanzePerRistoranteCategoria implements Azione{
 			request.setAttribute("ordinedatetime", request.getParameter("ordinedatetime"));
 			request.setAttribute("prezzi", prezzi);
 			request.setAttribute("idOrdine", request.getParameter("idOrdine"));
+			request.setAttribute("totaleParziale", request.getParameter("totaleParziale"));
 			request.setAttribute("pietanze", arraylistPietanza);
 		
 			return "pietanzePerCategoria.jsp";
