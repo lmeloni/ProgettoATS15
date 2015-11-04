@@ -20,11 +20,11 @@ public class RegistrazioneRistorante implements Azione {
 		RegistrazioneRistoranteForm r = (RegistrazioneRistoranteForm) form;
 		Ristorante ristorante = new Ristorante(0, r.getEmail(), r.getPassword(), r.getNome(), 
 				   r.getCategoria(), r.getIndirizzo(), r.getCitta(), r.getTelefono(),
-				   r.getDescrizione(), r.getOrario_apertura(), r.getOrario_chiusura());
+				   r.getDescrizione(), r.getOrarioApertura(), r.getOrarioChiusura());
 		
-		DAO<Ristorante> dao;
+		
 		try {
-			dao = new DAORistorante();
+			DAO<Ristorante> dao = new DAORistorante();			
 			dao.insert(ristorante);
 			r.setFeedback("La tua registrazione è andata buon fine...Buon lavoro!");
 			return "login.jsp";

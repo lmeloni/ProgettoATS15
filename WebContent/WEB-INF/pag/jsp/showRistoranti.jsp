@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <b>Mostra Ristoranti per Categoria:</b>
 <br>	
 <br>

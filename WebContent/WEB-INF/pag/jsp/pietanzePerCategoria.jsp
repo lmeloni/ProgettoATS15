@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <b>Fai il tuo ordine...</b>
 <br><br>
 <form action="motore"> <input type="hidden" name="azione" value="ComponiOrdine">
@@ -25,6 +26,7 @@
 		<input type="datetime-local" name="ordinedatetime">
 	</label>
 	<br><br><br>
+	<input type="reset" value="   Reset  ">
 	<input type="submit" value="   Ordina...  ">
 
 </form>	

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="menu.jsp" %>
 <form action = "motore">
 	<input type = "hidden" name = "azione" value = "RimuoviPreparazione">
 		Elenco pietanze per ristorante<br>
