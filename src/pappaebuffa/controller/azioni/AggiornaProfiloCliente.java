@@ -16,9 +16,9 @@ public class AggiornaProfiloCliente implements Azione {
 		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
 		//creo il Cliente con i NUOVI dati provenienti dal form:
-		System.out.println(f);
 		Cliente cliente = new Cliente(f.getId(), f.getEmail(), f.getPassword(), 
 			f.getNome(), f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
+		System.out.println(cliente);
 		
 		try {
 			DAOCliente dao = new DAOCliente();

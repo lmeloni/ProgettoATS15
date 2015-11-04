@@ -8,10 +8,11 @@
 <body>
 <%@ include file="_top.jsp" %>
 <hr>
-<form action="motore" method="get" > <input type="hidden" name="azione" value="AggiornaProfiloRistorante" >
+<form action="motore" method="get" >
+<input type="hidden" name="azione" value="AggiornaProfiloRistorante" >
 <input type="hidden" name="id" value="${AggiornaProfiloRistoranteForm.id}" >
 Email(non modificabile)<br>
-	<input type="text" disabled name="email" value="${AggiornaProfiloRistoranteForm.email}" >
+	<input type="text" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}" >
 	<label style="color: red;">
 		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
 			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>

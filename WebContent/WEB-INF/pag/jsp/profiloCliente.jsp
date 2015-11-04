@@ -12,7 +12,7 @@
 <input type="hidden" name="azione" value="AggiornaProfiloCliente" >
 <input type="hidden" name="id" value="${AggiornaProfiloClienteForm.id}" >
 Email <br>
-	<input type="text" disabled name="email" value="${AggiornaProfiloClienteForm.email}" >
+	<input type="text" readonly name="email" value="${AggiornaProfiloClienteForm.email}" >
 	<font size="2">(Associata al profilo, impossibile modificarla)</font><br>
 	<label style="color: red;">
 		<c:forEach var="e" items="${AggiornaProfiloClienteForm.errori}">

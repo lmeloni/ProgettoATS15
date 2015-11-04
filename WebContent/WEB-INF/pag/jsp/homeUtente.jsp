@@ -13,8 +13,13 @@ pagina HomeCategoria
 Benvenuto 
 
 <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
-<a href="motore?azione=ProfiloRistorante" >${utente.nome}</a> <br>
-
+<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> <br>
+<c:if test="${utente.isCliente()==false}">
+<a href = "motore?azione=AggiungiPietanzaPreparazione">Aggiungi una nuova pietanza nel "menù" del tuo locale</a><br>
+<a href = "motore?azione=ModificaPreparazione">Modifica una delle tue preparazioni esistenti</a><br>
+<a href = "motore?azione=RimuoviPreparazione">Cancella una delle tue preparazioni esistenti</a><br>
+<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a><br>
+</c:if>
 
 </body>
 </html>
