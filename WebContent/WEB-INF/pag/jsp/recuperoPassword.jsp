@@ -53,7 +53,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><a href="motore?azione=Vai&risorsa=registrazione.jsp" >Sei un nuovo utente? Registrati</a></td>
+		<td>Sei un nuovo utente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>
