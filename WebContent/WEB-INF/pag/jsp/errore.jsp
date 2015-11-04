@@ -5,10 +5,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>errore</title>
 </head>
+<%
+//recupera la pagina a cui tornare:
+String pagina = (String)session.getAttribute("pagina");
+%>
 <body bgcolor="yellow" text="red" >
-<%@ include file="_top.jsp" %>
-<br>
-<h4><b>${errore}</b></h4>
-<br>
+<%@ include file="menu.jsp" %>
+<h4>
+	<b>
+	Oooppsss.. qualcosa è andato storto:<br>
+	${errore}
+	</b>
+</h4>
+<br><br>
+<a href="motore?azione=Vai&risorsa=${pagina}">indietro</a>
 </body>
 </html>
