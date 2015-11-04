@@ -13,7 +13,7 @@ OK Ristorante - modifica profilo [Federica, Simone]
    Ristorante - aggiungere una pietanza 
                (la pietanza deve appartenere ad una categoria)
             
-OK  Ristorante - rimuovere una pietanza [Lucia & Gianluca]
+   Ristorante - rimuovere una pietanza [Lucia & Gianluca]
                (si rimuove la preparazione di quella pietanza, NON LA PIETANZA!)
             
    Ristorante - un ristorante può visualizzare gli ordini 
@@ -51,3 +51,6 @@ Verificare che l'utente sia loggato nelle varie azioni/JSP
 ALTRE NOTE:
 Allo stato attuale, con opportuni accorgimenti, è possibile modificare il proprio indirizzo
 email e, cosa più IMPORTANTE, è possibile modificare i profili degli altri utenti!
+
+
+categorie delle pietanze da filtrare per tipologia ristorante
