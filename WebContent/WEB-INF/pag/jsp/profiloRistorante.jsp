@@ -6,88 +6,170 @@
 <title>profiloRistorante</title>
 </head>
 <body>
+
 <%@ include file="_top.jsp" %>
+<strong>Vuoi modificare il tuo profilo?</strong><br><br>
+
 <hr>
 <form action="motore" method="get" >
 <input type="hidden" name="azione" value="AggiornaProfiloRistorante" >
 <input type="hidden" name="id" value="${AggiornaProfiloRistoranteForm.id}" >
-Email(non modificabile)<br>
-	<input type="text" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Nome<br>
-	<input type="text" name="nome" value="${AggiornaProfiloRistoranteForm.nome}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Categoria<br>
-	<input type="text" name="categoria" value="${AggiornaProfiloRistoranteForm.categoria}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='categoria'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>	
-Indirizzo<br>
-	<input type="text" name="indirizzo" value="${AggiornaProfiloRistoranteForm.indirizzo}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='indirizzo'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Città<br>
-	<input type="text" name="citta" value="${AggiornaProfiloRistoranteForm.citta}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Telefono<br>
-	<input type="text" name="telefono" value="${AggiornaProfiloRistoranteForm.telefono}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Descrizione<br>
-	<input type="text" name="descrizione" value="${AggiornaProfiloRistoranteForm.descrizione}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='descrizione'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Orario apertura<br>
-	<input type="text" name="orarioApertura" value="${AggiornaProfiloRistoranteForm.orarioApertura}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Orario chiusura<br>
-	<input type="text" name="orarioChiusura" value="${AggiornaProfiloRistoranteForm.orarioChiusura}" >
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Password<br>
-	<input type="password" name="password" >	
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br>
-Conferma password<br>
-	<input type="password" name="passwordConferma" >	
-	<label style="color: red;">
-		<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-			<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
-		</c:forEach>
-	</label><br><br>
+
+<table cellpadding="3" cellspacing="3" >
+
+<tbody>
+
+	<tr>
+		<td align="right">Email</td>
+		<td><input type="text" size="30" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}" ></td>
+		<td><font size="2">Associata al profilo, impossibile modificarla</font>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+		</tr>
+	
+	<tr>
+		<td align="right">(*) Nome</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.nome}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Categoria</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.categoria}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='categoria'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+
+	<tr>
+		<td align="right">(*) Indirizzo</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.indirizzo}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='indirizzo'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Città</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.citta}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='citta'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Telefono</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.telefono}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='telefono'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+
+	<tr>
+		<td align="right">Descrizione</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.descrizione}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Orario apertura</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.orarioApertura}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Orario chiusura</td>
+		<td><input type="text" size="30" name="nome" value="${AggiornaProfiloRistoranteForm.orarioChiusura}" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+
+	<tr>
+		<td align="right">(*) Password</td>
+		<td><input type="text" size="30" name="password" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="right">(*) Conferma password</td>
+		<td><input type="text" size="30" name="passwordConferma" ></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
+				<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+
+
 <br>
 <input type="submit" value="   Aggiorna   " > <br><br>
 	

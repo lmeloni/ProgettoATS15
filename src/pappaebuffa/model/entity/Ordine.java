@@ -52,8 +52,7 @@ public class Ordine {
 	public String toString() {
 		return "\nOrdine [id=" + id + ", cliente=" + cliente + ", ristorante="
 				+ ristorante + ", dataOrdine=" + dataOrdine
-				+ ", importoTotale=" + importoTotale + ", dataRitiro="
-				+ dataRitiro + "]";
+				+ ", importoTotale=" + importoTotale + ", dataRitiro=" + dataRitiro + "]";
 	}
 
 	
