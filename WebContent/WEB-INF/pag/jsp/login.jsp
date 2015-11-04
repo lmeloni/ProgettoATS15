@@ -68,12 +68,6 @@
 </table>
 
 </form>
-<br><br>
-<strong>AZIONI Elisa e Laura:</strong>
-<br>
-<a href="motore?azione=PietanzePerRistoranteCategoria">PietanzePerRistoranteCategoria</a>
-<br>
-<a href="motore?azione=MostraOrdinePerRistorante">MostraOrdinePerRistorante</a>
 
 </body>
 </html>
