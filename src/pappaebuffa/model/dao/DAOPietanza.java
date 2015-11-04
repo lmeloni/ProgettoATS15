@@ -182,6 +182,32 @@ public class DAOPietanza extends DAO<Pietanza>{
 		}
 
 	}
+
+	public ArrayList<String> selectCategoriaByRistorante(int idRistorante) throws DAOException {
+		ArrayList<String> lista = new ArrayList<String>();
+
+		String sql="select distinct categoria "+
+			"from pietanza p join preparazione on p.id=id_pietanza "+
+			"where id_ristorante = ?";
+		
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, idRistorante);
+			
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while (res.next()) //scorre TUTTO il ResultSet
+				lista.add(res.getString("categoria")) ; //popola la ArrayList
+
+			if(lista.isEmpty())
+				throw new DAOException("WARNING SELECT ALL: DATI NON TROVATI");
+			else
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT ALL. Causa: "+e.getMessage());
+		}
+
+	}
 	
 	/**
 	 * restituisce tutte le pietanze preparate dalidRistorante 

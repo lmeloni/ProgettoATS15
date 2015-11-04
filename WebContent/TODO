@@ -5,8 +5,8 @@ ATTIVITA' TODO...
    
 OK	possibilita di continuare l'ordine con altre categorie di pietanze
 OK	visualizzazione prezzo delle singole pietanze
-	categorie delle pietanze da filtrare per tipologia ristorante
-	creazione ordine dopo aver mostrato un riepilogo comprensivo di importo totale
+OK	categorie delle pietanze da filtrare per tipologia ristorante
+	riepilogo ordine comprensivo di importo totale, poi creazione
 
 	Ristorante - aggiungere una pietanza 
                (la pietanza deve appartenere ad una categoria)

@@ -13,7 +13,7 @@ public class OrdineTemp implements Azione {
 		try {
 			request.setAttribute("ristorante", request.getParameter("ristorante"));
 			request.setAttribute("ordinedatetime", request.getParameter("ordinedatetime"));
-			request.setAttribute("categorie", new DAOPietanza().selectCategoria());
+			request.setAttribute("categorie", new DAOPietanza().selectCategoriaByRistorante(Integer.parseInt(request.getParameter("ristorante"))));
 			request.setAttribute("idOrdine", request.getAttribute("idOrdine"));
 			
 			return "ordineTemp.jsp";
