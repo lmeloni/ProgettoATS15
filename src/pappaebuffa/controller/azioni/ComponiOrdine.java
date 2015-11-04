@@ -54,19 +54,22 @@ public class ComponiOrdine implements Azione{
 				throw new DAOException("Data ritiro non valida.");
 			}
 			
-			String ordineEsistente = request.getParameter("idOrdine"); // VA PASSATO
+			String ordineEsistente = request.getParameter("idOrdine");
 			Ordine ordine = null;
 			int idOrdine = 0;
 			
-			if(ordineEsistente != null) {
+			System.out.println("ordineEsistente='"+ordineEsistente+"'");
+			if(ordineEsistente != null && !ordineEsistente.isEmpty()) {
 				idOrdine = Integer.parseInt(ordineEsistente);
 				ordine = new DAOOrdine().select(idOrdine);
+				System.out.println("1");
 			}else {
 				ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
 					, r, null, totaleOrdine, dataRitiro );
 			
 			// 	Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 				idOrdine = new DAOOrdine().insert(ordine);
+				System.out.println("2");
 			}
 			
 			// Scorrere l'array di Stringhe che contiene gli id delle pietanze e, passando
@@ -94,8 +97,10 @@ public class ComponiOrdine implements Azione{
 			
 			if(finalizzato != null && finalizzato.equalsIgnoreCase("on"))
 				return "ordineRiuscito.jsp";
-			else
-				return "pietanzePerCategoria.jsp"; // BISOGNA PASSARE L'ID ORDINE CREATO
+			else{
+				request.setAttribute("idOrdine", idOrdine);
+				return "motore?azione=OrdineTemp";
+			}
 			
 		} catch (DAOException | ParseException e) {
 			request.setAttribute("errore", e.getMessage());

@@ -9,29 +9,28 @@
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-<b>Mostra Ristoranti per Categoria:</b>
+<b>Mostra Categorie pietanze per Ristorante:</b>
 <br>	
 <br>
-<form action="motore">
-<input type="hidden" name="azione" value="OrdineTemp" >
+<form action="motore"> 	
+<input type="hidden" name="azione" value="PietanzePerRistoranteCategoria" >
+<input type="hidden" name="ristorante" value="${ristorante}" >
+<input type="hidden" name="idOrdine" value="${idOrdine}" >
+<input type="hidden" name="ordinedatetime" value="${ordinedatetime}" >
 
 <table cellpadding="5" cellspacing="5" >
 	<tr>
-		<td>Scegli il ristorante...</td>
 		<td></td>
+		<td>Scegli la categoria della pietanza...</td>
 	</tr>
 	<tr>
+		<td></td>
 		<td>
-		<select name="ristorante">
-			<c:forEach var="ristorante" items="${ristoranti}">
-				<option value="${ristorante.id}">${ristorante.nome}</option>
+		<select name="categoria">
+			<c:forEach var="categoria" items="${categorie}">
+				<option value="${categoria}">${categoria}</option>
 			</c:forEach>
 		</select>
-		</td>
-		<td>
-			<label>Quando vuoi ritirare l'ordine? 
-				<input type="datetime-local" name="ordinedatetime">
-			</label><br>
 		</td>
 	</tr>
 	<tr height="100" >

@@ -26,6 +26,8 @@ public class PietanzePerRistoranteCategoria implements Azione{
 			// Queste pietanze vanno "passate" alla prossima pagina (come?)
 			ArrayList<Pietanza> arraylistPietanza = dao.selectByRistoranteCategoria(f.getCategoria(), f.getIdRistorante());
 			
+			request.setAttribute("ordinedatetime", request.getParameter("ordinedatetime"));
+			request.setAttribute("idOrdine", request.getParameter("idOrdine"));
 			request.setAttribute("pietanze", arraylistPietanza);
 		
 			return "pietanzePerCategoria.jsp";

@@ -14,7 +14,8 @@
 <form action="motore"> <input type="hidden" name="azione" value="ComponiOrdine">
 
 	<input type="hidden" name="ristorante" value="${PietanzePerRistoranteCategoriaForm.idRistorante}">
-	<input type="hidden" name="cliente" value="${sessionScope.cliente.id}">
+	<input type="hidden" name="ordinedatetime" value="${ordinedatetime}" >
+	<input type="hidden" name="idOrdine" value="${idOrdine}" >
 	
 	<c:forEach var="pietanza" items="${pietanze}" >
 		<label><input type="checkbox" name="pietanza" value="${pietanza.id}">${pietanza.nome}</label> 
@@ -22,9 +23,6 @@
 		<br>
 	</c:forEach>
 	<br><br><br>
-	<label>Quando vuoi ritirare l'ordine? 
-		<input type="datetime-local" name="ordinedatetime">
-	</label><br>
 	<label><input type = "checkbox" name = "finalizzato"> Ho finito il mio ordine</label>
 	<br><br><br>
 	<input type="reset" value="   Reset  ">
