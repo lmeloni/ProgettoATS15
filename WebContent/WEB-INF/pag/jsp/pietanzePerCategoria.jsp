@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <b>Fai il tuo ordine...</b>
 <br><br>
 <form action="motore"> <input type="hidden" name="azione" value="ComponiOrdine">
