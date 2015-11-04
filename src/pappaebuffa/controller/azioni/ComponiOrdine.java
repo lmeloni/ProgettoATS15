@@ -43,7 +43,9 @@ public class ComponiOrdine implements Azione{
 				totaleOrdine += p.getPrezzo() * quantita.get(i);
 				i++;
 			}
+			System.out.println(request.getParameter("ordinedatetime"));
 			Timestamp dataRitiro = Utilita.stringToTimestamp(request.getParameter("ordinedatetime"));
+			System.out.println(dataRitiro);
 			Timestamp dataAttuale = new Timestamp(new Date().getTime());
 			Timestamp orarioApertura = Utilita.stringToTimestamp(r.getOrarioApertura(), dataRitiro);
 			Timestamp orarioChiusura = Utilita.stringToTimestamp(r.getOrarioChiusura(), dataRitiro);

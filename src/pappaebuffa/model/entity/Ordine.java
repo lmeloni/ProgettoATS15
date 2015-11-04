@@ -39,16 +39,24 @@ public class Ordine {
 		return ristorante;
 	}
 
-	public String getDataOrdine() throws ParseException {
+	public String getDataOrdineS() throws ParseException {
 		return Utilita.timestampToString(dataOrdine);
+	}
+
+	public Timestamp getDataOrdine() {
+		return dataOrdine;
 	}
 
 	public double getImportoTotale() {
 		return importoTotale;
 	}
 
-	public String getDataRitiro() throws ParseException {
+	public String getDataRitiroS() throws ParseException {
 		return Utilita.timestampToString(dataRitiro);
+	}
+
+	public Timestamp getDataRitiro() {
+		return dataRitiro;
 	}
 
 	@Override
