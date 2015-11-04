@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
+import pappaebuffa.model.entity.Utente;
 
 public class RecuperaCategorieRistoranti implements Azione {
 
@@ -15,8 +16,12 @@ public class RecuperaCategorieRistoranti implements Azione {
 			DAORistorante dao = new DAORistorante();
 
 			request.getSession().setAttribute("listaCategorie", dao.selectCategoria());
+			Utente u = (Utente) request.getSession().getAttribute("utente");
 			
-			return "homeUtente.jsp"; 
+			if(u==null)
+				return "registrazioneRistorante.jsp";
+			else
+				return "homeUtente.jsp"; 
 		
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());
