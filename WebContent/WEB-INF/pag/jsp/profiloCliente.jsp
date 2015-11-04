@@ -11,7 +11,7 @@
 
 <strong>Vuoi modificare il tuo profilo?</strong>
 <br><br>
-<form action="motore" method="get" >
+<form action="motore" method="post" >
 <input type="hidden" name="azione" value="AggiornaProfiloCliente" >
 <input type="hidden" name="id" value="${AggiornaProfiloClienteForm.id}" >
 
@@ -105,7 +105,7 @@
 	
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="text" size="30" name="password"></td>
+		<td><input type="password" size="30" name="password"></td>
 		<td style="font-size: small;">La password deve contenere almeno 8 caratteri e almeno un numero</td>
 	</tr>
 	<tr>
@@ -119,7 +119,7 @@
 	
 	<tr>
 		<td align="right">(*) Conferma password</td>
-		<td><input type="text" size="30" name="passwordConferma"></td>
+		<td><input type="password" size="30" name="passwordConferma"></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -139,9 +139,7 @@
 	</tr>	
 	<tr>
 		<td></td>
-		<td>
-			<input type="submit" value="  Aggiorna  " >
-		</td>
+		<td><input type="submit" value="  Aggiorna  " ></td>
 	</tr>
 	</tfoot>
 </table>
