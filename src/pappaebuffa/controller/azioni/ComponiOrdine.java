@@ -1,11 +1,9 @@
 package pappaebuffa.controller.azioni;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,24 +26,27 @@ public class ComponiOrdine implements Azione{
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
+		
+		//recupero il form in questione:
+		ComponiOrdineForm cof = (ComponiOrdineForm) form;
 	
-		ArrayList<Integer> quantita = ((ComponiOrdineForm) form).getQuantita();
+		ArrayList<Integer> quantita = cof.getQuantita();
+		Ristorante r = cof.getRistorante();
+		
+		int i=0;
+		double totaleOrdine = 0;
+		if(request.getParameter("totaleParziale") != null && !request.getParameter("totaleParziale").isEmpty())
+			totaleOrdine = Double.parseDouble(request.getParameter("totaleParziale"));
 		
 		try {
-			int i=0;
-			double totaleOrdine = 0;
+			DAOPreparazione daop = new DAOPreparazione();
 			
-			if(request.getParameter("totaleParziale") != null && !request.getParameter("totaleParziale").isEmpty())
-				totaleOrdine = Double.parseDouble(request.getParameter("totaleParziale"));
-			
-			Ristorante r = ((ComponiOrdineForm) form).getRistorante();
-			
-			for(Pietanza pietanza : ((ComponiOrdineForm) form).getPietanze()){
-				
-				Preparazione p = new DAOPreparazione().select(r.getId(), pietanza.getId());
+			for(Pietanza pietanza : cof.getPietanze()){
+				Preparazione p = daop.select(r.getId(), pietanza.getId());
 				totaleOrdine += p.getPrezzo() * quantita.get(i);
 				i++;
 			}
+			
 			Timestamp dataRitiro = Utilita.stringToTimestamp(request.getParameter("ordinedatetime"));
 			Timestamp dataAttuale = new Timestamp(new Date().getTime());
 			Timestamp orarioApertura = Utilita.stringToTimestamp(r.getOrarioApertura(), dataRitiro);
@@ -65,10 +66,9 @@ public class ComponiOrdine implements Azione{
 				idOrdine = Integer.parseInt(ordineEsistente);
 				ordine = new DAOOrdine().select(idOrdine);
 			}else {
-				ordine = new Ordine(0, (Cliente) request.getSession().getAttribute("utente")
-					, r, null, totaleOrdine, dataRitiro );
-			
-			// 	Inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
+				Cliente cliente = (Cliente) request.getSession().getAttribute("utente");
+				ordine = new Ordine(0, cliente, r, null, totaleOrdine, dataRitiro);
+				//inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 				idOrdine = new DAOOrdine().insert(ordine);
 			}
 			
@@ -79,13 +79,13 @@ public class ComponiOrdine implements Azione{
 
 				DAOAssociazione dao = new DAOAssociazione();
 				
-				// Bisogna settare l'id dell'ordine in qualche modo,
-				// altrimenti l'insert del DAOAssociazione darà errore
+				//Bisogna settare l'id dell'ordine in qualche modo,
+				//altrimenti l'insert del DAOAssociazione darà errore
 				
 				ordine.setId(idOrdine);
 				i=0;
 				
-				for (Pietanza pietanza : ((ComponiOrdineForm)form).getPietanze()){
+				for (Pietanza pietanza : cof.getPietanze()){
 					dao.insert(new Associazione(ordine
 							, new DAOPietanza().select(pietanza.getId())
 							, quantita.get(i)));

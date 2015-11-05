@@ -20,7 +20,7 @@
 	<br><br>
 	
 	<c:if test="${utente.isCliente()==false}">
-		<a href = "motore?azione=AggiungiPreparazionePerRistorante">Aggiungi una nuova pietanza nel "menù" del tuo locale</a>
+		<a href = "motore?azione=DominioPietanze">Aggiungi una nuova pietanza nel "menù" del tuo locale</a>
 		<br><br>
 		<a href = "motore?azione=ModificaPreparazionePerRistorante">Modifica una delle tue preparazioni esistenti</a>
 		<br><br>

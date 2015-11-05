@@ -6,7 +6,7 @@ import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAOPietanza;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 
-public class AggiungiPreparazionePerRistorante implements Azione {
+public class DominioPietanze implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {

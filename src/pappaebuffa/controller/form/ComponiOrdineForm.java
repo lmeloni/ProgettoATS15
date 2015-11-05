@@ -47,9 +47,4 @@ public class ComponiOrdineForm extends Form{
 		}
 	}
 
-	@Override
-	public boolean validazione() {
-		// TODO Auto-generated method stub
-		return true;
-	}
 }
