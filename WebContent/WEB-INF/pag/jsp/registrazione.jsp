@@ -11,7 +11,7 @@
 <%@ include file="_top.jsp" %>
 <strong>Inizia a usare Pappa e Buffa, crea il tuo account personale...</strong>
 <br><br>
-Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
+Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
 <br><br>
 <form action="motore" method="post" > <input type="hidden" name="azione" value="Registrazione" >
 
@@ -91,7 +91,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td align="right">Telefono </td>
 		<td><input type="text" size="30" name="telefono" value="${RegistrazioneForm.telefono}" ></td>
-		<td style="font-size: small;">Useremo il tuo numero per contattarti</td>
+		<td style="font-size: small;">Facoltativo: lo useremo solo per le finalità del servizio</td>
 	</tr>
 	<tr>
 		<td></td>
@@ -138,8 +138,8 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td></td>
 		<td>
-			<input class="btn btn-default" type="submit" value="  Registrati  " > &nbsp;
-			Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
+			<input class="btn btn-default" type="submit" value="  Registrati  " >&nbsp;&nbsp;
+			Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
 		</td>
 	</tr>
 	</tfoot>
