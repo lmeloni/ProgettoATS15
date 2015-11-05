@@ -21,10 +21,12 @@ public class Login implements Azione {
 				DAOCliente daoCliente = new DAOCliente();
 				request.getSession().setAttribute("utente", daoCliente.login(f.getEmail(), f.getPassword()));
 				return "motore?azione=RecuperaCategorieRistoranti";
+			
 			case "ristorante":
 		    	DAORistorante daoRistorante = new DAORistorante();
 				request.getSession().setAttribute("utente", daoRistorante.login(f.getEmail(), f.getPassword()));
 				return "homeUtente.jsp";
+			
 			default:
 				request.setAttribute("errore", "UTENTE '"+f.getUtente()+"' NON PREVISTO!");
 				return "errore.jsp";

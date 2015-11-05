@@ -21,7 +21,7 @@
 	<b><a href="motore?azione=ProfiloUtente" >${utente.nome}</a></b>
 	<hr>
 	<c:if test="${utente.isCliente()==false}">
-		<a href = "motore?azione=DominioPietanze&funzione=1">Aggiungi una nuova pietanza nel "menù" del tuo locale</a>
+		<a href = "motore?azione=DominioPietanze&funzione=1">Aggiungi una pietanza nel menù del tuo locale</a>
 		<br><br>
 		<a href = "motore?azione=DominioPietanze&funzione=2">Modifica una delle tue preparazioni esistenti</a>
 		<br><br>

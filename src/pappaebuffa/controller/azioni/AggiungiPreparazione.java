@@ -31,6 +31,8 @@ public class AggiungiPreparazione implements Azione {
 			DAOPreparazione daoPreparazione = new DAOPreparazione();
 			daoPreparazione.insert(preparazione);
 			
+			f.setFeedback("OK, pietanza aggiunta nel menù (aggiunta Preparazione)");
+			
 			return "aggiungiPreparazione.jsp";
 			
 		} catch (DAOException e) {

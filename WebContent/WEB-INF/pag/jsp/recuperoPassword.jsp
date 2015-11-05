@@ -48,7 +48,7 @@
 		<td>
 			<input class="btn btn-default" type="submit" value="  Recupera  ">
 			&nbsp;&nbsp;
-			<strong>${RecuperoPasswordForm.feedback}</strong>
+			<b>${RecuperoPasswordForm.feedback}</b>
 		</td>
 	</tr>
 	<tr>
