@@ -19,8 +19,7 @@
 	<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
 	&nbsp;
 	<b><a href="motore?azione=ProfiloUtente" >${utente.nome}</a></b>
-	<br><br>
-	
+	<hr>
 	<c:if test="${utente.isCliente()==false}">
 		<a href = "motore?azione=DominioPietanze&funzione=1">Aggiungi una nuova pietanza nel "menù" del tuo locale</a>
 		<br><br>
@@ -40,9 +39,9 @@
 				<td>Scegli la categoria ristorante</td>
 				<td>
 					<select class="form-control" name="categoria">
-						<c:forEach var="categoria" items="${listaCategorie}">
-							<option value="${categoria}">${categoria}</option>
-						</c:forEach>
+					<c:forEach var="categoria" items="${listaCategorie}">
+						<option value="${categoria}">${categoria}</option>
+					</c:forEach>
 					</select>
 				</td>
 			</tr>

@@ -7,14 +7,11 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-import pappaebuffa.model.Utilita;
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Ordine;
-import pappaebuffa.model.entity.Pietanza;
 import pappaebuffa.model.entity.Ristorante;
-import sun.security.action.GetIntegerAction;
 
 public class DAOOrdine extends DAO<Ordine>{
 
@@ -51,7 +48,6 @@ public class DAOOrdine extends DAO<Ordine>{
 				,res.getTimestamp("data_ritiro"));		
 	}
 		
-	
 
 	@Override
 	public Ordine select(int pk) throws DAOException {
@@ -83,10 +79,9 @@ public class DAOOrdine extends DAO<Ordine>{
 			pst.setInt(1, locale.getId()); //sostituisco il marcatore
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
 
-			
-			
 			while(res.next()) 
 				lista.add(componiEntity());
+			
 			if (lista.isEmpty())
 				throw new DAOException("WARNING SELECT x PK="+locale.getId()+" DATI NON TROVATI");
 			else
@@ -100,33 +95,33 @@ public class DAOOrdine extends DAO<Ordine>{
 
 	@Override
 	public int insert(Ordine entity) throws DAOException {
-			boolean idValido = entity.getId() > 0;
+		boolean idValido = entity.getId() > 0;
+		
+		String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,importo,data_ritiro "
+				+(idValido ? ",id" : "")
+				+ " ) VALUES (?,?,?,? "
+				+(idValido ? ",?" : "")
+				+ ")";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"});
+			pst.setInt(1, entity.getCliente().getId());
+			pst.setInt(2, entity.getRistorante().getId());
+			pst.setDouble(3, entity.getImportoTotale());
+			pst.setTimestamp(4, entity.getDataRitiro());
 			
-			String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,importo,data_ritiro "
-					+(idValido ? ",id" : "")
-					+ " ) VALUES (?,?,?,? "
-					+(idValido ? ",?" : "")
-					+ ")";
-			try {
-				PreparedStatement pst = con.prepareStatement(sql, new String[] {"id"});
-				pst.setInt(1, entity.getCliente().getId());
-				pst.setInt(2, entity.getRistorante().getId());
-				pst.setDouble(3, entity.getImportoTotale());
-				pst.setTimestamp(4, entity.getDataRitiro());
-				
-				if(idValido)
-					pst.setInt(5, entity.getId());
+			if(idValido)
+				pst.setInt(5, entity.getId());
 
-				return insertInto(pst);
+			return insertInto(pst);
 
-			} catch (SQLException e) {
-				throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
-			}
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE INSERT. Causa: "+e.getMessage());
+		}
 	}
 
 	@Override
 	public Ordine delete(int pk) throws DAOException {
-		Ordine tuplaOld = select(pk); //recupera il Cliente prima di cancellarlo!
+		Ordine tuplaOld = select(pk); //recupera l'Ordine prima di cancellarlo!
 
 		String sql="DELETE FROM ORDINE WHERE id = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -146,18 +141,20 @@ public class DAOOrdine extends DAO<Ordine>{
 		return null;
 	}
 
+	
 	public static void main(String[] args) throws ParseException {
-		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
+
+		Cliente c = new Cliente(7, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+		
+		Ristorante r = new Ristorante(33, "basilio56@tiscali.it", "peb", "Da Basilio"
+				, "ristorante", "Via Timavo,97"
+				, "Selargius", "0709805261", null, "10:00", "23:00");
+		
+		Ordine o = new Ordine(15,c, r
+				, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime())
+				, 27.5, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime()) );
 
 		try {
-			Cliente c = new Cliente(7, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
-			Ristorante r = new Ristorante(33, "basilio56@tiscali.it", "peb", "Da Basilio"
-					, "ristorante", "Via Timavo,97"
-					, "Selargius", "0709805261", null, "10:00", "23:00");
-			Ordine o = new Ordine(15,c, r
-					, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime())
-					, 27.5, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime()) );
-
 			DAOOrdine dao = new DAOOrdine();
 
 			int id = dao.insert(o);
@@ -167,11 +164,9 @@ public class DAOOrdine extends DAO<Ordine>{
 			System.out.println("\nRead - select()....: "+dao.select());
 			System.out.println("\nRead - select(id)..: "+dao.select(id));
 
-			
 			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
 			
 			System.out.println("\nRead-selectarray"+ dao.selectByRistorante(r));
-
 
 		} catch (DAOException e) {
 			System.out.println( e );

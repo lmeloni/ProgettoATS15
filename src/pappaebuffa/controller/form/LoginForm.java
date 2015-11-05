@@ -65,8 +65,4 @@ public class LoginForm extends Form {
 		return super.errori.size()==0 ? true:false;
 	}
 	
-	
-	
-	
-
 }

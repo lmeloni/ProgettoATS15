@@ -21,19 +21,30 @@
 		<td>
 			<select class="form-control" name="idPietanza">
 			<c:forEach var="pietanza" items="${listaPietanze}">
-				<option value="${pietanza.id}">${pietanza.nome}</option>
+				<option value="${pietanza.id}">${pietanza.categoria} -- ${pietanza.nome}</option>
 			</c:forEach>
 			</select>
 		</td>
 	</tr>
+	
 	<tr>
 		<td align="right">Prezzo</td>
-		<td><input type="text" name="prezzo"></td>
+		<td><input type="text" name="prezzo" size="10"></td>
 	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${AggiungiPreparazioneForm.errori}">
+				<c:if test="${e.param=='prezzo'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach>
+		</td>
+	</tr>
+	
 	<tr>
 		<td align="right">Note</td>
 		<td><input type="text" name="note" size="50"></td>
 	</tr>
+	
 	<tr>
 		<td></td>
 		<td><input class="btn btn-default" type="submit" value=" Aggiungi pietanza "></td>	

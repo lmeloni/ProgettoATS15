@@ -14,14 +14,17 @@ public class DominioPietanze implements Azione {
 		String funzione = request.getParameter("funzione");
 
 		try {
-			DAOPietanza dao = new DAOPietanza();
-			
-			//metto in sessione la lista pietanze aggiornata
-			request.getSession().setAttribute("listaPietanze", dao.select());
-			
+			DAOPietanza daoPietanza = new DAOPietanza();
+
 			switch (funzione) {
-			case "1": return "aggiungiPreparazione.jsp";
-			case "2": return "showModificaPreparazione.jsp";
+			case "1": 
+				request.getSession().setAttribute("listaPietanze", daoPietanza.select());
+				return "aggiungiPreparazione.jsp";
+			
+			case "2": 
+				
+				return "showModificaPreparazione.jsp";
+				
 			default:
 				request.setAttribute("errore", "ANOMALIA in azione 'DominioPietanze': funzione '"+funzione+"' non prevista!");
 				return "errore.jsp";
