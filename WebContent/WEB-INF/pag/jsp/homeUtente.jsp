@@ -16,7 +16,7 @@
 	Benvenuto 
 	<c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
 	&nbsp;
-	<a href="motore?azione=ProfiloUtente" >${utente.nome}</a> 
+	<b><a href="motore?azione=ProfiloUtente" >${utente.nome}</a></b>
 	<br><br>
 	
 	<c:if test="${utente.isCliente()==false}">

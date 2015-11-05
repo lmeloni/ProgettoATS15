@@ -12,11 +12,11 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	private String indirizzo;
 	private String citta;
 	private String telefono;
-	private String password;
-	private String passwordConferma;
 	private String descrizione;
 	private String orarioApertura;
 	private String orarioChiusura;
+	private String password;
+	private String passwordConferma;
 
 	public AggiornaProfiloRistoranteForm() {
 		super();
@@ -25,8 +25,9 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	/**
 	 * Costruttore usato unicamente nell'azione ProfiloCliente
 	 */
-	public AggiornaProfiloRistoranteForm(int id, String email, String nome, String categoria, String indirizzo,
-			String citta, String telefono, String password, String descrizione, String orarioApertura, String orarioChiusura) {
+	public AggiornaProfiloRistoranteForm(int id, String email, String nome, String categoria, 
+			String indirizzo, String citta, String telefono, String descrizione, 
+			String orarioApertura, String orarioChiusura, String password) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -35,10 +36,10 @@ public class AggiornaProfiloRistoranteForm extends Form {
 		this.indirizzo = indirizzo;
 		this.citta = citta;
 		this.telefono = telefono;
-		this.password = password;
 		this.descrizione=descrizione;
 		this.orarioApertura=orarioApertura;
 		this.orarioChiusura=orarioChiusura;
+		this.password = password;
 	}
 
 	@Override
@@ -50,11 +51,11 @@ public class AggiornaProfiloRistoranteForm extends Form {
 		this.indirizzo=super.request.getParameter("indirizzo");
 		this.citta=super.request.getParameter("citta");
 		this.telefono=super.request.getParameter("telefono");
-		this.password=super.request.getParameter("password");
-		this.passwordConferma=super.request.getParameter("passwordConferma");
 		this.descrizione=super.request.getParameter("descrizione");
 		this.orarioApertura=super.request.getParameter("orarioApertura");
 		this.orarioChiusura=super.request.getParameter("orarioChiusura");
+		this.password=super.request.getParameter("password");
+		this.passwordConferma=super.request.getParameter("passwordConferma");
 	}
 		
 	public int getId() {
@@ -62,16 +63,6 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	}
 	public String getEmail() {
 		return email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword (String password) {
-		this.password = password;
-	}
-	public String getPasswordConferma() {
-		return passwordConferma;
 	}
 	public String getNome() {
 		return nome;
@@ -96,6 +87,12 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	}
 	public String getOrarioChiusura() {
 		return orarioChiusura;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String getPasswordConferma() {
+		return passwordConferma;
 	}
 
 	@Override

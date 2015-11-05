@@ -1,34 +1,29 @@
 package pappaebuffa.controller.azioni;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
 import pappaebuffa.model.dao.DAOPietanza;
-import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Pietanza;
-import pappaebuffa.model.entity.Ristorante;
 
 public class AggiungiPreparazionePerRistorante implements Azione {
 
-
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
-		ArrayList<Pietanza> listaPietanze =null;
+
 		try {
-			listaPietanze= new DAOPietanza().select();
-//					(Ristorante)request.getSession().getAttribute("utente")).getId());
-			request.setAttribute("listaPietanze", listaPietanze);
-		} catch (DAOConnessioneException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			DAOPietanza dao = new DAOPietanza();
+			
+			//metto in sessione la lista pietanze aggiornata
+			request.getSession().setAttribute("listaPietanze", dao.select());
+			
+			return "aggiungiPreparazione.jsp";
+			
 		} catch (DAOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("errore", e.getMessage());
+			return "errore.jsp";
 		}
-		return "aggiungiPreparazione.jsp";
+		
 	}
 
 }
