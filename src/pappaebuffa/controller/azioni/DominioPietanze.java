@@ -10,6 +10,8 @@ public class DominioPietanze implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
+		
+		String funzione = request.getParameter("funzione");
 
 		try {
 			DAOPietanza dao = new DAOPietanza();
@@ -17,7 +19,13 @@ public class DominioPietanze implements Azione {
 			//metto in sessione la lista pietanze aggiornata
 			request.getSession().setAttribute("listaPietanze", dao.select());
 			
-			return "aggiungiPreparazione.jsp";
+			switch (funzione) {
+			case "1": return "aggiungiPreparazione.jsp";
+			case "2": return "showModificaPreparazione.jsp";
+			default:
+				request.setAttribute("errore", "ANOMALIA in azione 'DominioPietanze': funzione '"+funzione+"' non prevista!");
+				return "errore.jsp";
+			}
 			
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());

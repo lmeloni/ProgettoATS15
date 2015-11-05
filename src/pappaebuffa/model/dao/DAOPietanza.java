@@ -1,17 +1,12 @@
 package pappaebuffa.model.dao;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-
-
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Pietanza;
-import pappaebuffa.model.entity.Ristorante;
 
 public class DAOPietanza extends DAO<Pietanza>{
 
@@ -67,7 +62,8 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public Pietanza selectByCategoria(String categoria) throws DAOException {
 		String sql="SELECT  id,nome,categoria,descrizione "
 				+ "FROM pietanza "
-				+ "WHERE categoria = ? ";
+				+ "WHERE categoria = ? "
+				+ "ORDER BY nome ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setString(1, categoria); //sostituisco il marcatore
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
@@ -87,7 +83,8 @@ public class DAOPietanza extends DAO<Pietanza>{
 		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
 		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
 				+ "FROM pietanza p, preparazione "
-				+ "WHERE p.id = id_pietanza AND id_ristorante=? AND p.categoria=? ";
+				+ "WHERE p.id = id_pietanza AND id_ristorante=? AND p.categoria=? "
+				+ "ORDER BY p.categoria,p.nome ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1,idRistorante); //sostituisco il marcatore
 			pst.setString(2,categoria);
@@ -144,7 +141,7 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public Pietanza delete(int id) throws DAOException {
 		Pietanza tuplaOld = select(id); //recupera il Pietanza prima di cancellarlo!
 
-		String sql="DELETE FROM PIETANZA WHERE id= ? ";
+		String sql="DELETE FROM PIETANZA WHERE id = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1, id); //sostituisco il marcatore
 			pst.executeQuery(); //esegue la QUERY SQL così preparata!
@@ -165,7 +162,8 @@ public class DAOPietanza extends DAO<Pietanza>{
 		ArrayList<String> lista = new ArrayList<String>();
 
 		String sql="SELECT nome "
-				+ "FROM CATEGORIA_PIETANZA ";
+				+ "FROM CATEGORIA_PIETANZA "
+				+ "ORDER BY 1 ";
 		
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			
@@ -188,9 +186,10 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public ArrayList<String> selectCategoriaByRistorante(int idRistorante) throws DAOException {
 		ArrayList<String> lista = new ArrayList<String>();
 
-		String sql="select distinct categoria "+
-			"from pietanza p join preparazione on p.id=id_pietanza "+
-			"where id_ristorante = ?";
+		String sql="select distinct categoria "
+			+ "from pietanza p join preparazione on p.id=id_pietanza "
+			+ "where id_ristorante = ? "
+			+ "order by 1 ";
 		
 		try(PreparedStatement pst = con.prepareStatement(sql)){
 			pst.setInt(1, idRistorante);
@@ -221,7 +220,8 @@ public class DAOPietanza extends DAO<Pietanza>{
 		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
 		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
 				+ "FROM pietanza p, preparazione "
-				+ "WHERE p.id = preparazione.id_pietanza AND id_ristorante=? ";
+				+ "WHERE p.id = preparazione.id_pietanza AND id_ristorante=? "
+				+ "ORDER BY p.categoria,p.nome ";;
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1,idRistorante); //sostituisco il marcatore
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
@@ -248,19 +248,16 @@ public class DAOPietanza extends DAO<Pietanza>{
 
 			DAOPietanza dao = new DAOPietanza();
 
-
 //			int id = dao.insert(l1);
 //			System.out.println("\nCreate - insert()..: "+id+" (ID generata o meno)");
 //
 //			System.out.println("\nRead - select()....: "+dao.select());
 //			System.out.println("\nRead - select(id)..: "+dao.select(id));
 //
-//
 //			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
 //
 //			System.out.println("\nRead_selectByCategoria()....: "+dao.selectByCategoria("Primo"));
 			System.out.println("\nRead_selectByRistoranteCategoria()....: "+dao.selectByRistoranteCategoria("Bevande",1));
-
 
 		} catch (DAOException e) {
 			System.out.println( e );
