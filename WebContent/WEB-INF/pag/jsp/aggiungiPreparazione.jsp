@@ -11,22 +11,34 @@
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 <b>Aggiungi una pietanza alla tua preparazione</b>
-<br>
-<form action="motore">
+<br><br>
+<form action="motore"> 
 	<input type="hidden" name="azione" value="AggiungiPreparazione">
-	Elenco delle pietanze
-	<br>
-	<select class="form-control" name="idPietanza">
-		<c:forEach var="pietanza" items="${listaPietanze}">
-			<option value="${pietanza.id}">${pietanza.nome}</option>
-		</c:forEach>
-	</select>
-	<br><br>	
-	Prezzo: <input type="text" name="prezzo">
-	<br><br>
-	Note: <input type="text" name="note" size="30">
-	<br><br>
-	<input class="btn btn-default" type="submit" value=" Aggiungi pietanza ">
+	
+	<table>
+	<tr>
+		<td align="right">Scegli la pietanza</td>
+		<td>
+			<select class="form-control" name="idPietanza">
+			<c:forEach var="pietanza" items="${listaPietanze}">
+				<option value="${pietanza.id}">${pietanza.nome}</option>
+			</c:forEach>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Prezzo</td>
+		<td><input type="text" name="prezzo"></td>
+	</tr>
+	<tr>
+		<td align="right">Note</td>
+		<td><input type="text" name="note" size="50"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input class="btn btn-default" type="submit" value=" Aggiungi pietanza "></td>	
+	</tr>
+	</table>
 </form>
 
 </body>

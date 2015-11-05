@@ -6,15 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>errore</title>
 </head>
-<body bgcolor="yellow" text="red" >
+<body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 <h4>
-	<b>
-	${errore}
-	</b>
+	<b>${errore}</b>
 </h4>
-<br>
-<a href="motore?azione=Vai&risorsa=${pagina}">indietro</a>
 </body>
 </html>
