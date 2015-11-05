@@ -29,7 +29,7 @@ public class ComponiOrdineForm extends Form{
 	public void parametri2campiForm() {
 		
 		try {
-			this.ristorante = new DAORistorante().select(Integer.parseInt(request.getParameter("ristorante")));
+			ristorante = new DAORistorante().select(Integer.parseInt(request.getParameter("ristorante")));
 			pietanze = new ArrayList<Pietanza>();
 			quantita = new ArrayList<Integer>();
 			
