@@ -24,7 +24,7 @@
 	<tr>
 		<td align="right">Email</td>
 		<td><input type="text" size="30" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}" >
-			Associata al profilo, impossibile modificarla
+			Associata al profilo, non modificabile
 		</td>
 	</tr>
 	<tr>
@@ -115,7 +115,8 @@
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
 				<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
-			</c:forEach> 
+			</c:forEach>
+			&nbsp;&nbsp;
 			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
 				<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 

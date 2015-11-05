@@ -16,8 +16,8 @@
 <table cellpadding="5" cellspacing="5" >
 	<thead>
 	<tr>
-		<th></th>
-		<th align="left" >
+		<th align="right">Sei un?</th>
+		<th align="left">
 			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;
 		    <label><input type="radio" name="utente" value="ristorante"/>Ristoratore</label>
 		</th>
@@ -45,7 +45,8 @@
 	<tr>
 		<td></td>
 		<td>
-			<input class="btn btn-default" type="submit" value="    Recupera    "> &nbsp;&nbsp;
+			<input class="btn btn-default" type="submit" value="  Recupera  ">
+			&nbsp;&nbsp;
 			<strong>${RecuperoPasswordForm.feedback}</strong>
 		</td>
 	</tr>
@@ -55,7 +56,11 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo utente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
+		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">&nbsp;Registrati</a></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=RecuperaCategorieRistoranti">&nbsp;Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

@@ -20,8 +20,8 @@
 <table cellpadding="5" cellspacing="5" >
 	<thead>
 	<tr>
-		<th></th>
-		<th align="left" >
+		<th align="right">Entra come</th>
+		<th align="left">
 			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;
 		    <label><input type="radio" name="utente" value="ristorante"/>Ristoratore</label>
 		</th>
@@ -35,7 +35,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td style="color: red; font-size: small; ">
+		<td align="center" style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>
@@ -47,7 +47,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td style="color: red; font-size: small;">
+		<td align="center" style="color: red; font-size: small;">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>
@@ -58,19 +58,19 @@
 	<tfoot>
 	<tr>
 		<td></td>
-		<td><input class="btn btn-default" type="submit" value="      Login      "></td>
+		<td>
+			<input class="btn btn-default" type="submit" value="  Login  ">
+			&nbsp;&nbsp;
+			<a href="motore?azione=Vai&risorsa=recuperoPassword.jsp">Password dimenticata?</a>
+		</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td><a href="motore?azione=Vai&risorsa=recuperoPassword.jsp" >Password dimenticata?</a></td>
+		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">&nbsp;Registrati</a></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo cliente? <a href="motore?azione=Vai&risorsa=registrazione.jsp" >Registrati</a></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>Sei un nuovo ristoratore? <a href="motore?azione=RecuperaCategorieRistoranti" >Registrati</a></td>
+		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=RecuperaCategorieRistoranti">&nbsp;Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

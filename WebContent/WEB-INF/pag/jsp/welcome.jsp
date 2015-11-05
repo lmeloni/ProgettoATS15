@@ -4,7 +4,7 @@
 <head>
 <%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>PeB|welcome</title>
+<title>Pappa&Buffa</title>
 
 </head>
 <body>
@@ -15,21 +15,7 @@
 HOME PAGE PAPPAeBUFFA
 <hr>
 
-PROVA FORM:
-<form action="motore"> <input type="hidden" name="azione" value="Prova" >
-	
-	nome <input type="text" name="nome" value="${ProvaForm.nome}" ><br>
-	eta <input type="text" name="eta" value="${ProvaForm.eta}" ><br>
-	<br>
-	<input class="btn btn-default" type="submit" value="  OK   " >
-	<br>
-	${ProvaForm.errori[0].errmsg}<br>
-	${ProvaForm.errori[1].errmsg}<br>
-</form>
 <hr>
-<br>
-PROVA HREF:<br>
-<a href="motore?azione=ProvaHref&nome=Cagliari&eta=1200" >vai con hyperlink</a>
 
 </body>
 </html>
