@@ -18,7 +18,7 @@ public class RegistrazioneRistorante implements Azione {
 		// recupera i dati dal form
 		
 		RegistrazioneRistoranteForm r = (RegistrazioneRistoranteForm) form;
-		Ristorante ristorante = new Ristorante(0, r.getEmail(), r.getPassword(), r.getNome(), 
+		Ristorante ristorante = new Ristorante(0, r.getEmail(), r.getNome(), r.getPassword(), 
 				   r.getCategoria(), r.getIndirizzo(), r.getCitta(), r.getTelefono(),
 				   r.getDescrizione(), r.getOrarioApertura(), r.getOrarioChiusura());
 		
