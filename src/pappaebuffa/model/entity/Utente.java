@@ -1,6 +1,7 @@
 package pappaebuffa.model.entity;
 
 public abstract class Utente {
+	
 	protected int id;
 	protected String email;
 	protected String password;
@@ -60,4 +61,5 @@ public abstract class Utente {
 	}
 	
 	public abstract boolean isCliente();
+	
 }

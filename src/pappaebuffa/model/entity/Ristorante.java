@@ -2,6 +2,7 @@ package pappaebuffa.model.entity;
 
 
 public class Ristorante extends Utente {
+	
 	private String categoria;
 	private String descrizione;
 	private String orarioApertura;

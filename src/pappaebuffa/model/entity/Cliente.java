@@ -2,6 +2,7 @@ package pappaebuffa.model.entity;
 
 
 public class Cliente extends Utente implements Comparable<Cliente> {
+	
 	private String cognome;
 	
 	public Cliente(int id, String email, String password, String nome,
