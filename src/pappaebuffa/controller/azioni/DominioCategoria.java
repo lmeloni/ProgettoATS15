@@ -7,7 +7,7 @@ import pappaebuffa.model.dao.DAORistorante;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Utente;
 
-public class RecuperaCategorieRistoranti implements Azione {
+public class DominioCategoria implements Azione {
 
 	@Override
 	public String esegui(HttpServletRequest request, Form form)   {

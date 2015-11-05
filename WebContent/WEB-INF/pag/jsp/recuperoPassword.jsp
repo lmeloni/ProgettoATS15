@@ -61,7 +61,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=RecuperaCategorieRistoranti">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=DominioCategoria">&nbsp;Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

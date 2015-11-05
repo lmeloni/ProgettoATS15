@@ -23,13 +23,13 @@
 	
 	<tr>
 		<td align="right">(*) Categoria</td>
-		<td> <select class="form-control" name="categoria">
-				<c:forEach var="categoria" items="${listaCategorie}">
-
-					<option value="${categoria}" ${AggiornaProfiloRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
-					
-				</c:forEach>
-			</select> </td>
+		<td>
+			<select class="form-control" name="categoria">
+			<c:forEach var="categoria" items="${listaCategorie}">
+				<option value="${categoria}" ${AggiornaProfiloRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
+			</c:forEach>
+			</select>
+		</td>
 		<td></td>
 	</tr>
 

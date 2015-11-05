@@ -8,10 +8,6 @@ import pappaebuffa.model.dao.DAOPreparazione;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Ristorante;
 
-/**
- * rimuove la tupla della tabella preparazione passando l'id pietanza e get id ristorante
- * @author Lucia ,Gianluca
- */
 public class RimuoviPreparazione implements Azione {
 
 	@Override
@@ -21,7 +17,7 @@ public class RimuoviPreparazione implements Azione {
 		int idPietanza = Integer.parseInt(request.getParameter("idPietanza"));
 		
 		try {
-			DAOPreparazione dao1= new DAOPreparazione();
+			DAOPreparazione dao1 = new DAOPreparazione();
 			DAOPietanza dao2 = new DAOPietanza();
 			
 			dao1.delete(ristorante.getId(), idPietanza);

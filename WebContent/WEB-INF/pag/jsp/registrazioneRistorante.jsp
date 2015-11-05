@@ -22,13 +22,13 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 	<tbody>
 	<tr>
 		<td align="right">(*) Categoria</td>
-		<td> <select class="form-control" name="categoria">
-				<c:forEach var="categoria" items="${listaCategorie}">
-
-					<option value="${categoria}" ${RegistrazioneRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
-					
-				</c:forEach>
-			</select> </td>
+		<td>
+			<select class="form-control" name="categoria">
+			<c:forEach var="categoria" items="${listaCategorie}">
+				<option value="${categoria}" ${RegistrazioneRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
+			</c:forEach>
+			</select>
+		</td>
 		<td></td>
 	</tr>
 	<tr>
