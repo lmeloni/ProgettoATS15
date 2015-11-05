@@ -15,6 +15,7 @@
 <br><br>
 <form action="motore" method="post" >
 <input type="hidden" name="azione" value="AggiornaProfiloCliente" >
+
 <input type="hidden" name="id" value="${AggiornaProfiloClienteForm.id}" >
 
 <table cellpadding="2" cellspacing="2" >

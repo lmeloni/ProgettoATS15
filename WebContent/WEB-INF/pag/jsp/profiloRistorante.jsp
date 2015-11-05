@@ -15,6 +15,7 @@
 <br><br>
 <form action="motore" method="post" >
 <input type="hidden" name="azione" value="AggiornaProfiloRistorante" >
+
 <input type="hidden" name="id" value="${AggiornaProfiloRistoranteForm.id}" >
 
 <table cellpadding="2" cellspacing="2" >
@@ -125,8 +126,7 @@
 	<tr>
 		<td align="right">Descrizione</td>
 		<td>
-			<textarea rows="3" cols="50" name="descrizione">
-				${AggiornaProfiloRistoranteForm.descrizione}
+			<textarea rows="3" cols="50" name="descrizione">${AggiornaProfiloRistoranteForm.descrizione}
 			</textarea>
 		</td>
 	</tr>

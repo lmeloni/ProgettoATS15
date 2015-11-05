@@ -10,8 +10,7 @@
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-<strong>Inizia a usare Pappa e Buffa, crea il tuo account personale...</strong>
-<br><br>
+<b>Inizia a usare Pappa & Buffa, crea il tuo account personale...</b>&nbsp;&nbsp;
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
 <br><br>
 <form action="motore" method="post" > <input type="hidden" name="azione" value="RegistrazioneCliente" >
