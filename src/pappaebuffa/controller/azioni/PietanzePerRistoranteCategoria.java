@@ -20,17 +20,14 @@ public class PietanzePerRistoranteCategoria implements Azione{
 		PietanzePerRistoranteCategoriaForm f = (PietanzePerRistoranteCategoriaForm) form;
 				
 		try {
-			DAOPietanza dao = new DAOPietanza();
-					
-			// TODO Recuperare i dati necessari dal form... Usare questi dati
-			// per selezionare le pietanze che rispettano il criterio...!
-			// Queste pietanze vanno "passate" alla prossima pagina (come?)
-			ArrayList<Pietanza> arraylistPietanza = dao.selectByRistoranteCategoria(f.getCategoria(), f.getIdRistorante());
-			DAOPreparazione daop = new DAOPreparazione();
+			DAOPietanza daoPietanza = new DAOPietanza();
+			ArrayList<Pietanza> arraylistPietanza = daoPietanza.selectByRistoranteCategoria(f.getCategoria(), f.getIdRistorante());
+			
+			DAOPreparazione daoPreparazione = new DAOPreparazione();
 			ArrayList<Double> prezzi = new ArrayList<>();
 			
 			for (Pietanza pietanza : arraylistPietanza) {
-				prezzi.add(daop.select(f.getIdRistorante(), pietanza.getId()).getPrezzo());
+				prezzi.add(daoPreparazione.select(f.getIdRistorante(), pietanza.getId()).getPrezzo());
 			}
 			
 			request.setAttribute("ordinedatetime", request.getParameter("ordinedatetime"));
