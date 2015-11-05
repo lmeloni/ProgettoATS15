@@ -102,7 +102,29 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 			</c:forEach> 
 		</td>
 	</tr>
-		
+	
+	<tr>
+		<td align="right">(*) Orario</td>
+		<td>
+			<input type="text" size="4" name="orarioApertura" value="${RegistrazioneRistoranteForm.orarioApertura}">
+			apertura &nbsp;&nbsp;
+			<input type="text" size="4" name="orarioChiusura" value="${RegistrazioneRistoranteForm.orarioChiusura}">
+			chiusura
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="color: red; font-size: small; ">
+			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
+				<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach>
+			&nbsp;&nbsp;
+			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
+				<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
+			</c:forEach> 
+		</td>
+	</tr>
+			
 	<tr>
 		<td align="right">(*) Password</td>
 		<td><input type="password" size="30" name="password" value="${RegistrazioneRistoranteForm.password}" ></td>
@@ -126,32 +148,6 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
 				<c:if test="${e.param=='passwordConferma'}"> <c:out value="${e.errmsg}"/> </c:if>
-			</c:forEach> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td align="right">(*) Orario di apertura</td>
-		<td><input type="text" size="30" name="orarioApertura" value="${RegistrazioneRistoranteForm.orarioApertura}" ></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td style="color: red; font-size: small; ">
-			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='orarioApertura'}"> <c:out value="${e.errmsg}"/> </c:if>
-			</c:forEach> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td align="right">(*) Orario di chiusura</td>
-		<td><input type="text" size="30" name="orarioChiusura" value="${RegistrazioneRistoranteForm.orarioChiusura}" ></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td style="color: red; font-size: small; ">
-			<c:forEach var="e" items="${RegistrazioneRistoranteForm.errori}">
-				<c:if test="${e.param=='orarioChiusura'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>

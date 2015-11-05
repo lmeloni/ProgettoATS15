@@ -3,7 +3,7 @@ package pappaebuffa.controller.azioni;
 import javax.servlet.http.HttpServletRequest;
 
 import pappaebuffa.controller.form.Form;
-import pappaebuffa.controller.form.RegistrazioneForm;
+import pappaebuffa.controller.form.RegistrazioneClienteForm;
 import pappaebuffa.controller.form.RegistrazioneRistoranteForm;
 import pappaebuffa.model.dao.DAO;
 import pappaebuffa.model.dao.DAORistorante;

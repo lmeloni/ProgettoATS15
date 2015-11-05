@@ -66,7 +66,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazione.jsp">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">&nbsp;Registrati</a></td>
 	</tr>
 	<tr>
 		<td></td>

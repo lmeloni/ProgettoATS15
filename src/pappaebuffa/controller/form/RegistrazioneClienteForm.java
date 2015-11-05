@@ -3,7 +3,7 @@ package pappaebuffa.controller.form;
 import pappaebuffa.controller.bean.Errore;
 import pappaebuffa.model.Utilita;
 
-public class RegistrazioneForm extends Form {
+public class RegistrazioneClienteForm extends Form {
 	
 	private String email;
 	private String password;
