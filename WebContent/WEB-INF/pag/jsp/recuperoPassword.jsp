@@ -15,7 +15,7 @@
 
 <table cellpadding="5" cellspacing="5" >
 	<thead>
-	<tr>
+	<tr valign="middle">
 		<th align="right">Sei un?</th>
 		<th align="left">
 			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;

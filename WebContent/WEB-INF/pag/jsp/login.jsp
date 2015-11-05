@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<img src="img/pappa&buffa.jpg" width="300" height="150" title="pappa&buffa" />
+<img src="img/pappa&buffa.jpg" width="330" height="180" title="pappa&buffa" />
 <br>
 <strong>Entra in Pappa e Buffa!</strong>
 <br>
@@ -19,7 +19,7 @@
 
 <table cellpadding="5" cellspacing="5" >
 	<thead>
-	<tr>
+	<tr valign="middle">
 		<th align="right">Entra come</th>
 		<th align="left">
 			<label><input type="radio" name="utente" value="cliente" checked />Cliente</label> &nbsp;
