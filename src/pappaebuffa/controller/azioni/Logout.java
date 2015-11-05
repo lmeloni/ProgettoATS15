@@ -9,7 +9,7 @@ public class Logout implements Azione {
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		request.getSession().removeAttribute("utente");
-		return "login.jsp";
+		return "welcome.jsp";
 	}
 
 }

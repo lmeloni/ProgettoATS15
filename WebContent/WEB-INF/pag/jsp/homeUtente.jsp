@@ -10,7 +10,9 @@
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-
+<c:if test="${sessionScope.utente == null}">
+	<jsp:forward page="welcome.jsp"/>
+</c:if>
 <c:choose>
 <c:when test="${sessionScope.utente != null}">
 	Benvenuto 
