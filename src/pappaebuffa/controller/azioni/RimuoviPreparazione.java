@@ -21,13 +21,13 @@ public class RimuoviPreparazione implements Azione {
 		int idPietanza = Integer.parseInt(request.getParameter("idPietanza"));
 		
 		try {
-			DAOPreparazione dao1= new DAOPreparazione();
-			DAOPietanza dao2 = new DAOPietanza();
+			DAOPreparazione daoPreparazione= new DAOPreparazione();
+			DAOPietanza daoPietanza = new DAOPietanza();
 			
-			dao1.delete(ristorante.getId(), idPietanza);
+			daoPreparazione.delete(ristorante.getId(), idPietanza);
 			
 			//metto in sessione la lista preparazione aggiornata
-			request.getSession().setAttribute("listaPreparazioni", dao2.selectByRistorante(ristorante.getId()));
+			request.getSession().setAttribute("listaPreparazioni", daoPietanza.selectByRistorante(ristorante.getId()));
 			
 			request.setAttribute("feedback", "Eliminazione della pietanza effetuata");
 			
