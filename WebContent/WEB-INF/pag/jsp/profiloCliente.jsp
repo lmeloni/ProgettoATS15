@@ -94,7 +94,7 @@
 	<tr>
 		<td align="right">Telefono </td>
 		<td><input type="text" size="30" name="telefono" value="${AggiornaProfiloClienteForm.telefono}" ></td>
-		<td style="font-size: small;">Useremo il tuo numero per contattarti</td>
+		<td style="font-size: small;">Facoltativo: lo useremo solo per le finalità del servizio</td>
 	</tr>
 	<tr>
 		<td></td>

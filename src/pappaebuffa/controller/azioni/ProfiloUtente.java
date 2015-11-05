@@ -15,37 +15,38 @@ public class ProfiloUtente implements Azione {
 	public String esegui(HttpServletRequest request, Form form) {
 		
 		//recupero l'utente dalla sessione:
-		Utente u = (Utente) request.getSession().getAttribute("utente");
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
 
-		if(u==null){
+		if(utente==null){
 			request.setAttribute("errore", "ERRORE - DEVI ESSERE LOGGATO PER ACCEDERE A QUESTA PAGINA");
-		return "errore.jsp"; 
+			return "errore.jsp"; 
 		}
 		
-		if(u.isCliente()) {
-			Cliente c = (Cliente) u;
+		if(utente.isCliente()) {
+			//recupero il Cliente (utente) dalla sessione:
+			Cliente c = (Cliente) utente;
+			
 			//popolo il form che mostrerà i dati da modificare:
-			AggiornaProfiloClienteForm apf = new AggiornaProfiloClienteForm(c.getId(), c.getEmail(), 
+			AggiornaProfiloClienteForm fc = new AggiornaProfiloClienteForm(c.getId(), c.getEmail(), 
 					c.getNome(), c.getCognome(), c.getIndirizzo(), 
 					c.getCitta(), c.getTelefono(), c.getPassword());
 			
 			//salvo in sessione il form che servirà alla pagina profiloCliente
-			request.setAttribute("AggiornaProfiloClienteForm", apf);
-			
+			request.setAttribute("AggiornaProfiloClienteForm", fc);
 			
 			return "profiloCliente.jsp";
 		} else {
-			//recupero il ristorante (utente) dalla sessione:
-			Ristorante r = (Ristorante) u;
+			//recupero il Ristorante (utente) dalla sessione:
+			Ristorante r = (Ristorante) utente;
 			
 			//popolo il form che mostrerà i dati da modificare:
-			AggiornaProfiloRistoranteForm apf = new AggiornaProfiloRistoranteForm(r.getId(), r.getEmail(), 
+			AggiornaProfiloRistoranteForm fr = new AggiornaProfiloRistoranteForm(r.getId(), r.getEmail(), 
 					r.getNome(), r.getCategoria(), r.getIndirizzo(), 
-					r.getCitta(), r.getTelefono(), r.getPassword(), 
-					r.getDescrizione(), r.getOrarioApertura(), r.getOrarioChiusura());
+					r.getCitta(), r.getTelefono(), r.getDescrizione(), 
+					r.getOrarioApertura(), r.getOrarioChiusura(), r.getPassword());
 			
 			//salvo in sessione il form che servirà alla pagina profiloCliente
-			request.setAttribute("AggiornaProfiloRistoranteForm", apf);
+			request.setAttribute("AggiornaProfiloRistoranteForm", fr);
 			
 			return "profiloRistorante.jsp";
 		}

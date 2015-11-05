@@ -124,6 +124,19 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 			</c:forEach> 
 		</td>
 	</tr>
+	
+	<tr>
+		<td align="right">Descrizione</td>
+		<td>
+			<textarea rows="3" cols="50" name="descrizione">
+				${AggiornaProfiloRistoranteForm.descrizione}
+			</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
 			
 	<tr>
 		<td align="right">(*) Password</td>

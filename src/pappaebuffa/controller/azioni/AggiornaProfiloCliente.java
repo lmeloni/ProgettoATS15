@@ -16,13 +16,19 @@ public class AggiornaProfiloCliente implements Azione {
 		
 		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
+		//recupero l'utente dalla sessione:
+		Utente utente = (Utente) request.getSession().getAttribute("utente");
+		
 		//creo il Cliente con i NUOVI dati provenienti dal form:
 		Cliente cliente = new Cliente(f.getId(), f.getEmail(), f.getPassword(), 
 			f.getNome(), f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
 		
+		if(utente.getId() != cliente.getId()){
+			request.setAttribute("errore", "Stai cercando di modificare un profilo che non è il tuo!");
+			return "errore.jsp";
+		}
+		
 		try {
-			if(cliente.getId() != ((Utente) request.getSession().getAttribute("utente")).getId())
-				throw new DAOException("Stai cercando di modificare un profilo che non è il tuo!");
 			DAOCliente dao = new DAOCliente();
 			dao.update(cliente);
 			

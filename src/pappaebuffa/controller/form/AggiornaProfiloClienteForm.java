@@ -22,8 +22,8 @@ public class AggiornaProfiloClienteForm extends Form {
 	/**
 	 * Costruttore usato unicamente nell'azione ProfiloCliente
 	 */
-	public AggiornaProfiloClienteForm(int id, String email, String nome, String cognome, String indirizzo,
-			String citta, String telefono, String password) {
+	public AggiornaProfiloClienteForm(int id, String email, String nome, String cognome, 
+			String indirizzo, String citta, String telefono, String password) {
 		super();
 		this.id = id;
 		this.email = email;
