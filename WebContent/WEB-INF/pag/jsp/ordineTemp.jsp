@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>showRistoranti</title>
 </head>
@@ -27,7 +28,7 @@
 	<tr>
 		<td></td>
 		<td>
-		<select name="categoria">
+		<select class="form-control" name="categoria">
 			<c:forEach var="categoria" items="${categorie}">
 				<option value="${categoria}">${categoria}</option>
 			</c:forEach>
@@ -35,7 +36,7 @@
 		</td>
 	</tr>
 	<tr height="100" >
-		<td><input type="submit" value="   Scegli...  "></td>
+		<td><input class="btn btn-default" type="submit" value="   Scegli...  "></td>
 		<td></td>
 	</tr>
 </table>

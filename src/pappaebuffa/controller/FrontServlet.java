@@ -57,7 +57,11 @@ public class FrontServlet extends HttpServlet {
 		//CONTROLLER 3) Delega risorsa VIEW:
 		String pathView = "/"; 
 		if(risorsa.endsWith(".jsp")) //se pagina JSP
-			pathView += "WEB-INF/pag/jsp/";
+			pathView += "WEB-INF/pag/jsp/"; 
+		if(risorsa.endsWith(".js")) //se pagina JS
+			pathView += "WEB-INF/pag/js/"; 
+		if(risorsa.endsWith(".css")) //se pagina CSS
+			pathView += "WEB-INF/pag/css/";
 		
 		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);
 	

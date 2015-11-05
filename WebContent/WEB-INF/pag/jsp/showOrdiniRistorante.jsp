@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>showOrdiniRistorante</title>
 </head>
@@ -12,9 +14,9 @@
 <hr><br>
 <b>Hai ${ordiniRistorante.size()} ordini:</b>
 <br>
-<table border="0" cellpadding="3" cellspacing="3" >
+<table class="table">
 	<thead>
-	<tr style="color: white; background-color: blue;"  >
+	<tr >
 		<th>Cliente</th>
 		<th>Data ordine</th>
 		<th>Data ritiro</th>
@@ -24,7 +26,7 @@
 	
 	<tbody>
 	<c:forEach var="ordine" items="${ordiniRistorante}">
-	<tr style="color: purple;">
+	<tr>
 		<td>${ordine.cliente.nome}</td>
 		<td>${ordine.getDataOrdineS()}</td>
 		<td>${ordine.getDataRitiroS()}</td>

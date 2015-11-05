@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>pietanzePerCategoria</title>
 </head>
@@ -27,8 +28,8 @@
 	<br><br><br>
 	<label><input type = "checkbox" name = "finalizzato"> Ho finito il mio ordine</label>
 	<br><br><br>
-	<input type="reset" value="   Reset  ">
-	<input type="submit" value="   Ordina...  ">
+	<input class="btn btn-default" type="reset" value="   Reset  ">
+	<input class="btn btn-default" type="submit" value="   Ordina...  ">
 
 </form>	
 

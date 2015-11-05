@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -12,14 +14,15 @@
 <br><br>
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 <br><br>
-<form action="motore" method="post" > <input type="hidden" name="azione" value="RegistrazioneRistorante" >
+<form action="motore" method="post" >
+<input type="hidden" name="azione" value="RegistrazioneRistorante" >
 
 <table cellpadding="3" cellspacing="3" >
 
 	<tbody>
 	<tr>
 		<td align="right">(*) Categoria</td>
-		<td> <select name="categoria">
+		<td> <select class="form-control" name="categoria">
 				<c:forEach var="categoria" items="${listaCategorie}">
 					<option value="${categoria}">${categoria}</option>
 				</c:forEach>
@@ -162,7 +165,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 	<tr>
 		<td></td>
 		<td>
-			<input type="submit" value="  Registrati  " > &nbsp;
+			<input class="btn btn-default" type="submit" value="  Registrati  " > &nbsp;
 			Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a>
 		</td>
 	</tr>

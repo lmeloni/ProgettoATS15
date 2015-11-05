@@ -1,18 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="motore?azione=Vai&risorsa=homeUtente.jsp">Pappa & buffa!</a>
+    </div>
 
-<body>
-<b>Pappa e Buffa!</b>
-<hr>
-<a href="motore?azione=Vai&risorsa=homeUtente.jsp">Home</a> |
-
-<a href="motore?azione=ProfiloUtente">Profilo personale</a> | 
-
-<a href="motore?azione=Logout">Esci dal profilo</a> | 
-
-<a href='javascript:history.back();'>indietro</a>
-<hr>
-
-</body>
-</html>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+		<li><a href="motore?azione=ProfiloUtente">Profilo personale</a></li>
+		<li><a href="motore?azione=Logout">Esci dal profilo</a></li>
+		<li><a href='javascript:history.back();'>Torna indietro</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

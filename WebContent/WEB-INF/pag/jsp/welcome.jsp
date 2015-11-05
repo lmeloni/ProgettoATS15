@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PeB|welcome</title>
 
@@ -20,7 +21,7 @@ PROVA FORM:
 	nome <input type="text" name="nome" value="${ProvaForm.nome}" ><br>
 	eta <input type="text" name="eta" value="${ProvaForm.eta}" ><br>
 	<br>
-	<input type="submit" value="  OK   " >
+	<input class="btn btn-default" type="submit" value="  OK   " >
 	<br>
 	${ProvaForm.errori[0].errmsg}<br>
 	${ProvaForm.errori[1].errmsg}<br>

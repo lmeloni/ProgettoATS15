@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomeUtente</title>
 </head>
@@ -27,13 +28,13 @@
 		<form action="motore" method="post"> <input type="hidden" name="azione" value="MostraRistorantiPerCategoria" />
 			
 			Scegli la categoria ristorante
-			<select name="categoria">
+			<select class="form-control" name="categoria">
 				<c:forEach var="categoria" items="${listaCategorie}">
 					<option value="${categoria}">${categoria}</option>
 				</c:forEach>
 			</select>
 			<br><br>
-			<input type="submit" value="   Continua   "> 
+			<input class="btn btn-default" type="submit" value="   Continua   "> 
 		</form>
 	</c:if>
 </c:when>
