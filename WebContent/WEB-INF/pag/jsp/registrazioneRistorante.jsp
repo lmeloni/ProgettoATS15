@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <strong>Inizia a usare Pappa & Buffa, crea il tuo account ristorante...</strong>
 <br><br>
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>

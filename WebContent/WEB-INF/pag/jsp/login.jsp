@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <img src="img/pappa&buffa.jpg" width="300" height="150" title="pappa&buffa" />
 <br>
 <strong>Entra in Pappa e Buffa!</strong>

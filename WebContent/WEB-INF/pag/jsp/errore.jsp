@@ -7,6 +7,7 @@
 <title>errore</title>
 </head>
 <body bgcolor="yellow" text="red" >
+<%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 <h4>
 	<b>
