@@ -10,12 +10,11 @@
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-<img src="img/pappa&buffa.jpg" width="300" height="150" title="pappa&buffa" />
-<br>
-<strong>Entra in Pappa e Buffa!</strong>
-<br>
-<strong>${RegistrazioneForm.feedback}</strong>
-<br>
+<img src="img/pappa&buffa.jpg" width="330" height="180" title="pappa&buffa" />
+<br><br>
+<b>${RegistrazioneClienteForm.feedback}</b>
+<b>${RegistrazioneRistoranteForm.feedback}</b>
+<br><br>
 <form action="motore" method="get" > <input type="hidden" name="azione" value="Login" >
 
 <table cellpadding="5" cellspacing="5" >

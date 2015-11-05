@@ -17,7 +17,6 @@ public class RegistrazioneCliente implements Azione {
 		//recupera i dati dal form
 		RegistrazioneClienteForm f = (RegistrazioneClienteForm) form;		
 
-		//crea il cliente attraverso questi dati
 		Cliente cliente = new Cliente(0, f.getEmail(), f.getPassword(), 
 			f.getNome(), f.getCognome(), f.getIndirizzo(), f.getCitta(), f.getTelefono());
 		
@@ -25,7 +24,8 @@ public class RegistrazioneCliente implements Azione {
 			DAO<Cliente> dao = new DAOCliente();
 			dao.insert(cliente);
 			
-			f.setFeedback("La tua registrazione è andata buon fine...Buon appetito!");
+			f.setFeedback("La tua registrazione è andata a buon fine... Buon appetito!");
+			
 			return "login.jsp";
 			
 		} catch (DAOException e) {

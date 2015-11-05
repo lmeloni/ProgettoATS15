@@ -6,14 +6,15 @@
 <%@ include file="bootstrap.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Pappa&Buffa</title>
-
 </head>
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 <c:if test="${sessionScope.utente != null}">
-<jsp:forward page="homeUtente.jsp"/>
+	<jsp:forward page="homeUtente.jsp"/>
 </c:if>
-Siamo un servizio che bla bla...
+<br>
+<h4>Siamo un servizio che bla bla...</h4>
+<br>
 </body>
 </html>
