@@ -12,10 +12,12 @@ public class DominioPreparazioni implements Azione {
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
+		//recupero il Ristorante (utente) dalla sessione:
 		Ristorante ristorante = (Ristorante) request.getSession().getAttribute("utente");
+		
 		try {
 			DAOPietanza dao = new DAOPietanza();
-						
+			
 			//metto in sessione la lista preparazione aggiornata
 			request.getSession().setAttribute("listaPreparazioni", dao.selectByRistorante(ristorante.getId()));
 			

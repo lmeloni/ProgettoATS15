@@ -10,10 +10,6 @@ import pappaebuffa.model.entity.Pietanza;
 import pappaebuffa.model.entity.Preparazione;
 import pappaebuffa.model.entity.Ristorante;
 
-/**
- * rimuove la tupla della tabella preparazione passando l'id pietanza e get id ristorante
- * @author Lucia ,Gianluca
- */
 public class ModificaPreparazione implements Azione {
 
 	@Override
@@ -24,6 +20,7 @@ public class ModificaPreparazione implements Azione {
 		double prezzo = Double.parseDouble( (String) "0"+request.getParameter("prezzo"));
 		String note = request.getParameter("note");
 		
+		//recupero il Ristorante (utente) dalla sessione:
 		Ristorante ristorante = (Ristorante) request.getSession().getAttribute("utente");
 		
 		try {
