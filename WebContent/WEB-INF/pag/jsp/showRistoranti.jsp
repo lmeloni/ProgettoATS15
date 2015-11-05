@@ -32,7 +32,7 @@
 		<td>
 			<label>Quando vuoi ritirare l'ordine? 
 				<input type="datetime-local" name="ordinedatetime">
-			</label><br>
+			</label>
 		</td>
 	</tr>
 	<tr height="100" >
