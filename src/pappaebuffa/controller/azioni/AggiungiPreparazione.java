@@ -28,15 +28,15 @@ public class AggiungiPreparazione implements Azione {
 		Ristorante ristorante = (Ristorante) request.getSession().getAttribute("utente");
 		
 		try {
-			DAOPietanza dao1 = new DAOPietanza();
-			Pietanza pietanza = dao1.select(idPietanza);
+			DAOPietanza daoPietanza = new DAOPietanza();
+			Pietanza pietanza = daoPietanza.select(idPietanza);
 			
 			Preparazione preparazione = new Preparazione(ristorante, pietanza, prezzo, note);
 			
 			DAOPreparazione dao2 = new DAOPreparazione();
 			dao2.insert(preparazione);
 			
-			return "homeUtente.jsp";
+			return "aggiungiPreparazione.jsp";
 			
 		} catch (DAOException e) {
 			request.setAttribute("errore", e.getMessage());
