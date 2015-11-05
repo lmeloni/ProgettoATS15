@@ -55,7 +55,7 @@ public class ComponiOrdine implements Azione{
 			if (dataRitiro == null || dataRitiro.compareTo(dataAttuale) < 0 
 					|| orarioApertura.compareTo(dataRitiro) > 0 
 					|| orarioChiusura.compareTo(dataRitiro) < 0){
-				throw new DAOException("Data ritiro non valida.");
+				throw new DAOException("Data ritiro non valida!");
 			}
 			
 			String ordineEsistente = request.getParameter("idOrdine");
