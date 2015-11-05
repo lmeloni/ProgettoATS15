@@ -17,10 +17,6 @@ public class RegistrazioneRistoranteForm extends Form {
 	private String orarioApertura;
 	private String orarioChiusura;
 
-	
-	
-
-
 	@Override
 	public void parametri2campiForm() {
 		this.email = super.request.getParameter("email");
@@ -34,14 +30,12 @@ public class RegistrazioneRistoranteForm extends Form {
 		this.descrizione = super.request.getParameter("descrizione");
 		this.orarioApertura = super.request.getParameter("orarioApertura");
 		this.orarioChiusura = super.request.getParameter("orarioChiusura");
-		
 	}
 
 	
-		public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-
 
 	public String getPassword() {
 		return password;
@@ -55,36 +49,29 @@ public class RegistrazioneRistoranteForm extends Form {
 		return nome;
 	}
 
-
 	public String getCategoria() {
 		return categoria;
 	}
-
 
 	public String getIndirizzo() {
 		return indirizzo;
 	}
 
-
 	public String getCitta() {
 		return citta;
 	}
-
 
 	public String getTelefono() {
 		return telefono;
 	}
 
-
 	public String getDescrizione() {
 		return descrizione;
 	}
 
-
 	public String getOrarioApertura() {
 		return orarioApertura;
 	}
-
 
 	public String getOrarioChiusura() {
 		return orarioChiusura;
@@ -129,7 +116,6 @@ public class RegistrazioneRistoranteForm extends Form {
 			super.errori.add(new Errore("orarioChiusura", "obbligatorio"));
 		
 		return super.errori.size()==0 ? true:false;
-	
-		}
+	}
 	
 }

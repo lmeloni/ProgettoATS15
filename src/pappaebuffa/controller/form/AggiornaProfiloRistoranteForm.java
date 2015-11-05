@@ -22,7 +22,6 @@ public class AggiornaProfiloRistoranteForm extends Form {
 		super();
 	}
 
-
 	/**
 	 * Costruttore usato unicamente nell'azione ProfiloCliente
 	 */
@@ -86,6 +85,18 @@ public class AggiornaProfiloRistoranteForm extends Form {
 	public String getTelefono() {
 		return telefono;
 	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public String getOrarioApertura() {
+		return orarioApertura;
+	}
+	public String getOrarioChiusura() {
+		return orarioChiusura;
+	}
 
 	@Override
 	public boolean validazione() {
@@ -125,22 +136,6 @@ public class AggiornaProfiloRistoranteForm extends Form {
 				super.errori.add(new Errore("passwordConferma", "le password non corrispondono"));
 		
 		return super.errori.size()==0 ? true:false;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public String getDescrizione() {
-		return descrizione;
-	}
-
-	public String getOrarioApertura() {
-		return orarioApertura;
-	}
-
-	public String getOrarioChiusura() {
-		return orarioChiusura;
 	}
 
 }
