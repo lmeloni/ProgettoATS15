@@ -188,33 +188,25 @@ public class DAOPietanza extends DAO<Pietanza>{
 	public ArrayList<String> selectCategoriaByRistorante(int idRistorante) throws DAOException {
 		ArrayList<String> lista = new ArrayList<String>();
 
-		String sql="SELECT nome "
-				+ "FROM CATEGORIA_PIETANZA";
-		
-		sql="select distinct p.categoria "
-				+ "from pietanza p, preparazione pr "
-				+ "where p.id=pr.id_pietanza AND pr.id_ristorante = '12'";
+		String sql="select distinct categoria "+
+			"from pietanza p join preparazione on p.id=id_pietanza "+
+			"where id_ristorante = ?";
 		
 		try(PreparedStatement pst = con.prepareStatement(sql)){
-			//pst.setInt(1, idRistorante);
+			pst.setInt(1, idRistorante);
 			
 			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
 			
-			while (res.next()) {//scorre TUTTO il ResultSet
-				System.out.println(res.getString(1));
-				lista.add(res.getString(1)) ; //popola la ArrayList
-			}
-			
-			System.out.println(sql);
-			System.out.println(lista);
+			while (res.next()) //scorre TUTTO il ResultSet
+				lista.add(res.getString("categoria")) ; //popola la ArrayList
 
 			if(lista.isEmpty())
-				throw new DAOException("WARNING SELECT Categoria By Ristorante "+idRistorante+": DATI NON TROVATI");
+				throw new DAOException("WARNING SELECT Categoria By Ristorante: DATI NON TROVATI");
 			else
 				return lista;
 
 		} catch (SQLException e) {
-			throw new DAOException("ERRORE SELECT Categoria By Ristorante "+idRistorante+". Causa: "+e.getMessage());
+			throw new DAOException("ERRORE SELECT Categoria By Ristorante. Causa: "+e.getMessage());
 		}
 
 	}
