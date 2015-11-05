@@ -14,8 +14,9 @@ public class MostraRistorantiPerCategoria implements Azione {
 		
 		MostraRistorantiPerCategoriaForm f = (MostraRistorantiPerCategoriaForm) form;
 		try {
-			request.setAttribute("ristoranti", new DAORistorante().selectByCategoria(f.getCategoria()));
+			DAORistorante dao = new DAORistorante(); 
 			
+			request.setAttribute("ristoranti", dao.selectByCategoria(f.getCategoria()));
 			
 			return "showRistoranti.jsp";
 			
@@ -24,8 +25,5 @@ public class MostraRistorantiPerCategoria implements Azione {
 			return "errore.jsp"; 
 		}
 	}
-
-
-
 
 }
