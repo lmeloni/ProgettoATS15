@@ -20,6 +20,18 @@
 <table cellpadding="2" cellspacing="2" >
 
 	<tbody>
+	
+	<tr>
+		<td align="right">(*) Categoria</td>
+		<td> <select class="form-control" name="categoria">
+				<c:forEach var="categoria" items="${listaCategorie}">
+
+					<option value="${categoria}" ${AggiornaProfiloRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
+					
+				</c:forEach>
+			</select> </td>
+		<td></td>
+	</tr>
 
 	<tr>
 		<td align="right">Email</td>
@@ -45,19 +57,6 @@
 		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
 				<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
-			</c:forEach> 
-		</td>
-	</tr>
-	
-	<tr>
-		<td align="right">(*) Categoria</td>
-		<td><input type="text" size="30" name="categoria" value="${AggiornaProfiloRistoranteForm.categoria}" ></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td style="color: red; font-size: small; ">
-			<c:forEach var="e" items="${AggiornaProfiloRistoranteForm.errori}">
-				<c:if test="${e.param=='categoria'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach> 
 		</td>
 	</tr>

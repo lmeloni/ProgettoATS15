@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <strong>Inizia a usare Pappa & Buffa, crea il tuo account ristorante...</strong>
 <br><br>
 Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
@@ -23,7 +24,9 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 		<td align="right">(*) Categoria</td>
 		<td> <select class="form-control" name="categoria">
 				<c:forEach var="categoria" items="${listaCategorie}">
-					<option value="${categoria}">${categoria}</option>
+
+					<option value="${categoria}" ${RegistrazioneRistoranteForm.categoria == categoria ? 'selected' : ''}>${categoria}</option>
+					
 				</c:forEach>
 			</select> </td>
 		<td></td>

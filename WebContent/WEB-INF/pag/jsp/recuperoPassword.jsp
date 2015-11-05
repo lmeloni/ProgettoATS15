@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
+<%@ include file="menu.jsp" %>
 <strong>Recupera la tua password...</strong>
 <br><br>
 <form action="motore" method="post" > <input type="hidden" name="azione" value="RecuperoPassword" >

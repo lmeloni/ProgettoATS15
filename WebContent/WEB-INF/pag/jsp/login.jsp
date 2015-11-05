@@ -9,7 +9,8 @@
 </head>
 <body>
 <%@ include file="_top.jsp" %>
-<img src="img/pappa&buffa.jpg" width="330" height="180" title="pappa&buffa" />
+<%@ include file="menu.jsp" %>
+<img src="img/pappa&buffa.jpg" width="300" height="150" title="pappa&buffa" />
 <br>
 <strong>Entra in Pappa e Buffa!</strong>
 <br>
