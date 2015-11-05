@@ -5,7 +5,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -17,7 +16,6 @@ public class Utilita {
 			md.update(password.getBytes("UTF-8"));
 			return new String(md.digest());
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-//			e.printStackTrace();
 		}
 		return null;
 	}
@@ -39,7 +37,6 @@ public class Utilita {
 	public static Timestamp stringToTimestamp(String data) throws ParseException{
 		
 		return new Timestamp(new SimpleDateFormat("yyyy-MM-dd hh:mm").parse(data.replace('T', ' ')).getTime());
-		
 	}
 	
 	public static Timestamp stringToTimestamp(String orario, Timestamp dataOrdine){
@@ -57,6 +54,8 @@ public class Utilita {
 	public static String timestampToString(Timestamp data) throws ParseException{
 		return data == null ? "N.D." : new SimpleDateFormat("dd-MM-yyyy hh:mm").format(new Date(data.getTime()));
 	}
+	
+	
 	public static void main(String[] args) throws ParseException {
 		System.out.println(timestampToString(stringToTimestamp("2015-11-11T15:12")));
 	}

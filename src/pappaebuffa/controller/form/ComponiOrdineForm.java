@@ -33,11 +33,11 @@ public class ComponiOrdineForm extends Form{
 			pietanze = new ArrayList<Pietanza>();
 			quantita = new ArrayList<Integer>();
 			
-			DAOPietanza d = new DAOPietanza();
+			DAOPietanza dao = new DAOPietanza();
 			String[] idPietanze = request.getParameterValues("pietanza");
 			for(String pietanza : idPietanze) {
 				int id = Integer.parseInt(pietanza);
-				pietanze.add(d.select(id));
+				pietanze.add(dao.select(id));
 				int q = Integer.parseInt(request.getParameter("quantita"+id));
 				quantita.add(q);
 			}
