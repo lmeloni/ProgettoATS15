@@ -24,7 +24,7 @@
 <c:otherwise>
 	Benvenuto <c:if test="${utente.isCliente()==false}"> <c:out value="ristoratore "/> </c:if>
 	&nbsp;
-	<b><a href="motore?azione=ProfiloUtente" >${utente.nome}</a></b>
+	<b><a href="motore?azione=ProfiloUtente">${utente.nome}</a></b>
 	<hr>
 	
 	<c:if test="${utente.isCliente()==false}">

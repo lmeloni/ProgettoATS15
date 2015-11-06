@@ -1,6 +1,8 @@
 ATTIVITA' TODO...
-=================================================================================
-	Aggiustare le view (JSP) e collegarle fra loro (Luca e bootstrap!)
+=============================================================================================
+https://github.com/lmeloni/ProgettoATS15.git   (password: corsoATS15)
+=============================================================================================
+OK	Aggiustare le view (JSP) e collegarle fra loro (Luca e bootstrap!)
 	Stile grafico (CSS, da assegnare)
    
 OK	possibilita di continuare l'ordine con altre categorie di pietanze
@@ -15,8 +17,6 @@ OK	riepilogo ordine comprensivo di importo totale
    
 	Cliente - visualizza i propri ordini e li può annullare 
 
-Come/dove viene fatta la registrazione di un ristorante? [Fabio & Roberto]
+OK Come/dove viene fatta la registrazione di un ristorante? [Fabio & Roberto]
 
 Verificare che l'utente sia loggato nelle varie azioni/JSP
-
-Mettere un menu a tendina per la scelta della categoria nel form di modifica profilo ristorante
