@@ -11,7 +11,7 @@
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
 
-<strong>Vuoi modificare il tuo profilo?</strong>
+<strong>Qui puoi aggiornare il tuo profilo e incrementare la tua visibilità</strong>
 <br><br>
 <form action="motore" method="post" >
 <input type="hidden" name="azione" value="AggiornaProfiloRistorante" >
@@ -36,7 +36,9 @@
 
 	<tr>
 		<td align="right">Email</td>
-		<td><input type="text" size="30" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}" >
+		<td>
+			<input type="text" size="30" readonly name="email" value="${AggiornaProfiloRistoranteForm.email}">
+			&nbsp;&nbsp;
 			Associata al profilo, non modificabile
 		</td>
 	</tr>
@@ -137,7 +139,7 @@
 
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="password" size="30" name="password" ></td>
+		<td><input type="password" size="30" name="password" value="${AggiornaProfiloRistoranteForm.password}"></td>
 	</tr>
 	<tr>
 		<td></td>
@@ -164,11 +166,7 @@
 	
 	<tfoot>
 	<tr>
-		<td></td>
-		<td>(*) campi obbligatori</td>
-	</tr>	
-	<tr>
-		<td></td>
+		<td align="right"><b>(*) NB: campi obbligatori</b></td>
 		<td><input class="btn btn-default" type="submit" value="  Aggiorna  " ></td>
 	</tr>
 	</tfoot>

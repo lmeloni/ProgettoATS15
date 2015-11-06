@@ -35,7 +35,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td align="center" style="color: red; font-size: small; ">
+		<td style="color: red; font-size: small; ">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='email'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>
@@ -47,7 +47,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td align="center" style="color: red; font-size: small;">
+		<td style="color: red; font-size: small;">
 			<c:forEach var="e" items="${LoginForm.errori}">
 				<c:if test="${e.param=='password'}"> <c:out value="${e.errmsg}"/> </c:if>
 			</c:forEach>
@@ -60,17 +60,17 @@
 		<td></td>
 		<td>
 			<input class="btn btn-default" type="submit" value="  Login  ">
-			&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;
 			<a href="motore?azione=Vai&risorsa=recuperoPassword.jsp">Password dimenticata?</a>
 		</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>cliente</b>?&nbsp;&nbsp;<a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">Registrati</a></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=DominioCategoria">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>ristoratore</b>?&nbsp;&nbsp;<a href="motore?azione=DominioCategoria">Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

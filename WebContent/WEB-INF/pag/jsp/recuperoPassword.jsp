@@ -30,7 +30,8 @@
 		<td align="right">Email</td>
 		<td>
 			<input type="text" name="email" size="25" value="${RecuperoPasswordForm.email}">
-			&nbsp;(quella usata per la registrazione)
+			&nbsp;&nbsp;&nbsp;
+			(quella usata per la registrazione)
 		</td>
 	</tr>
 	<tr>
@@ -47,21 +48,21 @@
 		<td></td>
 		<td>
 			<input class="btn btn-default" type="submit" value="  Recupera  ">
-			&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;
 			<b>${RecuperoPasswordForm.feedback}</b>
 		</td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a></td>
+		<td>Hai già un account?&nbsp;&nbsp;<a href="motore?azione=Vai&risorsa=login.jsp" >Accedi</a></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>cliente</b>? <a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>cliente</b>?&nbsp;&nbsp;<a href="motore?azione=Vai&risorsa=registrazioneCliente.jsp">Registrati</a></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td>Sei un nuovo <b>ristoratore</b>? <a href="motore?azione=DominioCategoria">&nbsp;Registrati</a></td>
+		<td>Sei un nuovo <b>ristoratore</b>?&nbsp;&nbsp;<a href="motore?azione=DominioCategoria">Registrati</a></td>
 	</tr>
 	</tfoot>
 </table>

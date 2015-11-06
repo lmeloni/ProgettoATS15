@@ -94,7 +94,7 @@
 	
 	<tr>
 		<td align="right">Telefono </td>
-		<td><input type="text" size="30" name="telefono" value="${AggiornaProfiloClienteForm.telefono}" ></td>
+		<td><input type="text" size="30" name="telefono" value="${AggiornaProfiloClienteForm.telefono}"></td>
 		<td style="font-size: small;">Facoltativo: lo useremo solo per le finalità del servizio</td>
 	</tr>
 	<tr>
@@ -108,7 +108,7 @@
 	
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="password" size="30" name="password"></td>
+		<td><input type="password" size="30" name="password" value="${AggiornaProfiloClienteForm.password}"></td>
 		<td style="font-size: small;">La password deve contenere almeno 8 caratteri e almeno un numero</td>
 	</tr>
 	<tr>
@@ -137,11 +137,7 @@
 	
 	<tfoot>
 	<tr>
-		<td></td>
-		<td>(*) campi obbligatori</td>
-	</tr>	
-	<tr>
-		<td></td>
+		<td align="right"><b>(*) NB: campi obbligatori</b></td>
 		<td><input class="btn btn-default" type="submit" value="  Aggiorna  " ></td>
 	</tr>
 	</tfoot>
