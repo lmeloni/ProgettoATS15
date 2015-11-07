@@ -21,6 +21,7 @@
 		<th>Data ordine</th>
 		<th>Data ritiro</th>
 		<th align="right">Importo totale</th>
+		<th></th>
 	</tr>
 	</thead>
 	
@@ -30,7 +31,14 @@
 		<td>${ordine.cliente.nome}</td>
 		<td>${ordine.getDataOrdineS()}</td>
 		<td>${ordine.getDataRitiroS()}</td>
-		<td align="right">${ordine.importoTotale}</td>
+		<td align="right">${ordine.importoTotale} Euro</td>
+		<td>
+		<form action = "motore">
+			<input type = "hidden" name = "azione" value = "PietanzeAssociate">
+			<input type = "hidden" name = "ordine" value = "${ordine.id}">
+			<input type = "submit" value = "Pietanze associate">
+		</form>
+		</td>
 	</tr>
 	</c:forEach>
 	</tbody>
