@@ -2,21 +2,20 @@ ATTIVITA' TODO...
 =============================================================================================
 https://github.com/lmeloni/ProgettoATS15.git   (password: corsoATS15)
 =============================================================================================
-OK	Aggiustare le view (JSP) e collegarle fra loro (Luca e bootstrap!)
-	Stile grafico (CSS, da assegnare)
-   
+OK?	Aggiustare le view (JSP) e collegarle fra loro
+OK?	Stile grafico (CSS)
+
 OK	possibilita di continuare l'ordine con altre categorie di pietanze
 OK	visualizzazione prezzo delle singole pietanze
 OK	categorie delle pietanze da filtrare per tipologia ristorante
 OK	riepilogo ordine comprensivo di importo totale
 
-	Ristorante - aggiungere una pietanza 
-               (la pietanza deve appartenere ad una categoria)
-            
-	Ristorante - un ristorante può visualizzare il dettaglio di un singolo ordine selezionato
-   
+	Ristorante - aggiungere una pietanza (la pietanza deve appartenere ad una categoria)
+
+OK	Ristorante - un ristorante può visualizzare il dettaglio di un singolo ordine selezionato
+
 	Cliente - visualizza i propri ordini e li può annullare 
 
-OK Come/dove viene fatta la registrazione di un ristorante? [Fabio & Roberto]
+OK	Come/dove viene fatta la registrazione di un ristorante? [Fabio & Roberto]
 
-Verificare che l'utente sia loggato nelle varie azioni/JSP
+	Verificare che l'utente sia loggato nelle varie azioni/JSP
