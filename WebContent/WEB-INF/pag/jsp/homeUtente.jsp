@@ -30,11 +30,11 @@
 	<c:if test="${utente.isCliente()==false}">
 		<b>Gestisci la tua attività:</b>
 		<br><br>
-		<a href = "motore?azione=DominioPietanze&funzione=1">Aggiungi una pietanza nel menù del tuo locale</a>
+		<a href = "motore?azione=DominioPreparazioni&scelta=aggiungi">Aggiungi una pietanza nel menù del tuo locale</a>
 		<br><br>
-		<a href = "motore?azione=DominioPietanze&funzione=2">Modifica una delle tue preparazioni esistenti</a>
+		<a href = "motore?azione=DominioPreparazioni&scelta=modifica">Modifica una delle tue preparazioni esistenti</a>
 		<br><br>
-		<a href = "motore?azione=DominioPreparazioni">Cancella una delle tue preparazioni esistenti</a>
+		<a href = "motore?azione=DominioPreparazioni&scelta=cancella">Cancella una delle tue preparazioni esistenti</a>
 		<br><br>
 		<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a>
 		<br><br>

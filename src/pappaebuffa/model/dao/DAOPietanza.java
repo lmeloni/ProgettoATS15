@@ -218,9 +218,9 @@ public class DAOPietanza extends DAO<Pietanza>{
 	 */
 	public ArrayList<Pietanza> selectByRistorante( int idRistorante) throws DAOException {
 		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
-		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
-				+ "FROM pietanza p, preparazione "
-				+ "WHERE p.id = preparazione.id_pietanza AND id_ristorante=? "
+		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione ,pre.note,pre.prezzo "
+				+ "FROM pietanza p, preparazione pre "
+				+ "WHERE p.id = pre.id_pietanza AND pre.id_ristorante=? "
 				+ "ORDER BY p.categoria,p.nome ";;
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
 			pst.setInt(1,idRistorante); //sostituisco il marcatore
@@ -240,6 +240,38 @@ public class DAOPietanza extends DAO<Pietanza>{
 
 	}	
 
+	/**
+	 * restituisce tutte le pietanze che non vengono preparate dal idRistorante 
+	 * @param idRistorante
+	 * @return
+	 * @throws DAOException
+	 */
+	public ArrayList<Pietanza> selectByNotRistorante( int idRistorante) throws DAOException {
+		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
+		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione ,pre.prezzo,pre.note"
+				+" FROM pietanza p, preparazione pre"
+				+" WHERE p.id not in ( SELECT  pi.id "
+				+" 					   FROM pietanza pi, preparazione "
+				+" 					   WHERE pi.id = preparazione.id_pietanza AND id_ristorante = ?) ";
+				
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1,idRistorante); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while(res.next()) 
+				lista.add(componiEntity());
+			
+			if (lista.isEmpty())
+				throw new DAOException("WARNING Il RISTORANTE="+idRistorante+" NON PREPARA NESSUNA PIETANZA");
+			else	
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x RISTORANTE="+idRistorante+". Causa: "+e.getMessage());
+		}
+
+	}	
+	
 	public static void main(String[] args) {
 		// SERVE PER TESTARE TUTTI I METODI DI QUESTO DAO!
 

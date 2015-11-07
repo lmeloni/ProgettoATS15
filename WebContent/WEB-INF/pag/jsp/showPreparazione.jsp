@@ -8,18 +8,75 @@
 <title>showPreparazione</title>
 </head>
 <body>
+<%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
+
 <form action="motore">
-	<input type="hidden" name="azione" value="RimuoviPreparazione">
-	Elenco pietanze per ristorante
-	<br>
-	<select class="form-control" name="idPietanza">
-		<c:forEach var="pietanza" items="${listaPreparazioni}">
-			<option value ="${pietanza.id}" >${pietanza.nome}</option>
-		</c:forEach>
-	</select>
-	<br><br>
-	<input class="btn btn-default" type="submit" value="Cancella preparazione"> &nbsp; ${feedback}
+	<input type="hidden" name="azione" value="DominioPreparazioni">
+	
+
+	<c:if test="${scelta == 'aggiungi'}">
+		<input type="hidden" name="scelta" value="aggiungi">
+		Aggiungi elenco pietanze al tuo ristorante
+		<br>
+		<select class="form-control" name="idPietanza">
+			<c:forEach var="pietanza" items="${listaPreparazioni}">
+				<option value ="${pietanza.id}" >${pietanza.nome}</option>
+			</c:forEach>
+		</select>
+		<br><br>
+		
+		<tr>
+			<td align="right">Prezzo</td>
+			<td><input type="text" name="prezzo" size="10" value=""></td>
+		</tr>
+		<tr>
+			<td align="right">Note</td>
+			<td><input type="text" name="note" size="10" value=""></td>
+		</tr>
+		
+		<input class="btn btn-default" type="submit" value="Aggiungi Pietanza"> &nbsp; ${feedback}
+	</c:if>
+
+
+	<c:if test="${scelta == 'modifica'}">
+		<input type="hidden" name="scelta" value="modifica">
+		Modifica la pietanza del tuo ristorante
+		<br>
+		<select class="form-control" name="idPietanza">
+			<c:forEach var="pietanza" items="${listaPreparazioni}">
+				<option value ="${pietanza.id}" >${pietanza.nome}</option>
+			</c:forEach>
+		</select>
+		<br><br>
+		
+		<tr>
+			<td align="right">Prezzo</td>
+			<td><input type="text" name="prezzo" size="10" value=""></td>
+		</tr>
+		<tr>
+			<td align="right">Note</td>
+			<td><input type="text" name="note" size="10" value=""></td>
+		</tr>
+		
+		<input class="btn btn-default" type="submit" value="Modifica Pietanza"> &nbsp; ${feedback}
+	
+	</c:if>
+
+	<c:if test="${scelta == 'cancella'}">
+		<input type="hidden" name="scelta" value="cancella">
+		Elenco pietanze per ristorante
+		<br>
+		<select class="form-control" name="idPietanza">
+			<c:forEach var="pietanza" items="${listaPreparazioni}">
+				<option value ="${pietanza.id}" >${pietanza.nome}</option>
+			</c:forEach>
+		</select>
+		<br><br>
+		
+		<input class="btn btn-default" type="submit" value="Cancella preparazione"> &nbsp; ${feedback}
+	</c:if>
+	
 </form>
 </body>
 </html>
