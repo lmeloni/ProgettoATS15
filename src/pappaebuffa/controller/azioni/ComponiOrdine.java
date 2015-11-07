@@ -67,7 +67,7 @@ public class ComponiOrdine implements Azione{
 				ordine = new DAOOrdine().select(idOrdine);
 			}else {
 				Cliente cliente = (Cliente) request.getSession().getAttribute("utente");
-				ordine = new Ordine(0, cliente, r, null, totaleOrdine, dataRitiro);
+				ordine = new Ordine(0, cliente, r, null, totaleOrdine, dataRitiro, false);
 				//inserire l'ordine nel DB, per poterne recuperare l'id autogenerato...
 				idOrdine = new DAOOrdine().insert(ordine);
 			}

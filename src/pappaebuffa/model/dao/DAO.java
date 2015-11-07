@@ -6,11 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.stream.Entity;
-
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Ristorante;
+
+import com.sun.xml.internal.stream.Entity;
 
 public abstract class DAO<T> {
 	
@@ -59,6 +58,7 @@ public abstract class DAO<T> {
 	public abstract T select(int pk) throws DAOException;
 	public abstract int insert(T entity) throws DAOException;
 	public abstract T delete(int pk) throws DAOException;
+	public abstract T update(T entity) throws DAOException;
 
 	
 	public abstract String[] columnNames();
