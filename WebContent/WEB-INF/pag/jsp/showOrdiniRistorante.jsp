@@ -25,7 +25,7 @@
 	
 			<tbody>
 				<c:forEach var="ordine" items="${ordiniRistorante}">
-					<c:if test="${ordine.evaso==false}">
+					<c:if test="${ordine.evaso == false}">
 						<tr>
 							<td>${ordine.cliente.nome}</td>
 							<td>${ordine.getDataOrdineS()}</td>
