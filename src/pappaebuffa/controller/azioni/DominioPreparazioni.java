@@ -44,7 +44,7 @@ public class DominioPreparazioni implements Azione {
 					request.setAttribute("feedback", "OK, pietanza aggiunta nel menù (aggiunta Preparazione)");
 				}
 				//metto in sessione la lista delle pietanze che non fa il ristorante
-				request.getSession().setAttribute("listaPreparazioni", daoPietanza.selectByNotRistorante(ristorante.getId()));
+				request.getSession().setAttribute("listaPietanza", daoPietanza.selectByNotRistorante(ristorante.getId()));
 				request.setAttribute("scelta", "aggiungi");
 				break;
 			case "modifica":
@@ -57,7 +57,8 @@ public class DominioPreparazioni implements Azione {
 					request.setAttribute("feedback", "modifica alla preparazione della pietanza avvenuta con successo");
 				}
 				//metto in sessione la lista preparazione aggiornata
-				request.getSession().setAttribute("listaPreparazioni", daoPietanza.selectByRistorante(ristorante.getId()));
+				request.getSession().setAttribute("listaPietanza", daoPietanza.selectByRistorante(ristorante.getId()));
+				request.getSession().setAttribute("listaPreparazione", daoPreparazione.selectByRistorante(ristorante.getId()));
 				request.setAttribute("scelta", "modifica");	
 				break;
 			case "cancella":
@@ -66,7 +67,8 @@ public class DominioPreparazioni implements Azione {
 					request.setAttribute("feedback", "OK, pietanza cancellata dal tuo menù");
 				}
 				//metto in sessione la lista preparazione aggiornata
-				request.getSession().setAttribute("listaPreparazioni", daoPietanza.selectByRistorante(ristorante.getId()));
+				request.getSession().setAttribute("listaPietanza", daoPietanza.selectByRistorante(ristorante.getId()));
+				request.getSession().setAttribute("listaPreparazione", daoPreparazione.selectByRistorante(ristorante.getId()));
 				request.setAttribute("scelta", "cancella");	
 				break;
 			default:

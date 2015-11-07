@@ -20,7 +20,7 @@
 		Aggiungi elenco pietanze al tuo ristorante
 		<br>
 		<select class="form-control" name="idPietanza">
-			<c:forEach var="pietanza" items="${listaPreparazioni}">
+			<c:forEach var="pietanza" items="${listaPietanza}">
 				<option value ="${pietanza.id}" >${pietanza.nome}</option>
 			</c:forEach>
 		</select>
@@ -44,12 +44,15 @@
 		Modifica la pietanza del tuo ristorante
 		<br>
 		<select class="form-control" name="idPietanza">
-			<c:forEach var="pietanza" items="${listaPreparazioni}">
-				<option value ="${pietanza.id}" >${pietanza.nome}</option>
+			<c:forEach var="pietanza" items="${listaPietanza}">
+				<c:forEach var="preparazione" items="${listaPreparazione}">
+					<c:if test="${pietanza.id == preparazione.pietanza.id}">
+								<option value ="${pietanza.id}" >${pietanza.nome} Prezzo: ${preparazione.prezzo} Note: ${preparazione.note}</option>
+					</c:if>
+				</c:forEach>
 			</c:forEach>
 		</select>
 		<br><br>
-		
 		<tr>
 			<td align="right">Prezzo</td>
 			<td><input type="text" name="prezzo" size="10" value=""></td>
@@ -68,8 +71,12 @@
 		Elenco pietanze per ristorante
 		<br>
 		<select class="form-control" name="idPietanza">
-			<c:forEach var="pietanza" items="${listaPreparazioni}">
-				<option value ="${pietanza.id}" >${pietanza.nome}</option>
+			<c:forEach var="pietanza" items="${listaPietanza}">
+				<c:forEach var="preparazione" items="${listaPreparazione}">
+					<c:if test="${pietanza.id == preparazione.pietanza.id}">
+								<option value ="${pietanza.id}" >${pietanza.nome} Prezzo: ${preparazione.prezzo} Note: ${preparazione.note}</option>
+					</c:if>
+				</c:forEach>
 			</c:forEach>
 		</select>
 		<br><br>
