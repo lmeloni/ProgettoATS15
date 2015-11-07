@@ -248,8 +248,8 @@ public class DAOPietanza extends DAO<Pietanza>{
 	 */
 	public ArrayList<Pietanza> selectByNotRistorante( int idRistorante) throws DAOException {
 		ArrayList<Pietanza> lista = new ArrayList<Pietanza>();
-		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione ,pre.prezzo,pre.note"
-				+" FROM pietanza p, preparazione pre"
+		String sql="SELECT  p.id,p.nome,p.categoria,p.descrizione "
+				+" FROM pietanza p "
 				+" WHERE p.id not in ( SELECT  pi.id "
 				+" 					   FROM pietanza pi, preparazione "
 				+" 					   WHERE pi.id = preparazione.id_pietanza AND id_ristorante = ?) ";
