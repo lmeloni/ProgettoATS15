@@ -22,7 +22,7 @@ public class DAOOrdine extends DAO<Ordine>{
 	@Override
 	public ArrayList<Ordine> select() throws DAOException {
 		ArrayList<Ordine> listaOrdine  = new ArrayList<Ordine>();
-		String sql=" SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
+		String sql=" SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro,evaso "
 				+ "FROM ordine "
 				+ "ORDER BY id_cliente,id_ristorante,data_ritiro ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -45,13 +45,13 @@ public class DAOOrdine extends DAO<Ordine>{
 		return   new Ordine(res.getInt("id"), new DAOCliente().select(res.getInt("id_cliente"))
 				,new DAORistorante().select(res.getInt("id_ristorante"))
 				,res.getTimestamp("data"),res.getDouble("importo")
-				,res.getTimestamp("data_ritiro"));		
+				,res.getTimestamp("data_ritiro"),res.getBoolean("evaso"));		
 	}
 		
 
 	@Override
 	public Ordine select(int pk) throws DAOException {
-		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
+		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro,evaso "
 				+ "FROM ordine "
 				+ "WHERE id = ? ";
 		try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -71,7 +71,7 @@ public class DAOOrdine extends DAO<Ordine>{
 	
 	public ArrayList<Ordine> selectByRistorante(Ristorante locale) throws DAOException {
 		ArrayList<Ordine> lista = new ArrayList<Ordine>();
-		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
+		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro,evaso "
 				+ "FROM ordine "
 				+ "WHERE id_ristorante = ? "
 				+ "ORDER BY data ";
@@ -97,9 +97,9 @@ public class DAOOrdine extends DAO<Ordine>{
 	public int insert(Ordine entity) throws DAOException {
 		boolean idValido = entity.getId() > 0;
 		
-		String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,importo,data_ritiro "
+		String sql="INSERT INTO ORDINE(id_cliente,id_ristorante,importo,data_ritiro,evaso "
 				+(idValido ? ",id" : "")
-				+ " ) VALUES (?,?,?,? "
+				+ " ) VALUES (?,?,?,?,? "
 				+(idValido ? ",?" : "")
 				+ ")";
 		try {
@@ -108,9 +108,10 @@ public class DAOOrdine extends DAO<Ordine>{
 			pst.setInt(2, entity.getRistorante().getId());
 			pst.setDouble(3, entity.getImportoTotale());
 			pst.setTimestamp(4, entity.getDataRitiro());
+			pst.setBoolean(5, entity.getEvaso());
 			
 			if(idValido)
-				pst.setInt(5, entity.getId());
+				pst.setInt(6, entity.getId());
 
 			return insertInto(pst);
 
@@ -141,6 +142,33 @@ public class DAOOrdine extends DAO<Ordine>{
 		return null;
 	}
 
+
+	public Ordine update(Ordine ordine) throws DAOException{
+		
+		Ordine tuplaOld = select(ordine.getId()); //recupera cliente prima di aggiornarlo!
+		
+		String sql="UPDATE ordine "
+				+ "SET id_cliente=?,id_ristorante=?,data=?,importo=?,data_ritiro=?,evaso=? "
+				+ "WHERE ID = ? ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			//sostituire i marcatori ?:			
+			pst.setInt(1, ordine.getCliente().getId());
+			pst.setInt(2, ordine.getRistorante().getId());
+			pst.setTimestamp(3, ordine.getDataOrdine());
+			pst.setDouble(4, ordine.getImportoTotale());
+			pst.setTimestamp(5, ordine.getDataRitiro());
+			pst.setBoolean(6, ordine.getEvaso());
+			pst.setInt(7, ordine.getId());
+			pst.executeUpdate(); //esegue la QUERY SQL così preparata!
+			
+			//perchè restiuiamo la tupla vecchia?
+			return tuplaOld;
+			
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE UPDATE x PK="+ordine.getId()+". Causa: "+e.getMessage());
+		}
+	}
+
 	
 	public static void main(String[] args) throws ParseException {
 
@@ -152,7 +180,7 @@ public class DAOOrdine extends DAO<Ordine>{
 		
 		Ordine o = new Ordine(15,c, r
 				, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime())
-				, 27.5, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime()) );
+				, 27.5, new Timestamp(DateFormat.getDateInstance(DateFormat.SHORT).parse("02/11/2015").getTime()),false);
 
 		try {
 			DAOOrdine dao = new DAOOrdine();

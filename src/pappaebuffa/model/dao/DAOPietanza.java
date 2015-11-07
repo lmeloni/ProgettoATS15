@@ -297,6 +297,12 @@ public class DAOPietanza extends DAO<Pietanza>{
 		}
 
 	}
+
+	@Override
+	public Pietanza update(Pietanza entity) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

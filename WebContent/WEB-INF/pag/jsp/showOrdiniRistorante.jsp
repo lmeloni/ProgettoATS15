@@ -11,7 +11,7 @@
 		<%@ include file="_top.jsp"%>
 		<%@ include file="menu.jsp"%>
 		<b>Ordini Ristorante</b><hr>
-		<h5>Hai ${ordiniRistorante.size()} ordini:</h5>
+		<h5>Hai ${ordiniRistorante.size()} ordini, di seguito quelli non ancora evasi:</h5>
 		<table class="table">
 			<thead>
 				<tr>
@@ -19,25 +19,34 @@
 					<th>Data ordine</th>
 					<th>Data ritiro</th>
 					<th align="right">Importo totale</th>
-					<th></th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>
 	
 			<tbody>
 				<c:forEach var="ordine" items="${ordiniRistorante}">
-					<tr>
-						<td>${ordine.cliente.nome}</td>
-						<td>${ordine.getDataOrdineS()}</td>
-						<td>${ordine.getDataRitiroS()}</td>
-						<td align="right">${ordine.importoTotale} Euro</td>
-						<td>
-							<form action="motore">
-								<input type="hidden" name="azione" value="PietanzeAssociate">
-								<input type="hidden" name="ordine" value="${ordine.id}">
-								<input type="submit" value="Vedi associazioni">
-							</form>
-						</td>
-					</tr>
+					<c:if test="${ordine.evaso==false}">
+						<tr>
+							<td>${ordine.cliente.nome}</td>
+							<td>${ordine.getDataOrdineS()}</td>
+							<td>${ordine.getDataRitiroS()}</td>
+							<td align="right">${ordine.importoTotale} Euro</td>
+							<td>
+								<form action="motore">
+									<input type="hidden" name="azione" value="PietanzeAssociate">
+									<input type="hidden" name="ordine" value="${ordine.id}">
+									<input class = "btn btn-default" type="submit" value="Vedi associazioni">
+								</form>
+							</td>
+							<td>
+								<form action="motore">
+									<input type="hidden" name="azione" value="EvadiOrdine">
+									<input type="hidden" name="ordine" value="${ordine.id}">
+									<input class = "btn btn-default" type="submit" value="Evadi ordine">
+								</form>
+							</td>
+						</tr>
+					</c:if>
 				</c:forEach>
 			</tbody>
 		</table>

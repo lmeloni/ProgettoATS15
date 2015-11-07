@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 import pappaebuffa.model.entity.Associazione;
-import pappaebuffa.model.entity.Preparazione;
 
 public class DAOAssociazione extends DAO<Associazione>{
 
@@ -162,6 +161,12 @@ public class DAOAssociazione extends DAO<Associazione>{
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Associazione update(Associazione entity) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

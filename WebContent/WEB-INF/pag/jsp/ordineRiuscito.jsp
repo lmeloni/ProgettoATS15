@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="menu.jsp" />
+<%@ include file="_top.jsp"%>
+<%@ include file="menu.jsp"%>
 Complimenti, il tuo ordine è stato registrato con successo!<br>Di seguito ti vengono mostrati i dettagli:<br><br>
 Importo totale: ${totaleOrdine} Euro<br><br>
 Pietanze:<br>
