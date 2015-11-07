@@ -13,7 +13,7 @@ OK	riepilogo ordine comprensivo di importo totale
 	Ristorante - aggiungere una pietanza 
                (la pietanza deve appartenere ad una categoria)
             
-	Ristorante - un ristorante può visualizzare il dettaglio di un singolo ordine selezionato
+OK	Ristorante - un ristorante può visualizzare il dettaglio di un singolo ordine selezionato
    
 	Cliente - visualizza i propri ordini e li può annullare 
 
