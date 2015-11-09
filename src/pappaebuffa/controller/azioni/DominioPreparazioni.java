@@ -77,7 +77,7 @@ public class DominioPreparazioni implements Azione {
 			
 			return "showPreparazione.jsp";
 			
-		} catch (DAOException e) {
+		} catch (DAOException | NumberFormatException e) {
 			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}
