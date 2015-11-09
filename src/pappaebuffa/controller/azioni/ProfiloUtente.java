@@ -14,7 +14,7 @@ public class ProfiloUtente implements Azione {
 	@Override
 	public String esegui(HttpServletRequest request, Form form) {
 		
-		//recupero l'utente dalla sessione:
+		//recupero l'utente dalla sessione(verifica login cliente):
 		Utente utente = (Utente) request.getSession().getAttribute("utente");
 
 		if(utente==null){
