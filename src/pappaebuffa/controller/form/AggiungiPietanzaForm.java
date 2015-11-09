@@ -39,7 +39,7 @@ public class AggiungiPietanzaForm extends Form {
 	public boolean validazione() {
 		
 		if (nome==null || nome.isEmpty())
-			super.errori.add(new Errore("nome", "obbligatorio"));
+			super.errori.add(new Errore("nome", "Nome obbligatorio."));
 		
 		return super.errori.size()==0 ? true:false;
 	}
