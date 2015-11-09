@@ -34,7 +34,10 @@
 										<td> ${pietanza.nome} </td>
 										<td><input type="text" name="prezzo" value="${preparazione.prezzo}">  </td>
 										<td><input type="text" name="note" value="${preparazione.note}"> </td>
-										<td> <input class="btn btn-default" type="submit" value="Modifica Pietanza"></td>
+										<td> 
+											<input class="btn btn-default" type="submit" value="Modifica Pietanza">
+											<a class="btn btn-default" href="motore?azione=DominioPreparazioni&scelta=cancella&idPietanza=${pietanza.id}">Cancella pietanza</a>
+										</td>
 								</tr>
 							</c:if>
 						</c:forEach>
