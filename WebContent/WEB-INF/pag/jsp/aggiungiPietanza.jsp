@@ -32,9 +32,15 @@
 		<td align="right">Descrizione</td>&nbsp;&nbsp;
 		<td><input type="text" size="150" name="descrizione" value="${AggiungiPietanzaForm.descrizione}" ></td>
 		<td></td>
+		<td style="color: red; font-size: small; ">
+		<c:forEach var="e" items="${AggiungiPietanzaForm.errori}">
+			<c:if test="${e.param=='nome'}"> <c:out value="${e.errmsg}"/> </c:if>
+		</c:forEach> 
+		</td>
 	</tr>
 	<br>
 	<input type="submit" value="Aggiungi">
+	
 </form>
 
 </body>
