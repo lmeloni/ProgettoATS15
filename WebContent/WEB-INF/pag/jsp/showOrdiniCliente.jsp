@@ -14,7 +14,9 @@
 <hr><br>
 <b>Hai ${ordiniCliente.size()} ordini:</b>
 <br>
+
 <table class="table">
+	
 	<thead>
 	<tr >
 		<th>Ristorante</th>
@@ -25,16 +27,26 @@
 	</thead>
 	
 	<tbody>
-	<c:forEach var="ordine" items="${ordiniCliente}">
-	<tr>
-		<td>${ordine.ristorante.nome}</td>
-		<td>${ordine.getDataOrdineS()}</td>
-		<td>${ordine.getDataRitiroS()}</td>
-		<td align="right">${ordine.importoTotale}</td>
-	</tr>
-	</c:forEach>
+		
+		
+			<c:forEach var="ordine" items="${ordiniCliente}">
+				<tr>
+					<td>${ordine.ristorante.nome}</td>		
+					<td>${ordine.getDataOrdineS()}</td>
+					<td>${ordine.getDataRitiroS()}</td>
+					<td align="right">${ordine.importoTotale}</td>
+					<form action="motore" method="post">
+						<td><input class="btn btn-default" type="submit" value="  Elimina Ordine  "></td>
+					
+						<input type="hidden" name="azione" value="RimuoviOrdine" />
+						<input type="hidden" name="ordine" value="${ordine.id}">
+					</form>
+				</tr>
+			</c:forEach>
+		
 	</tbody>
 </table>
+
 
 </body>
 </html>

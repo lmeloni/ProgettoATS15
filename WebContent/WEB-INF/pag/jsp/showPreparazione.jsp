@@ -14,7 +14,6 @@
 <form action="motore">
 	<input type="hidden" name="azione" value="DominioPreparazioni">
 	
-
 	<c:if test="${scelta == 'aggiungi'}">
 		<input type="hidden" name="scelta" value="aggiungi">
 		Aggiungi elenco pietanze al tuo ristorante
