@@ -60,7 +60,7 @@ public class DominioPreparazioni implements Azione {
 				request.getSession().setAttribute("listaPietanza", daoPietanza.selectByRistorante(ristorante.getId()));
 				request.getSession().setAttribute("listaPreparazione", daoPreparazione.selectByRistorante(ristorante.getId()));
 				request.setAttribute("scelta", "modifica");	
-				break;
+				return "modificaPreparazione.jsp";
 			case "cancella":
 				if(idPietanza>0){
 					daoPreparazione.delete(ristorante.getId(), idPietanza);
@@ -77,7 +77,7 @@ public class DominioPreparazioni implements Azione {
 			
 			return "showPreparazione.jsp";
 			
-		} catch (DAOException e) {
+		} catch (DAOException | NumberFormatException e) {
 			request.setAttribute("errore", e.getMessage());
 			return "errore.jsp";
 		}

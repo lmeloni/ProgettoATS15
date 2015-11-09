@@ -17,22 +17,22 @@
 	<c:if test="${scelta == 'aggiungi'}">
 		<input type="hidden" name="scelta" value="aggiungi">
 		Aggiungi elenco pietanze al tuo ristorante
-		<br>
+		<br><br>
 		<select class="form-control" name="idPietanza">
 			<c:forEach var="pietanza" items="${listaPietanza}">
 				<option value ="${pietanza.id}" >${pietanza.nome}</option>
 			</c:forEach>
-		</select>
+		</select><br>
+		Oppure: <a href = "motore?azione=DominioCategoriaP">Aggiungi una nuova pietanza.</a>
 		<br><br>
-		
 		<tr>
 			<td align="right">Prezzo</td>
 			<td><input type="text" name="prezzo" size="10" value=""></td>
 		</tr>
-		<tr>
-			<td align="right">Note</td>
+		<tr><br><br>
+			<td align="right">Note</td>&nbsp;&nbsp;&nbsp;
 			<td><input type="text" name="note" size="10" value=""></td>
-		</tr>
+		</tr><br><br>
 		
 		<input class="btn btn-default" type="submit" value="Aggiungi Pietanza"> &nbsp; ${feedback}
 	</c:if>
