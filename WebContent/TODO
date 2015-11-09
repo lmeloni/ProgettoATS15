@@ -14,10 +14,7 @@ OK?	Aggiustare le view (JSP) e collegarle fra loro
 OK?	Stile grafico (CSS)
 
 	Ristorante - aggiungere una pietanza (la pietanza deve appartenere ad una categoria)
-	Cliente - visualizza i propri ordini e li può annullare 
+	Cliente - visualizza i propri ordini e li può annullare (se sono "correnti" e non sono già stati evasi)
 	Verificare che l'utente sia loggato nelle varie azioni/JSP
-
-PER GIANLUCA:
-	Trasforma la modifica preparazioni in forma tabellare (per esempio prendi spunto da 
-	showOrdiniRistorante.jsp), anche se probabilmente dovrai creare un file jsp a parte
-	Se ti rimane tempo, fai qualcuna delle 3 cose immediatamente sopra
+	Trasformare la modifica preparazioni in forma tabellare (ad esempio prendere spunto da 
+		showOrdiniRistorante.jsp), anche se probabilmente bisogna creare un file jsp a parte
