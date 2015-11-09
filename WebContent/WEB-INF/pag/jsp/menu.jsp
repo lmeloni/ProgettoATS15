@@ -12,6 +12,7 @@
       	<c:choose>
 			<c:when test="${sessionScope.utente != null}">
 				<li><a href="motore?azione=ProfiloUtente">Profilo</a></li>
+				<li><a href="motore?azione=MostraOrdinePerCliente">I tuoi ordini</a></li>
 				<li><a href="motore?azione=Logout">Esci</a></li>
 			</c:when>
 			<c:otherwise>
