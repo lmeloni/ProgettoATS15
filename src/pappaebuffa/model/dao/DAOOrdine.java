@@ -159,6 +159,23 @@ public class DAOOrdine extends DAO<Ordine>{
 			throw new DAOException("ERRORE DELETE x PK="+pk+". Causa: "+e.getMessage());
 		}
 	}
+	public Ordine deleteSeNonEvaso(int pk) throws DAOException {
+		Ordine tuplaOld = select(pk); //recupera l'Ordine prima di cancellarlo!
+
+		String sql="DELETE FROM ORDINE WHERE id = ? AND evaso = 0";
+		 
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, pk); //sostituisco il marcatore
+			int r = pst.executeUpdate(); //esegue la QUERY SQL così preparata!
+			if(r > 0)
+				return tuplaOld;
+			else
+				throw new DAOException("ERRORE DELETE NON EVASO x PK="+pk+". Causa: impossibile cancellare perchè evaso");
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE DELETE NON EVASO x PK="+pk+". Causa: "+e.getMessage());
+		}
+	}
 
 	@Override
 	public String[] columnNames() {
