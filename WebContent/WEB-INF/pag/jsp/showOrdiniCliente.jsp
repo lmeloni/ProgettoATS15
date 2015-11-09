@@ -35,12 +35,13 @@
 					<td>${ordine.getDataOrdineS()}</td>
 					<td>${ordine.getDataRitiroS()}</td>
 					<td align="right">${ordine.importoTotale}</td>
-					<form action="motore" method="post">
-						<td><input class="btn btn-default" type="submit" value="  Elimina Ordine  "></td>
-					
+					<td><c:if test="${ordine.evaso==false}">
+											<form action="motore" method="post">
+						<input class="btn btn-default" type="submit" value="  Elimina Ordine  ">
+					</c:if>
 						<input type="hidden" name="azione" value="RimuoviOrdine" />
 						<input type="hidden" name="ordine" value="${ordine.id}">
-					</form>
+					</form></td>
 				</tr>
 			</c:forEach>
 		
