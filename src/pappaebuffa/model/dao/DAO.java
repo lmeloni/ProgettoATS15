@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
 
-import com.sun.xml.internal.stream.Entity;
-
 public abstract class DAO<T> {
 	
 	protected Connection con;
@@ -32,7 +30,7 @@ public abstract class DAO<T> {
 	
 	public DAO getIstanza(T entita) throws DAOException {
 		try {
-			Class c = Class.forName("DAO" + Entity.class.getSimpleName());
+			Class c = Class.forName("DAO" + entita.getClass().getSimpleName());
 			return (DAO) c.newInstance();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			throw new DAOException
