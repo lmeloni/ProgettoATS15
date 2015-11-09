@@ -95,7 +95,7 @@ public class DAOOrdine extends DAO<Ordine>{
 	
 	public ArrayList<Ordine> selectByCliente(Cliente cliente) throws DAOException {
 		ArrayList<Ordine> lista = new ArrayList<Ordine>();
-		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro "
+		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro,evaso "
 				+ "FROM ordine "
 				+ "WHERE id_cliente = ? "
 				+ "ORDER BY data ";
