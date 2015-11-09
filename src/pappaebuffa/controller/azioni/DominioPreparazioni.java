@@ -70,7 +70,7 @@ public class DominioPreparazioni implements Azione {
 				request.getSession().setAttribute("listaPietanza", daoPietanza.selectByRistorante(ristorante.getId()));
 				request.getSession().setAttribute("listaPreparazione", daoPreparazione.selectByRistorante(ristorante.getId()));
 				request.setAttribute("scelta", "cancella");	
-				break;
+				return "modificaPreparazione.jsp";
 			default:
 				break;
 			}

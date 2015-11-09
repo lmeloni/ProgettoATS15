@@ -32,9 +32,7 @@
 		<br><br>
 		<a href = "motore?azione=DominioPreparazioni&scelta=aggiungi">Aggiungi una pietanza nel menù del tuo locale</a>
 		<br><br>
-		<a href = "motore?azione=DominioPreparazioni&scelta=modifica">Modifica una delle tue preparazioni esistenti</a>
-		<br><br>
-		<a href = "motore?azione=DominioPreparazioni&scelta=cancella">Cancella una delle tue preparazioni esistenti</a>
+		<a href = "motore?azione=DominioPreparazioni&scelta=modifica">Modifica o Cancella una delle tue preparazioni esistenti</a>
 		<br><br>
 		<a href = "motore?azione=MostraOrdinePerRistorante">Visualizza gli ordini che ti riguardano</a>
 		<br><br>
