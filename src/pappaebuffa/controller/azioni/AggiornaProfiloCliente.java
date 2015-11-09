@@ -16,8 +16,14 @@ public class AggiornaProfiloCliente implements Azione {
 		
 		AggiornaProfiloClienteForm f = (AggiornaProfiloClienteForm) form;
 		
-		//recupero l'utente dalla sessione:
+
+		//recupero l'utente dalla sessione(verifica login cliente):
 		Utente utente = (Utente) request.getSession().getAttribute("utente");
+
+		if(utente==null){
+			request.setAttribute("errore", "ERRORE - DEVI ESSERE LOGGATO PER ACCEDERE A QUESTA PAGINA");
+			return "errore.jsp"; 
+		}
 		
 		//creo il Cliente con i NUOVI dati provenienti dal form:
 		Cliente cliente = new Cliente(f.getId(), f.getEmail(), f.getPassword(), 

@@ -16,6 +16,15 @@ public class AggiornaProfiloRistorante implements Azione {
 		
 		AggiornaProfiloRistoranteForm f = (AggiornaProfiloRistoranteForm) form;
 		
+
+		//recupero il ristorante dalla sessione(verifica login ristorante):
+		Ristorante rist = (Ristorante) request.getSession().getAttribute("ristorante");
+
+		if(rist==null){
+			request.setAttribute("errore", "ERRORE - DEVI ESSERE LOGGATO PER ACCEDERE A QUESTA PAGINA");
+			return "errore.jsp"; 
+		}
+		
 		//creo il Ristorante con i NUOVI dati provenienti dal form:
 		Ristorante ristorante = new Ristorante(f.getId(), f.getEmail(), f.getPassword(), 
 			f.getNome(), f.getCategoria(), f.getIndirizzo(), f.getCitta(), f.getTelefono(),

@@ -10,8 +10,9 @@
 <body>
 <%@ include file="_top.jsp" %>
 <%@ include file="menu.jsp" %>
-<b>Inizia a usare Pappa & Buffa, crea il tuo account ristorante...</b>&nbsp;&nbsp;
-Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
+<b>Inizia a usare Pappa & Buffa, crea il tuo account ristorante...</b>
+&nbsp;&nbsp;
+Hai già un account?&nbsp;&nbsp;<a href="motore?azione=Vai&risorsa=login.jsp">Accedi</a>
 <br><br>
 <form action="motore" method="post" >
 <input type="hidden" name="azione" value="RegistrazioneRistorante" >
@@ -141,7 +142,7 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 			
 	<tr>
 		<td align="right">(*) Password</td>
-		<td><input type="password" size="30" name="password" value="${RegistrazioneRistoranteForm.password}" ></td>
+		<td><input type="password" size="30" name="password" value="${RegistrazioneRistoranteForm.password}"></td>
 		<td><font size="2">La password deve contenere almeno 8 caratteri e almeno un numero</font>
 	</tr>
 	<tr>
@@ -168,14 +169,11 @@ Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</
 
 	<tfoot>
 	<tr>
-		<td></td>
-		<td>(*) campi obbligatori</td>
-	</tr>	
-	<tr>
-		<td></td>
+		<td align="right"><b>(*) NB: campi obbligatori</b></td>
 		<td>
-			<input class="btn btn-default" type="submit" value="  Registrati  " >&nbsp;&nbsp;
-			Hai già un account? <a href="motore?azione=Vai&risorsa=login.jsp">&nbsp;Accedi</a>
+			<input class="btn btn-default" type="submit" value="  Registrati  " >
+			&nbsp;&nbsp;&nbsp;
+			Hai già un account?&nbsp;&nbsp;<a href="motore?azione=Vai&risorsa=login.jsp">Accedi</a>
 		</td>
 	</tr>
 	</tfoot>

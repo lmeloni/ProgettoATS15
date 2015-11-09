@@ -6,11 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.stream.Entity;
-
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Ristorante;
 
 public abstract class DAO<T> {
 	
@@ -33,7 +30,7 @@ public abstract class DAO<T> {
 	
 	public DAO getIstanza(T entita) throws DAOException {
 		try {
-			Class c = Class.forName("DAO" + Entity.class.getSimpleName());
+			Class c = Class.forName("DAO" + entita.getClass().getSimpleName());
 			return (DAO) c.newInstance();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			throw new DAOException
@@ -59,6 +56,7 @@ public abstract class DAO<T> {
 	public abstract T select(int pk) throws DAOException;
 	public abstract int insert(T entity) throws DAOException;
 	public abstract T delete(int pk) throws DAOException;
+	public abstract T update(T entity) throws DAOException;
 
 	
 	public abstract String[] columnNames();

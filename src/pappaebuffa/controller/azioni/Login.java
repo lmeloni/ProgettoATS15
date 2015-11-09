@@ -20,7 +20,7 @@ public class Login implements Azione {
 			case "cliente":
 				DAOCliente daoCliente = new DAOCliente();
 				request.getSession().setAttribute("utente", daoCliente.login(f.getEmail(), f.getPassword()));
-				return "motore?azione=RecuperaCategorieRistoranti";
+				return "motore?azione=DominioCategoria";
 			
 			case "ristorante":
 		    	DAORistorante daoRistorante = new DAORistorante();

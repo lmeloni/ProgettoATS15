@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import pappaebuffa.model.dao.eccezioni.DAOConnessioneException;
 import pappaebuffa.model.dao.eccezioni.DAOException;
-import pappaebuffa.model.entity.Cliente;
 import pappaebuffa.model.entity.Preparazione;
 
 public class DAOPreparazione extends DAO<Preparazione> {
@@ -140,7 +139,7 @@ public class DAOPreparazione extends DAO<Preparazione> {
 
 	}
 	
-	public void update(Preparazione preparazione) throws DAOException{
+	public Preparazione update(Preparazione preparazione) throws DAOException{
 		
 		//verifichiamo che la tupla preparazione esista
 		Preparazione tuplaOld =null;
@@ -164,6 +163,8 @@ public class DAOPreparazione extends DAO<Preparazione> {
 		} catch (SQLException e) {
 			throw new DAOException("ERRORE DELETE x PK=("+preparazione.getRistorante().getId()+","+preparazione.getPietanza().getId()+"). Causa: "+e.getMessage());
 		}
+		
+		return tuplaOld;
 	}
 
 
