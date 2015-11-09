@@ -92,6 +92,30 @@ public class DAOOrdine extends DAO<Ordine>{
 		}
 		
 	}
+	
+	public ArrayList<Ordine> selectByCliente(Cliente cliente) throws DAOException {
+		ArrayList<Ordine> lista = new ArrayList<Ordine>();
+		String sql="SELECT id,id_cliente,id_ristorante,data,importo,data_ritiro,evaso "
+				+ "FROM ordine "
+				+ "WHERE id_cliente = ? "
+				+ "ORDER BY data ";
+		try(PreparedStatement pst = con.prepareStatement(sql)) {
+			pst.setInt(1, cliente.getId()); //sostituisco il marcatore
+			res = pst.executeQuery(); //esegue la QUERY SQL così preparata!
+
+			while(res.next()) 
+				lista.add(componiEntity());
+			
+			if (lista.isEmpty())
+				throw new DAOException("WARNING SELECT x PK="+cliente.getId()+" DATI NON TROVATI");
+			else
+				return lista;
+
+		} catch (SQLException e) {
+			throw new DAOException("ERRORE SELECT x PK="+cliente.getId()+". Causa: "+e.getMessage());
+		}
+		
+	}
 
 	@Override
 	public int insert(Ordine entity) throws DAOException {
@@ -173,6 +197,7 @@ public class DAOOrdine extends DAO<Ordine>{
 	public static void main(String[] args) throws ParseException {
 
 		Cliente c = new Cliente(7, "ciarlotta87@gmail.com", "012d", "Lucia", "Contini", "Via Firenze,4", "Maracalagonis(CA)", "070789991");
+		Cliente c1 = new Cliente(1, "annacau@hotmail.it", "peb", "Anna", "Cau", "via palestrina 55", "Cagliari", "3348659357");
 		
 		Ristorante r = new Ristorante(33, "basilio56@tiscali.it", "peb", "Da Basilio"
 				, "ristorante", "Via Timavo,97"
@@ -194,7 +219,9 @@ public class DAOOrdine extends DAO<Ordine>{
 
 			System.out.println("\nDelete - delete(pk): "+dao.delete(id));
 			
-			System.out.println("\nRead-selectarray"+ dao.selectByRistorante(r));
+		//	System.out.println("\nRead-selectarray"+ dao.selectByRistorante(r));
+			
+			System.out.println("\nRead - selectByCliente()....: "+dao.selectByCliente(c1));
 
 		} catch (DAOException e) {
 			System.out.println( e );

@@ -11,12 +11,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       	<c:choose>
-			<c:when test="${sessionScope.utente == null}">
-				<li><a href="motore?azione=Vai&risorsa=login.jsp">Accedi | Registrati</a></li>			
+			<c:when test="${sessionScope.utente != null}">
+				<li><a href="motore?azione=ProfiloUtente">Profilo <b>${utente.nome}</b></a></li>
+				<li><a href="motore?azione=MostraOrdinePerCliente">I tuoi ordini</a></li>
+				<li><a href="motore?azione=Logout">Esci</a></li>
 			</c:when>
 			<c:otherwise>
-				<li><a href="motore?azione=ProfiloUtente">Profilo <b>${utente.nome}</b></a></li>
-				<li><a href="motore?azione=Logout">Esci</a></li>
+				<li><a href="motore?azione=Vai&risorsa=login.jsp">Accedi | Registrati</a></li>			
 			</c:otherwise>
 		</c:choose>
 		<li><a href='javascript:history.back();'>Indietro</a></li>
