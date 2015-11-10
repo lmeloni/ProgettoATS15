@@ -16,7 +16,7 @@ public class RimuoviOrdine implements Azione {
 			DAOOrdine dao = new DAOOrdine();
 			request.setAttribute("annullaOrdini", dao.deleteSeNonEvaso(idOrdine));
 
-			return "showOrdiniCliente.jsp";
+			return "motore?azione=MostraOrdinePerCliente";
 
 		} catch (Exception e) {
 			request.setAttribute("errore", e.getMessage());
