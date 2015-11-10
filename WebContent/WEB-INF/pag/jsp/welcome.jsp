@@ -14,13 +14,15 @@
 	<jsp:forward page="homeUtente.jsp"/>
 </c:if>
 <br>
-<h4>Siamo un servizio che offre l'opportunità ai ristoranti di  poter soddisfare con le loro specialità culinarie 
-il palato anche di quella parte di clienti che preferiscono consumare altrove il proprio pasto,il cosidetto britannico "take away".
-Il nostro servizio è quindi pensato per quei clienti che 
-non vogliono privarsi di gustare i loro piatti preferiti anche in ufficio,in casa,all'aria aperta o
-semplicemente in auto davanti a un bel tramonto. 
-Come ben si sa,il cibo da asporto è sovente più economico rispetto alle stesse preparazioni servite al tavolo quindi 
-vantaggio in più per il cliente..</h4>
+<h4>Siamo "Pappa & buffa!" e offriamo un servizio che permette ai ristoranti di poter soddisfare con le loro
+specialità culinarie, anche i palati di coloro che preferiscono non essere vincolati a rimanere seduti al
+tavolo di un ristorante, ma sfruttare la filosofia "take away".
+<br>
+Puoi gustarti i tuoi piatti preferiti in ufficio, a casa, all'aria aperta e persino in auto davanti a un bel 
+tramonto.
+<br>
+Eh allora ordina, pappa e buffa!
+</h4>
 <br>
 </body>
 </html>
