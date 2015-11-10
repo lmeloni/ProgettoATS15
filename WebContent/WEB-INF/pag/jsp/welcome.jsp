@@ -14,8 +14,8 @@
 	<jsp:forward page="homeUtente.jsp"/>
 </c:if>
 <br>
-<h4>Siamo "Pappa & buffa!" e offriamo un servizio che permette ai ristoranti di poter soddisfare con le loro
-specialit� culinarie, anche i palati di coloro che preferiscono non essere vincolati a rimanere seduti al
+<h4>Siamo "Pappa e buffa!" e offriamo un servizio che permette ai ristoranti di poter soddisfare con le loro
+specialità culinarie, anche i palati di coloro che preferiscono non essere vincolati a rimanere seduti al
 tavolo di un ristorante, ma sfruttare la filosofia "take away".
 <br>
 <br>
@@ -35,9 +35,51 @@ Seusu "Pappa e buffa" e permitteusu ai ristorantisi de soddisfai cun is proprias
  ristoranti,ma sfruttai sa filosofia "piga e pappa".
 <br>
 <br>
-Porisi pappai in su traballu, a dommu, in sa ia, in sa macchina e finzasa in sa lettorina.
+Porisi pappai in su traballu, a dommu, in sa ia, in sa macchina e finzasa in sa littorina.
 <br>
 <br>
-E inzandusu piga,pappa, buffa e cittidia!
+E inzandusu "piga, pappa, buffa e cittidia!"
+<br>
+<br>
+<hr>
+<br>
+<br>
+We are "Pappa e buffa!" and we offer a service that allows restaurants to satisfy with their
+culinary specialties, also the tastes of those who prefer not to remain seated at
+table in a restaurant, but use the take away's philosophy.
+<br>
+<br>
+You can taste your favorite dishes in the office, at home, outdoors and also in your car in front of a beautiful
+sunset.
+<br>
+<br>
+So then let's orders, "eat and drink!"
+<br>
+<br>
+<hr>
+<br>
+<br>
+Simme "Pappà & buffà!" e offriàm nu' servizio ca' permètt a' ristorànt e' potèr soddisfàr cu e' loro
+specialìtà culinariè, pure e' palatì e' colorò ca' preferiscòn nun esserè vincolàt a rimanèr seduti o'
+tavòl e' nu' ristorant, ma sfruttàr a' filosofià "piglia e magna".
+<br>
+<br>
+Puoì gustàrt e' tuoi piatti preferìt in ufficiò, a casà, all'arià apertà e persìn in autò nnanze a nu' bel 
+tramonto.
+<br>
+<br>
+Jamme ordina, "magna e bev" guagliò! 
+<br>
+<br>
+<hr>
+<br>
+<br>
+私たち「パパと面白いです！"私たちはレストランが自分に満足することを可能にするサービスを提供しています
+特選料理、に座ったままに拘束されることを好まない人たちでさえ味覚
+レストランのテーブルが、 "持ち帰り"哲学の利点を取ります。
+あなたは美しいの前にあなたの車の中で屋外であっても、自宅で、オフィスであなたの好きな料理をすることができます
+夕日。
+え、その後の受注、ゼリーと面白いです！
+偶数
 </body>
 </html>
