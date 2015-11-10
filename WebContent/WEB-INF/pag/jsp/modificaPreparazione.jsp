@@ -30,7 +30,7 @@
 						<c:forEach var="preparazione" items="${listaPreparazione}">
 							<c:if test="${pietanza.id == preparazione.pietanza.id}">
 								<tr>
-										<td><input type="hidden" name="idPietanza" value="${pietanza.id}"></td>
+										<input type="hidden" name="idPietanza" value="${pietanza.id}">
 										<td> ${pietanza.nome} </td>
 										<td><input type="text" name="prezzo" value="${preparazione.prezzo}">  </td>
 										<td><input type="text" name="note" value="${preparazione.note}"> </td>
