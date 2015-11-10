@@ -62,6 +62,10 @@ public class FrontServlet extends HttpServlet {
 			pathView += "WEB-INF/pag/js/"; 
 		if(risorsa.endsWith(".css")) //se pagina CSS
 			pathView += "WEB-INF/pag/css/";
+		if(risorsa.endsWith(".jpg")) //se pagina CSS
+			pathView += "img/";
+		if(risorsa.endsWith(".gif")) //se pagina CSS
+			pathView += "img/";
 		
 		getServletContext().getRequestDispatcher(pathView+risorsa).forward(request,response);
 	
